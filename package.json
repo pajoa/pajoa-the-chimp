@@ -1,0 +1,34 @@
+{
+  "name": "pajoa-the-chimp",
+  "version": "1.0.0",
+  "description": "pajoa likes to code",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pajoa/pajoa-the-chimp.git"
+  },
+  "author": "pajoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pajoa/pajoa-the-chimp/issues"
+  },
+  "homepage": "https://github.com/pajoa/pajoa-the-chimp",
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "gulp": "^3.8.11",
+    "gulp-jest": "^0.4.0",
+    "harmonize": "^1.4.1",
+    "jest": "^0.1.39",
+    "reactify": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.1.0"
+  },
+  "dependencies": {
+    "flux": "^2.0.1",
+    "hapi": "^8.4.0",
+    "react": "^0.13.1"
+  }
+}
