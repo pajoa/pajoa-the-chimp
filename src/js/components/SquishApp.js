@@ -1,13 +1,14 @@
 var React = require("react");
 
-var TopLevel = React.createClass({
+var SquishApp = React.createClass({
+	
 	render: function() {
 		return(
-			<div className="TopLevelContainer">
+			<div >
 				<h1>I hate React</h1>
 			</div>
 		);
 	}
 });
 
-module.exports = TopLevel;
+module.exports = SquishApp;
