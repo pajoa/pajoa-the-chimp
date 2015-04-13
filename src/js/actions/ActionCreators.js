@@ -8,7 +8,7 @@ module.exports = {
         AppDispatcher.dispatch({
             type: ActionTypes.NAVIGATE_TO,
             route: route
-        })
+        });
     }
     
 };
