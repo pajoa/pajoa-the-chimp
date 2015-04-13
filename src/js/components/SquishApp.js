@@ -1,5 +1,6 @@
 var React = require("react");
 var Notes = require("./sections/Notes");
+var Navbar = require('./sections/Navbar.js');
 
 var SquishApp = React.createClass({
 	
@@ -12,7 +13,11 @@ var SquishApp = React.createClass({
 	render: function() {
         if (this.state.router === "notes") {
             return(
-                <Notes />
+                <div >
+				    <Navbar />
+				    <Notes />
+				
+			     </div>
             );
         }
     }
