@@ -16,7 +16,6 @@ var SquishApp = React.createClass({
                 <div >
 				    <Navbar />
 				    <Notes />
-				
 			     </div>
             );
         }
