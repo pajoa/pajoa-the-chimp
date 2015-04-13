@@ -1,8 +1,11 @@
 var React = require("react");
+var ActionCreators = require("../../actions/ActionCreators");
 var Notes = React.createClass({
     
     handleClick: function() {
-        console.log("clicked");
+        
+        var view = "singleNote";
+        ActionCreators.navigateTo(view);
     },
     
     render: function() {
