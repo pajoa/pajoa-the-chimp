@@ -3,10 +3,10 @@
 ##How to run
 ```
 git clone https://github.com/pajoa/pajoa-the-chimp.git
-npm install -g gulp jest (If you have not installed them globally already)
 
-npm install
-gulp
-node app
+npm install (node modules and dependencies)
+gulp (build file)
+node app (run server)
 http://localhost:8000/
 ```
+You may require to install gulp, browserify and jest globally
