@@ -8,13 +8,44 @@ var CHANGE_EVENT = "change";
 
 //these represent their non-underscore counterpart, when they are in a 'changed' state
 var _route = "Notes";
+var _saveNoteObj = {};
+var _activeNoteId = null;
 
+var data = [{
+    
+    title: "my 1st note",
+    text: "i love making notes",
+    username: "neats",
+		id: "123"
+},{ 
+    title: "my 2nd note",
+    text: "i love making gssgnotes",
+    username: "neats",
+		id: "1234"
+                
+}, {
+    title: "my 3rd note",
+    text: "i love making ndfs/sotes",
+    username: "neats",
+		id: "12345"
+}, 
+{
+    title: "my 4th note",
+    text: "i love making ndfs/sotes",
+    username: "neats",
+		id: "123456"
+} 
+];
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
         console.log('getrouteTriggered: _route is:', _route);
         return _route;
+    },
+    
+    getData: function() {
+        return data;
     },
     
     emitChange: function() {
@@ -29,7 +60,15 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
     removeChangeListener: function(callback){
         this.removeListener(CHANGE_EVENT, callback);
-    }
+    },
+    
+    saveSingleNote: function() {
+        return _saveNoteObj;
+    },
+		
+		getActiveNoteId: function() {
+				return _activeNoteId;
+		}
 
 });
 
@@ -43,7 +82,13 @@ AppDispatcher.register(function(action){
             console.log('_route is: ', _route);
             AppStore.emitChange();
             break;
-
+        
+        case ActionTypes.NAVIGATE_TO_A_NOTE:
+						_activeNoteId = action.id;
+						_route = action.route;
+						AppStore.emitChange();
+						break;
+            
         default:
             console.log('default');
     }

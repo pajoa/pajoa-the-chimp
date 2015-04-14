@@ -7,10 +7,14 @@ var AppStore = require('../stores/AppStore');
 function getStateFromStore() {
     
     var route = AppStore.getRoute(); 
+    var data = AppStore.getData();
+		var activeNoteId = AppStore.getActiveNoteId();
     
     return {
-        route: route
-    }
+        route: route,
+        data: data,
+				activeNoteId: activeNoteId
+    };
 }
 
 var SquishApp = React.createClass({
@@ -32,14 +36,14 @@ var SquishApp = React.createClass({
         this.setState(getStateFromStore());
     },
     
-	render: function() {
+		render: function() {
         console.log('SquishApp component');
 
         if (this.state.route === "Notes") {
             return(
-                <div >
-				    <Navbar />
-				    <Notes />
+                <div className="container">
+				    		<Navbar />
+				    <Notes data={this.state.data}/>
 			     </div>
             );
         }
@@ -48,7 +52,7 @@ var SquishApp = React.createClass({
             return (
                 <div >
                     <Navbar />
-                    <SingleNote />
+                    <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
                  </div>
                 )
         } else if (this.state.route ==="Calendar"){
