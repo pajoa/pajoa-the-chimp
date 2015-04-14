@@ -13,7 +13,7 @@ function getStateFromStore() {
     return {
         route: route,
         data: data,
-		activeNoteId: activeNoteId
+        activeNoteId: activeNoteId
     };
 }
 
