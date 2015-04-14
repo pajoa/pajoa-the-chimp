@@ -17,7 +17,7 @@ var Notes = React.createClass({
         var notes = this.props.data.map(function(note){
             return (
                 <div key={note.title} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
-                    <h3><a name={note.id} onClick={self.handleClicker}>{note.title}</a></h3>
+                    <h3><a name={note.id} href="#" onClick={self.handleClicker}>{note.title}</a></h3>
                     <p>{note.text}</p>
                 </div>
             );
