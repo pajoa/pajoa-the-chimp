@@ -112,7 +112,7 @@ function getEvents(auth) {
       return;
     }
     var events = response.items;
-    if (events.length === 0) {
+    if (events.length == 0) {
       console.log('No upcoming events found.');
     } else {
       console.log('Upcoming 10 events:');

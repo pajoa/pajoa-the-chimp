@@ -51,14 +51,14 @@ var SquishApp = React.createClass({
         
         else if (this.state.route ==="SingleNote"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
                  </div>
                 );
         } else if (this.state.route ==="Calendar"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Calendar</h1>
                     <Calendar />
@@ -66,21 +66,21 @@ var SquishApp = React.createClass({
                 );
         } else if (this.state.route ==="Notifications"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Notifications</h1>
                  </div>
                 );
         } else if (this.state.route ==="Logout"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Logout</h1>
                  </div>
                 );
         } else if (this.state.route ==="Points"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Points</h1>
                  </div>
