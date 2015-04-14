@@ -3,7 +3,6 @@ var Notes = require("./sections/Notes");
 var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
-var Calendar = require('./sections/Calendar');
 
 function getStateFromStore() {
     
@@ -61,7 +60,6 @@ var SquishApp = React.createClass({
                 <div className="container">
                     <Navbar />
                     <h1>Calendar</h1>
-                    <Calendar />
                  </div>
                 );
         } else if (this.state.route ==="Notifications"){
