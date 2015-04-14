@@ -8,8 +8,9 @@ var CHANGE_EVENT = "change";
 
 //these represent their non-underscore counterpart, when they are in a 'changed' state
 var _route = "Notes";
-var _saveNoteObj = {};
+var _editNote = null;
 var _activeNoteId = null;
+var _data = [];
 
 var data = [{
     
@@ -62,8 +63,16 @@ var AppStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);
     },
     
-    saveSingleNote: function() {
-        return _saveNoteObj;
+    editNote: function(note) {
+        var i;
+        var dataLength = _data.length;
+        
+        for (i=0; i < dataLength; i++) {
+            if (_data[i].id === _activeNoteId) {
+                _data[i].text = data[i].text;
+                this.trigger(_data);
+            }
+        }
     },
 		
     getActiveNoteId: function() {
@@ -86,6 +95,11 @@ AppDispatcher.register(function(action){
         case ActionTypes.NAVIGATE_TO_A_NOTE:
             _activeNoteId = action.id;
             _route = action.route;
+            AppStore.emitChange();
+            break;
+        
+        case ActionTypes.EDIT_NOTE:
+            _data = action.value;
             AppStore.emitChange();
             break;
             
