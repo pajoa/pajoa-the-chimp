@@ -4,10 +4,11 @@ var assign          = require('object-assign');
 var Constants       = require('../constants/Constants');
 var ActionTypes     = Constants.ActionTypes;
 
-//not directly updating these (?) why underscore?
+var CHANGE_EVENT = "change";
+
+//these represent their non-underscore counterpart, when they are in a 'changed' state
 var _route = "Notes";
 
-var CHANGE_EVENT = "change";
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
@@ -48,4 +49,6 @@ AppDispatcher.register(function(action){
     }
 });
 
+
 module.exports = AppStore;
+
