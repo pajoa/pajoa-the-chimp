@@ -1,21 +1,37 @@
-var AppDispatcher = require("../actions/ActionCreators");
-var assign = require("object-assign");
-var CHANGE_EVENT = "change";
+var AppDispatcher   = require('../dispatcher/AppDispatcher');
+var EventEmitter    = require('events').EventEmitter;
+var assign          = require('object-assign');
+var Constants       = require('../constants/Constants');
+var ActionTypes     = Constants.ActionTypes;
 
 //not directly updating these (?) why underscore?
-var _route = null;
+var _route = "Notes";
+
+var CHANGE_EVENT = "change";
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
+        console.log('getrouteTriggered: _route is:', _route);
         return _route;
     },
     
     emitChange: function() {
         console.log("emitting change");
         this.emit(CHANGE_EVENT);
+    },
+
+    addChangeListener: function(callback){
+        console.log('addChangeListener triggered');
+        this.on(CHANGE_EVENT, callback)
+    },
+
+    removeChangeListener: function(callback){
+        this.removeListener(CHANGE_EVENT, callback);
     }
+
 });
+
 
 AppDispatcher.register(function(action){
     
@@ -23,7 +39,13 @@ AppDispatcher.register(function(action){
             
         case ActionTypes.NAVIGATE_TO:
             _route = action.route;
+            console.log('_route is: ', _route);
             AppStore.emitChange();
             break;
+
+        default:
+            console.log('default');
     }
-})
+});
+
+module.exports = AppStore;

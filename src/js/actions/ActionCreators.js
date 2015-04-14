@@ -1,6 +1,6 @@
-var Constants = require('../constants/Constants.js');
+var Constants = require('../constants/Constants');
 var ActionTypes = Constants.ActionTypes;
-
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 module.exports = {
     
     navigateTo: function(info) {
