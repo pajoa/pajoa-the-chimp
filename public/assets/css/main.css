@@ -20,3 +20,45 @@
 	text-decoration: underline;
 	color: #fff;
 }
+
+/*-------singleNote-----*/
+.noteBox {
+    border: solid 1.5px lightgrey;
+    border-radius: 4px;
+    max-width: 600px;
+    max-height: 400px;
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.saveButton {
+    display: block;
+    border: none;
+    background-color: #5ec95e;
+    color: white;
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    float: right;
+}
+
+.noteTextarea {
+    display: inline-block;
+    border: 1px solid #dadce1;
+    border-radius: 2px;
+    padding: 8px;
+    max-width: 550px;
+    margin: 8px;
+}
+
+.glyphicon-pencil {
+    margin: 5px;
+    border: none;
+    background-color: lightgrey;
+/*    color: white;*/
+    width: 35px;
+    height: 25px;
+    border-radius: 25px;
+    display: inline-block;
+}
