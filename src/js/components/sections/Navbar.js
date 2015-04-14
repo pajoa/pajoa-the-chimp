@@ -19,6 +19,7 @@ var Navbar = React.createClass({
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
+<<<<<<< HEAD
               <a className="navbar-brand" name="Notes" height="20px" width="20px" src="./img/squish.png" onClick={this.handleClick}>Squish</a>
             </div>
             <div>
@@ -29,6 +30,17 @@ var Navbar = React.createClass({
                 <li><a name="Points" onClick={this.handleClick}>Points</a></li>
                 <li><a name="Notifications" onClick={this.handleClick}>Notifications</a></li>
                 <li><a name="Logout" onClick={this.handleClick}>Logout</a></li>
+=======
+              <a href="" className="navbar-brand" name="Notes" onClick={this.handleClick}>Squish</a>
+            </div>
+            <div>
+              <ul className="nav navbar-nav">
+                <li><a href="" name="Calendar" onClick={this.handleClick}>Calendar</a></li>
+                <li><a href="" name="Points" onClick={this.handleClick}>Points</a></li>
+                <li><a href="" name="Notifications" onClick={this.handleClick}>Notifications</a></li>
+                <li><a href="" name="Logout" onClick={this.handleClick}>Logout</a></li>
+
+>>>>>>> master
               </ul>
             </div>
           </div>
