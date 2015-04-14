@@ -20,15 +20,9 @@ module.exports = {
     },
     
     editNote: function(content) {
-//        var editNoteObj = {
-//            username: content.username,
-//            title: content.title,
-//            text: content.text,
-//            date: new Date()
-//        };
         AppDispatcher.dispatch({
             type: ActionTypes.EDIT_NOTE,
-            route: editNoteObj
+            value: content.value
         });
     }
     

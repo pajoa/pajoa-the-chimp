@@ -10,7 +10,6 @@ var CHANGE_EVENT = "change";
 var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
-var _data = [];
 
 var data = [{
     
@@ -65,12 +64,11 @@ var AppStore = assign({}, EventEmitter.prototype, {
     
     editNote: function(note) {
         var i;
-        var dataLength = _data.length;
+        var dataLength = data.length;
         
         for (i=0; i < dataLength; i++) {
-            if (_data[i].id === _activeNoteId) {
-                _data[i].text = data[i].text;
-                this.trigger(_data);
+            if (data[i].id === _activeNoteId) {
+                data[i].text = data[i].text;
             }
         }
     },

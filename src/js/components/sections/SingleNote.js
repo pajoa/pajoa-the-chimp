@@ -3,13 +3,19 @@ var ActionCreators = require("../../actions/ActionCreators");
 
 var SingleNote = React.createClass({
 
-    handleClick: function(e) {
-        var info = {
-            value: e.target.value
-                   
+    handleClick: function(event) {
+        var text = React.findDOMNode(this.refs.text).value;
+        console.log(text);
+        var edit = {
+            text: text
         };
-        
+        ActionCreators.navigateToANote(edit);
     },
+    
+//    handleSave: function(text, id) {
+//        if (id) {
+//        }
+//    },
     
     render: function() {
         var i;
@@ -22,13 +28,12 @@ var SingleNote = React.createClass({
                 var activeNote = data[i];
             }
         }
-        var self = this;
         return(
             <div className="container">
                 <h1>{activeNote.title}</h1>
-				<textarea defaultValue={activeNote.text}></textarea>
+				<textarea ref="text" defaultValue={activeNote.text}></textarea>
                 <button>edit</button>
-                <input type="submit" value="save" onClick={self.handleClick} />
+                <input type="submit" value="save" onClick={this.handleClick} />
             </div>
         );
     }
