@@ -3,6 +3,7 @@ var Notes = require("./sections/Notes");
 var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
+var Calendar = require('./sections/Calendar');
 
 function getStateFromStore() {
     
@@ -10,7 +11,7 @@ function getStateFromStore() {
     
     return {
         route: route
-    }
+    };
 }
 
 var SquishApp = React.createClass({
@@ -50,35 +51,36 @@ var SquishApp = React.createClass({
                     <Navbar />
                     <SingleNote />
                  </div>
-                )
+                );
         } else if (this.state.route ==="Calendar"){
             return (
                 <div >
                     <Navbar />
                     <h1>Calendar</h1>
+                    <Calendar />
                  </div>
-                )
+                );
         } else if (this.state.route ==="Notifications"){
             return (
                 <div >
                     <Navbar />
                     <h1>Notifications</h1>
                  </div>
-                )
+                );
         } else if (this.state.route ==="Logout"){
             return (
                 <div >
                     <Navbar />
                     <h1>Logout</h1>
                  </div>
-                )
+                );
         } else if (this.state.route ==="Points"){
             return (
                 <div >
                     <Navbar />
                     <h1>Points</h1>
                  </div>
-         )
+         );
         }
 
 
