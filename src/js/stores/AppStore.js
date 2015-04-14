@@ -61,20 +61,19 @@ var AppStore = assign({}, EventEmitter.prototype, {
     removeChangeListener: function(callback){
         this.removeListener(CHANGE_EVENT, callback);
     },
+		
+    getActiveNoteId: function() {
+        return _activeNoteId;
+    },
     
-    editNote: function(note) {
+    editNote: function() {
         var i;
         var dataLength = data.length;
-        
         for (i=0; i < dataLength; i++) {
             if (data[i].id === _activeNoteId) {
                 data[i].text = data[i].text;
             }
         }
-    },
-		
-    getActiveNoteId: function() {
-        return _activeNoteId;
     }
 
 });
@@ -97,7 +96,7 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.EDIT_NOTE:
-            _data = action.value;
+            data = action.value;
             AppStore.emitChange();
             break;
             
