@@ -3,6 +3,7 @@ var Notes = require("./sections/Notes");
 var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
+var Calendar = require('./sections/Calendar');
 
 function getStateFromStore() {
     
@@ -42,7 +43,7 @@ var SquishApp = React.createClass({
         if (this.state.route === "Notes") {
             return(
                 <div className="container">
-				    		<Navbar />
+				    <Navbar />
 				    <Notes data={this.state.data}/>
 			     </div>
             );
@@ -50,39 +51,40 @@ var SquishApp = React.createClass({
         
         else if (this.state.route ==="SingleNote"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
                  </div>
-                )
+                );
+            
         } else if (this.state.route ==="Calendar"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
-                    <h1>Calendar</h1>
-                 </div>
-                )
+                    <Calendar />
+                </div>
+                );
         } else if (this.state.route ==="Notifications"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Notifications</h1>
                  </div>
-                )
+                );
         } else if (this.state.route ==="Logout"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Logout</h1>
                  </div>
-                )
+                );
         } else if (this.state.route ==="Points"){
             return (
-                <div >
+                <div className="container">
                     <Navbar />
                     <h1>Points</h1>
                  </div>
-         )
+         );
         }
 
 

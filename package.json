@@ -29,8 +29,11 @@
   "dependencies": {
     "events": "^1.0.2",
     "flux": "^2.0.1",
+    "google-auth-library": "^0.9.4",
+    "googleapis": "^2.0.2",
     "hapi": "^8.4.0",
     "object-assign": "^2.0.0",
-    "react": "^0.13.1"
+    "react": "^0.13.1",
+    "react-addons": "^0.9.1-deprecated"
   }
 }
