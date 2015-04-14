@@ -66,9 +66,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
         return _saveNoteObj;
     },
 		
-		getActiveNoteId: function() {
-				return _activeNoteId;
-		}
+    getActiveNoteId: function() {
+        return _activeNoteId;
+    }
 
 });
 
@@ -84,10 +84,10 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.NAVIGATE_TO_A_NOTE:
-						_activeNoteId = action.id;
-						_route = action.route;
-						AppStore.emitChange();
-						break;
+            _activeNoteId = action.id;
+            _route = action.route;
+            AppStore.emitChange();
+            break;
             
         default:
             console.log('default');
