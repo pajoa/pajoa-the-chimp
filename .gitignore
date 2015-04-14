@@ -31,3 +31,6 @@ node_modules
 
 #Build file
 public/assets/js
+
+#Client Secret
+client_secret.json
