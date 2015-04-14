@@ -11,20 +11,20 @@ module.exports = {
         });
     }, 
 		
-		navigateToANote: function(info) {
-				AppDispatcher.dispatch({
-						type: ActionTypes.NAVIGATE_TO_A_NOTE,
-						route: info.route,
-						id: info.id
-				});
-		},
+    navigateToANote: function(info) {
+        AppDispatcher.dispatch({
+            type: ActionTypes.NAVIGATE_TO_A_NOTE,
+            route: info.route,
+            id: info.id
+        });
+    },
     
     saveNote: function(content) {
         var saveNoteObj = {
             username: content.username,
             title: content.title,
             text: content.text,
-            date: new Date()  
+            date: new Date()
         };
         AppDispatcher.dispatch({
             type: ActionTypes.SAVE_NOTE,

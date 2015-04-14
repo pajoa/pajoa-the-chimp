@@ -11,7 +11,7 @@ var SingleNote = React.createClass({
 			
 			for (i=0; i < dataLength; i++) {
 				if (data[i].id === activeNoteId) {
-						var activeNote = data[i];
+				    var activeNote = data[i];
 				}
 			}
         return(
