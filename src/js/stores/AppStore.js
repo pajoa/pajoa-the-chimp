@@ -2,7 +2,7 @@ var AppDispatcher = require("../actions/ActionCreators");
 var assign = require("object-assign");
 var CHANGE_EVENT = "change";
 
-//not directly updating these (?) why underscore?
+//these represent their non-underscore counterpart, when they are in a 'changed' state
 var _route = null;
 
 var AppStore = assign({}, EventEmitter.prototype, {
@@ -15,6 +15,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
         console.log("emitting change");
         this.emit(CHANGE_EVENT);
     }
+    
 });
 
 AppDispatcher.register(function(action){
@@ -26,4 +27,4 @@ AppDispatcher.register(function(action){
             AppStore.emitChange();
             break;
     }
-})
+});
