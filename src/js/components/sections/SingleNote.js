@@ -12,11 +12,6 @@ var SingleNote = React.createClass({
         ActionCreators.navigateToANote(edit);
     },
     
-//    handleSave: function(text, id) {
-//        if (id) {
-//        }
-//    },
-    
     render: function() {
         var i;
         var data = this.props.data;
@@ -30,10 +25,13 @@ var SingleNote = React.createClass({
         }
         return(
             <div className="container">
-                <h1>{activeNote.title}</h1>
-				<textarea ref="text" defaultValue={activeNote.text}></textarea>
-                <button>edit</button>
-                <input type="submit" value="save" onClick={this.handleClick} />
+                <div className="noteBox">
+                    <h2>{activeNote.title}</h2>
+                    <hr/>
+                    <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
+                    <button className="glyphicon glyphicon-pencil"></button>
+                    <input className="saveButton form-control" type="submit" value="save" onClick={this.handleClick} />
+                </div>
             </div>
         );
     }
