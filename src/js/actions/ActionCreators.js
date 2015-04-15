@@ -1,6 +1,8 @@
 var Constants = require('../constants/Constants');
 var ActionTypes = Constants.ActionTypes;
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var APIUtils = require('../utils/APIUtils');
+
 module.exports = {
     
     navigateTo: function(info) {
@@ -9,7 +11,11 @@ module.exports = {
             type: ActionTypes.NAVIGATE_TO,
             route: route
         });
-    }, 
+    },
+
+    fetchUserFromDB: function(){
+        APIUtils.fetchUserFromDB();
+    },
 		
     navigateToANote: function(info) {
         AppDispatcher.dispatch({

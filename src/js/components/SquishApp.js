@@ -3,17 +3,21 @@ var Notes = require("./sections/Notes");
 var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
+var Calendar = require('./sections/Calendar');
+var ActionCreators = require('../actions/ActionCreators');
 
 function getStateFromStore() {
-    
+     
     var route = AppStore.getRoute(); 
     var data = AppStore.getData();
-		var activeNoteId = AppStore.getActiveNoteId();
+	var activeNoteId = AppStore.getActiveNoteId();
+    var user = AppStore.getUser();
     
     return {
         route: route,
         data: data,
-        activeNoteId: activeNoteId
+        activeNoteId: activeNoteId,
+        user: user
     };
 }
 
@@ -21,10 +25,11 @@ var SquishApp = React.createClass({
 	
     getInitialState: function() {
       return getStateFromStore();
-    },
+    },  
 
     componentDidMount: function(){
         AppStore.addChangeListener(this._onChange);
+        ActionCreators.fetchUserFromDB();
     },
 
     componentWillUnmount: function(){
@@ -42,7 +47,7 @@ var SquishApp = React.createClass({
         if (this.state.route === "Notes") {
             return(
                 <div className="container">
-				    		<Navbar />
+				    <Navbar user={this.state.user} />
 				    <Notes data={this.state.data}/>
 			     </div>
             );
@@ -59,7 +64,7 @@ var SquishApp = React.createClass({
             return (
                 <div className="container">
                     <Navbar />
-                    <h1>Calendar</h1>
+                    <Calendar />
                  </div>
                 );
         } else if (this.state.route ==="Notifications"){

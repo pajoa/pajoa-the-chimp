@@ -10,6 +10,7 @@ var CHANGE_EVENT = "change";
 var _route = "Notes";
 var _saveNoteObj = {};
 var _activeNoteId = null;
+var _user = null;
 
 var data = [{
     
@@ -42,6 +43,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
     getRoute: function() {
         console.log('getrouteTriggered: _route is:', _route);
         return _route;
+    },
+
+    getUser: function(){
+        return _user;
     },
     
     getData: function() {
@@ -86,6 +91,12 @@ AppDispatcher.register(function(action){
         case ActionTypes.NAVIGATE_TO_A_NOTE:
             _activeNoteId = action.id;
             _route = action.route;
+            AppStore.emitChange();
+            break;
+        case ActionTypes.RECEIVE_USER:
+            _user = action.user.email;
+            console.log('emitting user: ');
+            console.log(_user);
             AppStore.emitChange();
             break;
             
