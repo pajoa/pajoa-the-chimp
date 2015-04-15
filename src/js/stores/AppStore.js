@@ -11,6 +11,9 @@ var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
+<<<<<<< HEAD
+var data = []; 
+=======
 var data = [];
 
 /*
@@ -39,6 +42,7 @@ var data = [{
 } 
 ];
 */
+>>>>>>> master
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
