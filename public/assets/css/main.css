@@ -11,8 +11,8 @@
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-	text-decoration: underline;
-	color: #fff;
+/*	text-decoration: underline;*/
+	color: #45A8F7 ;
 
 }
 
@@ -78,6 +78,7 @@ body {
 
 .notesCardTitle {
     background-color: #55C9A6;
+/*    background-color: #45A8F7;*/
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 2px;

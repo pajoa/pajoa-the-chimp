@@ -12,7 +12,7 @@ var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
 var data = [];
-// var _todaysDate = moment(); 
+
 /*
 var data = [{
     title: "my 1st note",
@@ -39,7 +39,6 @@ var data = [{
 } 
 ];
 */
-
 
 var AppStore = assign({}, EventEmitter.prototype, {
     

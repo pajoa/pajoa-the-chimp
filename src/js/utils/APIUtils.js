@@ -34,6 +34,11 @@ module.exports = {
     Request.post("/createnote")
       .end(function(err,res){
         console.log('AJAX done: here is res: ', res);
+        var info = {
+            route: "SingleNote",
+            id: res.body.id
+        };
+        ServerActionCreators.receiveNewNoteID(info);
       });
   }
 }

@@ -41,7 +41,7 @@ var SquishApp = React.createClass({
         this.setState(getStateFromStore());
     },
     
-		render: function() {
+	render: function() {
         if (this.state.route === "Notes") {
             return(
                 <div className="container">

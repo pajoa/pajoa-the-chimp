@@ -29,7 +29,7 @@ var SingleNote = React.createClass({
         return(
             <div className="container">
                 <div className="noteBox">
-                    <h2>{activeNote.title}</h2>
+                    <input value={activeNote.title} />
                     <hr/>
                     <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
                     <button className="glyphicon glyphicon-pencil"></button>
