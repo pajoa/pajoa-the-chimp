@@ -4,7 +4,10 @@ var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
 var Calendar = require('./sections/Calendar');
+<<<<<<< HEAD
 var ActionCreators = require('../actions/ActionCreators');
+=======
+>>>>>>> master
 
 function getStateFromStore() {
      
@@ -47,7 +50,11 @@ var SquishApp = React.createClass({
         if (this.state.route === "Notes") {
             return(
                 <div className="container">
+<<<<<<< HEAD
 				    <Navbar user={this.state.user} />
+=======
+				    <Navbar />
+>>>>>>> master
 				    <Notes data={this.state.data}/>
 			     </div>
             );
@@ -60,12 +67,17 @@ var SquishApp = React.createClass({
                     <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
                  </div>
                 );
+            
         } else if (this.state.route ==="Calendar"){
             return (
                 <div className="container">
                     <Navbar />
                     <Calendar />
+<<<<<<< HEAD
                  </div>
+=======
+                </div>
+>>>>>>> master
                 );
         } else if (this.state.route ==="Notifications"){
             return (
