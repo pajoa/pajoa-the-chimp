@@ -64,18 +64,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		
     getActiveNoteId: function() {
         return _activeNoteId;
-    },
-    
-    editNote: function() {
-        var i;
-        var dataLength = data.length;
-        for (i=0; i < dataLength; i++) {
-            if (data[i].id === _activeNoteId) {
-                data[i].text = data[i].text;
-            }
-        }
     }
-
+    
 });
 
 
@@ -96,7 +86,14 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.EDIT_NOTE:
-            data = action.text;
+            var i;
+            var dataLength = data.length;
+                for (i=0; i < dataLength; i++) {
+                    if (data[i].id === _activeNoteId) {
+                        data[i].text = action.text;
+                    }
+                }
+            conole.log("data should be changed, data ", data);
             AppStore.emitChange();
             break;
             
