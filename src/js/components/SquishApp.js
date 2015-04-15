@@ -4,10 +4,7 @@ var Navbar = require('./sections/Navbar');
 var SingleNote = require("./sections/SingleNote");
 var AppStore = require('../stores/AppStore');
 var Calendar = require('./sections/Calendar');
-<<<<<<< HEAD
 var ActionCreators = require('../actions/ActionCreators');
-=======
->>>>>>> master
 
 function getStateFromStore() {
      
@@ -50,11 +47,8 @@ var SquishApp = React.createClass({
         if (this.state.route === "Notes") {
             return(
                 <div className="container">
-<<<<<<< HEAD
 				    <Navbar user={this.state.user} />
-=======
-				    <Navbar />
->>>>>>> master
+
 				    <Notes data={this.state.data}/>
 			     </div>
             );
@@ -63,7 +57,7 @@ var SquishApp = React.createClass({
         else if (this.state.route ==="SingleNote"){
             return (
                 <div className="container">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
                  </div>
                 );
@@ -71,32 +65,28 @@ var SquishApp = React.createClass({
         } else if (this.state.route ==="Calendar"){
             return (
                 <div className="container">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <Calendar />
-<<<<<<< HEAD
-                 </div>
-=======
                 </div>
->>>>>>> master
                 );
         } else if (this.state.route ==="Notifications"){
             return (
                 <div className="container">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <h1>Notifications</h1>
                  </div>
                 );
         } else if (this.state.route ==="Logout"){
             return (
                 <div className="container">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <h1>Logout</h1>
                  </div>
                 );
         } else if (this.state.route ==="Points"){
             return (
                 <div className="container">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <h1>Points</h1>
                  </div>
          );

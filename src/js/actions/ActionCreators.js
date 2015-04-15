@@ -26,10 +26,9 @@ module.exports = {
     },
     
     editNote: function(content) {
-        AppDispatcher.dispatch({
-            type: ActionTypes.EDIT_NOTE,
-            text: content.text
-        });
+        console.log('APIUtils.editnote to be triggered');
+        APIUtils.editNote(content);
+        
     }
     
 };

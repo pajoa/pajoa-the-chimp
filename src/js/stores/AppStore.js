@@ -13,7 +13,6 @@ var _activeNoteId = null;
 var _user = null;
 
 var data = [{
-    
     title: "my 1st note",
     text: "i love making notes",
     username: "neats",
@@ -41,7 +40,6 @@ var data = [{
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
-        console.log('getrouteTriggered: _route is:', _route);
         return _route;
     },
 
@@ -54,12 +52,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
     },
     
     emitChange: function() {
-        console.log("emitting change");
         this.emit(CHANGE_EVENT);
     },
 
     addChangeListener: function(callback){
-        console.log('addChangeListener triggered');
         this.on(CHANGE_EVENT, callback)
     },
 
@@ -80,7 +76,6 @@ AppDispatcher.register(function(action){
             
         case ActionTypes.NAVIGATE_TO:
             _route = action.route;
-            console.log('_route is: ', _route);
             AppStore.emitChange();
             break;
         
@@ -90,19 +85,18 @@ AppDispatcher.register(function(action){
             AppStore.emitChange();
             break;
         case ActionTypes.RECEIVE_USER:
+
             _user = action.user.email;
-            console.log('emitting user: ');
             console.log(_user);
         
         case ActionTypes.EDIT_NOTE:
             var i;
             var dataLength = data.length;
                 for (i=0; i < dataLength; i++) {
-                    if (data[i].id === _activeNoteId) {
-                        data[i].text = action.text;
+                    if (data[i].id === action.content.activeNoteId) {
+                        data[i].text = action.content.text;
                     }
                 }
-            conole.log("data should be changed, data ", data);
             AppStore.emitChange();
             break;
             

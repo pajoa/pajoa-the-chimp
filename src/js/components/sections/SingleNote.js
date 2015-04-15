@@ -5,9 +5,12 @@ var SingleNote = React.createClass({
 
     handleClick: function(event) {
         var text = React.findDOMNode(this.refs.text).value;
+        var activeNoteId = this.props.activeNoteId;
+
         console.log(text);
         var edit = {
-            text: text
+            text: text,
+            activeNoteId: activeNoteId
         };
         ActionCreators.editNote(edit);
     },

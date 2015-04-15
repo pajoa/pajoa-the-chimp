@@ -11,5 +11,12 @@ module.exports = {
 			type: ActionTypes.RECEIVE_USER,
 			user: user
 		});
+	},
+
+	editNote: function(content){
+		AppDispatcher.dispatch({
+            type: ActionTypes.EDIT_NOTE,
+            content: content
+        });
 	}
 }

@@ -5,9 +5,10 @@ var Bell 	= require('bell');
 
 var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 
-function user(name,email){
+function user(name,email,notes){
 	this.username 	 = name;
 	this.email       = email;
+	this.notes 	     = notes;
 }
 
 
@@ -135,8 +136,25 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
             }
         }
-    }, 
-    {
+    },{
+    	method: 'POST',
+    	path: '/editnote',
+    	config: {
+    		auth: {
+	            strategy: 'session',
+                mode: 'try'
+            },
+	        handler: function(request,reply){
+    	    	if (request.auth.isAuthenticated){
+        			var payload = request.payload;
+        			var id = payload.activeNoteId;
+        			var text = payload.text;
+            		db.user.update( {"notes.id": id}, { "$set": {"notes.$.text": text }});
+            		reply('was hopefully updated');
+       			}
+ 	   		}	
+    	}
+    },{ 
     	method: 'GET',
     	path: '/user',
     	config: {
