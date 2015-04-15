@@ -11,10 +11,8 @@ var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
-<<<<<<< HEAD
 var data = [];
-=======
-var data = []; 
+
 /*
 var data = [{
     title: "my 1st note",
@@ -42,8 +40,6 @@ var data = [{
 ];
 */
 
->>>>>>> master
-
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
@@ -63,7 +59,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
     },
 
     addChangeListener: function(callback){
-        this.on(CHANGE_EVENT, callback)
+        this.on(CHANGE_EVENT, callback);
     },
 
     removeChangeListener: function(callback){
@@ -73,6 +69,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
     getActiveNoteId: function() {
         return _activeNoteId;
     }
+
+    // getCalendar: function() {
+    //     return _todaysDate;
+    // } 
     
 });
 
@@ -103,7 +103,7 @@ AppDispatcher.register(function(action){
             data = action.data;
             AppStore.emitChange();
             break;
-            
+
         default:
             console.log('default');
     }
