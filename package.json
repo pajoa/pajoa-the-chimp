@@ -24,7 +24,8 @@
     "jest": "^0.1.39",
     "reactify": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.1.0"
+    "watchify": "^3.1.0",
+    "mongojs": "^0.18.2"
   },
   "dependencies": {
     "bell": "^2.3.0",
