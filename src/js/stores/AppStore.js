@@ -8,11 +8,12 @@ var CHANGE_EVENT = "change";
 
 //these represent their non-underscore counterpart, when they are in a 'changed' state
 var _route = "Notes";
-var _saveNoteObj = {};
+var _editNote = null;
 var _activeNoteId = null;
-
+var _user = null;
+var data = [];  
+/*
 var data = [{
-    
     title: "my 1st note",
     text: "i love making notes",
     username: "neats",
@@ -36,12 +37,17 @@ var data = [{
 		id: "123456"
 } 
 ];
+*/
+
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
-        console.log('getrouteTriggered: _route is:', _route);
         return _route;
+    },
+
+    getUser: function(){
+        return _user;
     },
     
     getData: function() {
@@ -49,27 +55,21 @@ var AppStore = assign({}, EventEmitter.prototype, {
     },
     
     emitChange: function() {
-        console.log("emitting change");
         this.emit(CHANGE_EVENT);
     },
 
     addChangeListener: function(callback){
-        console.log('addChangeListener triggered');
         this.on(CHANGE_EVENT, callback)
     },
 
     removeChangeListener: function(callback){
         this.removeListener(CHANGE_EVENT, callback);
     },
-    
-    saveSingleNote: function() {
-        return _saveNoteObj;
-    },
 		
     getActiveNoteId: function() {
         return _activeNoteId;
     }
-
+    
 });
 
 
@@ -79,13 +79,24 @@ AppDispatcher.register(function(action){
             
         case ActionTypes.NAVIGATE_TO:
             _route = action.route;
-            console.log('_route is: ', _route);
             AppStore.emitChange();
             break;
         
         case ActionTypes.NAVIGATE_TO_A_NOTE:
             _activeNoteId = action.id;
             _route = action.route;
+            AppStore.emitChange();
+            break;
+        case ActionTypes.RECEIVE_USER:
+            console.log('user.notes in AppStore: ', action.user.notes);
+            data = action.user.notes;
+            _user = action.user.email;
+            console.log(_user);
+            AppStore.emitChange();
+            break;
+        
+        case ActionTypes.EDIT_NOTE:
+            data = action.data;
             AppStore.emitChange();
             break;
             

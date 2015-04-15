@@ -1,6 +1,8 @@
 var Constants = require('../constants/Constants');
 var ActionTypes = Constants.ActionTypes;
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var APIUtils = require('../utils/APIUtils');
+
 module.exports = {
     
     navigateTo: function(info) {
@@ -9,7 +11,11 @@ module.exports = {
             type: ActionTypes.NAVIGATE_TO,
             route: route
         });
-    }, 
+    },
+
+    fetchUserFromDB: function(){
+        APIUtils.fetchUserFromDB();
+    },
 		
     navigateToANote: function(info) {
         AppDispatcher.dispatch({
@@ -19,17 +25,14 @@ module.exports = {
         });
     },
     
-    saveNote: function(content) {
-        var saveNoteObj = {
-            username: content.username,
-            title: content.title,
-            text: content.text,
-            date: new Date()
-        };
-        AppDispatcher.dispatch({
-            type: ActionTypes.SAVE_NOTE,
-            route: saveNoteObj
-        });
+    editNote: function(content) {
+        console.log('APIUtils.editnote to be triggered');
+        APIUtils.editNote(content);
+        
+    },
+
+    createNote: function(){
+        APIUtils.createNote();
     }
     
 };
