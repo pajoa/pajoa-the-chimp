@@ -22,7 +22,7 @@ module.exports = {
     editNote: function(content) {
         AppDispatcher.dispatch({
             type: ActionTypes.EDIT_NOTE,
-            value: content.value
+            text: content.text
         });
     }
     
