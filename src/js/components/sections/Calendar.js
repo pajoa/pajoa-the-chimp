@@ -2,6 +2,7 @@ var React = require('react');
 var ActionCreators = require("../../actions/ActionCreators");
 var Day = require('./Day');
 var CalendarControls = require('./CalendarControls');
+var moment = require("moment");
 // var Calendar = React.createClass({
 //     render: function() {
 //         return React.DOM.iframe({
@@ -26,14 +27,14 @@ var Calendar = React.createClass({
     showDaysOfWeek: React.PropTypes.bool,
   },
 
-  // getDefaultProps: function() {
-  //   return {
-  //     weekOffset: 0,
-  //     forceSixRows: false,
-  //     showDaysOfWeek: false,
-  //     onPickDate: null
-  //   };
-  // },
+  getDefaultProps: function() {
+    return {
+      weekOffset: 0,
+      forceSixRows: false,
+      showDaysOfWeek: false,
+      // onPickDate: null
+    };
+  },
 
   getInitialState: function() {
     return {
@@ -57,7 +58,7 @@ var Calendar = React.createClass({
 
     var i, day;
     for (i = 0; i < diff; i++) {
-      day = moment([this.state.date.year(), this.state.date.month(), i-diff+1]);
+      day = moment([this.state.date.year(), this.state.date.month(), i-diff+1])
       days.push({day: day, classes: 'prev-month'});
     }
 
@@ -104,11 +105,11 @@ var Calendar = React.createClass({
           <div className='day-headers'>
             {this.props.showDaysOfWeek && this.daysOfWeek().map(function(day, i) {
               return <div key={'weekday-' + i}>{day}</div>;
-             })}
+            })}
           </div>
           <div className='days'>
-            {this.days().map(function(day, i){
-              return <Day key={'day-' + i} day={day} onClick={this.props.onPickDate} />;
+            {this.days().map(function(day, i)  {
+              return <Day key={'day-' + i} day={day} />;
             })}
           </div>
           <div className='clearfix'></div>
@@ -117,5 +118,6 @@ var Calendar = React.createClass({
     );
   }
 });
+
 
 module.exports = Calendar;
