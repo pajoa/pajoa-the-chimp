@@ -9,7 +9,7 @@ function getStateFromStore() {
     
     var route = AppStore.getRoute(); 
     var data = AppStore.getData();
-		var activeNoteId = AppStore.getActiveNoteId();
+	var activeNoteId = AppStore.getActiveNoteId();
     
     return {
         route: route,
@@ -61,6 +61,7 @@ var SquishApp = React.createClass({
             return (
                 <div className="container">
                     <Navbar />
+                    <h1> My Squish Calendar </h1>
                     <Calendar />
                 </div>
                 );
