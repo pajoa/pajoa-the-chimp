@@ -5,8 +5,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 module.exports = {
 
 	receiveUser: function(user){
-		console.log('User in ServerActionCreators is: ', user)
-		console.log(user.email);
 		AppDispatcher.dispatch({
 			type: ActionTypes.RECEIVE_USER,
 			user: user
@@ -19,7 +17,6 @@ module.exports = {
             data: data
         });
 	},
-
 	receiveNewNoteID: function(data){
 		AppDispatcher.dispatch({
 			type: ActionTypes.NAVIGATE_TO_A_NOTE,

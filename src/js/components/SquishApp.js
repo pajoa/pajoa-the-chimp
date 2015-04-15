@@ -1,3 +1,9 @@
+var Router = require('react-router'); // or var Router = ReactRouter; in browsers
+var DefaultRoute = Router.DefaultRoute;
+var Link = Router.Link;
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
+
 var React = require("react");
 var Notes = require("./sections/Notes");
 var Navbar = require('./sections/Navbar');
@@ -41,6 +47,41 @@ var SquishApp = React.createClass({
         this.setState(getStateFromStore());
     },
     
+    render: function(){
+        return (
+                <div className = 'container'>
+                    <div className = 'row'>
+                      <div className='col-md-12'>
+                        <nav className="navbar navbar-default">
+                          <div className="container-fluid">
+                            <div className="navbar-header">
+                              <Link to="SquishApp" className="navbar-brand" >Squish </Link>
+                            </div>
+                            <div>
+                              <ul className="nav navbar-nav">
+                                <li><Link to="calendar" >Calendar</Link></li>
+
+                              </ul>
+                              <ul className="nav navbar-nav navbar-right">  
+                                <li><a >{this.props.user}</a></li>
+                                <li><a name="Points">Points</a></li>
+                                <li><a  name="Notifications" >Notifications</a></li>
+                                <li><a href="/google">Login</a></li>                
+                                <li><a href="/logout">Logout</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </nav>
+                      </div>
+                    </div>
+                  <RouteHandler data={this.state.data} />
+                </div>
+    
+
+            )
+    }
+
+    /*
 	render: function() {
         if (this.state.route === "Notes") {
             return(
@@ -90,9 +131,23 @@ var SquishApp = React.createClass({
                  </div>
          );
         }
+*/
+
+    
+});
+
+var routes = (
+    <Route name="SquishApp" path="/" handler={SquishApp}>
+        <Route name="calendar" handler={Calendar} />
+        <Route name=":noteId" handler={SingleNote} />
+        <DefaultRoute handler={Notes} />
+    </Route>
+    );
 
 
-    }
+// Add Router.HistoryLocation to remove the urgy hash from the URL, bur then the dynamic urls dont work...
+Router.run(routes , function(Handler){
+    React.render(<Handler/>, document.body);
 });
 
 module.exports = SquishApp;
