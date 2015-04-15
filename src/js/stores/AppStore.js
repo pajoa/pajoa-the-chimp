@@ -11,7 +11,10 @@ var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
-var data = [];  
+<<<<<<< HEAD
+var data = [];
+=======
+var data = []; 
 /*
 var data = [{
     title: "my 1st note",
@@ -39,6 +42,7 @@ var data = [{
 ];
 */
 
+>>>>>>> master
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
