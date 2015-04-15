@@ -21,6 +21,10 @@
 	color: #fff;
 }
 
+body {
+    background-color: #E9F0F5;
+}
+
 /*-------singleNote-----*/
 .noteBox {
     border: solid 1.5px lightgrey;
@@ -61,4 +65,38 @@
     height: 25px;
     border-radius: 25px;
     display: inline-block;
+}
+
+/*-------Notes-------*/
+
+.notesCard {
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+
+}
+
+.notesCardTitle {
+    background-color: #55C9A6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 2px;
+
+}
+
+.notesCardText {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    max-width: 300px;
+    max-height: 800px;
+    padding: 15px;
+    background-color: white;
+    color: grey;
+}
+
+.noteTitle {
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    margin: 10px;
 }
