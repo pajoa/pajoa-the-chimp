@@ -19,7 +19,7 @@ var Navbar = React.createClass({
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" name="Notes" href="" onClick={this.handleClick}>Squish</a>
+              <a className="navbar-brand" name="Notes" onClick={this.handleClick}>Squish </a>
             </div>
             <div>
               <ul className="nav navbar-nav">

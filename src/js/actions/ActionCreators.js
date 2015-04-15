@@ -19,16 +19,10 @@ module.exports = {
         });
     },
     
-    saveNote: function(content) {
-        var saveNoteObj = {
-            username: content.username,
-            title: content.title,
-            text: content.text,
-            date: new Date()
-        };
+    editNote: function(content) {
         AppDispatcher.dispatch({
-            type: ActionTypes.SAVE_NOTE,
-            route: saveNoteObj
+            type: ActionTypes.EDIT_NOTE,
+            text: content.text
         });
     }
     
