@@ -1,0 +1,366 @@
+$panel-radius: 8px;
+
+.rubix-panel-container-with-controls {
+  position: relative;
+}
+
+.rubix-panel-container {
+  overflow: hidden;
+  position: relative;
+  border-radius: $panel-radius;
+  margin-bottom: $line-height-computed;
+
+  &.noOverflow {
+    .rubix-panel-header:first-child {
+      border-top-left-radius: $panel-radius;
+      border-top-right-radius: $panel-radius;
+    }
+    .rubix-panel-footer:last-child {
+      border-bottom-left-radius: $panel-radius;
+      border-bottom-right-radius: $panel-radius;
+    }
+  }
+}
+
+html.no-touch .rubix-panel-container-with-controls {
+  &:hover, &:focus, &.active {
+    > .rubix-panel-controls {
+      top: - (4 * $line-height-computed / 5);
+    }
+  }
+}
+
+.rubix-panel-controls {
+  @include transition(all 0.2s ease);
+  top: 0;
+  z-index: 0;
+  background: white;
+  position: absolute;
+  right: $line-height-computed / 2;
+  border-top-left-radius: $panel-radius / 2;
+  border-top-right-radius: $panel-radius / 2;
+  padding: 0px $line-height-computed/2 5px $line-height-computed/2;
+}
+
+.rubix-panel-controls > button {
+  top: -2px;
+  padding: 0;
+  border: none;
+  opacity: 0.5;
+  color: inherit;
+  background: none;
+  position: relative;
+
+  &:hover, &:focus, &:active, &:active:focus {
+    @include box-shadow(none);
+    opacity: 1;
+    border: none;
+    outline: none;
+    color: inherit;
+    background: none;
+  }
+}
+
+.rubix-panel-controls > button > .rubix-icon {
+  font-size: 14px;
+}
+
+.rubix-panel-controls > {
+  button ~ button {
+    padding-left: 10px;
+  }
+}
+
+.rubix-panel {
+  z-index: 1;
+  position: relative;
+}
+
+.rubix-panel-header {
+  border-top-left-radius: $panel-radius;
+  border-top-right-radius: $panel-radius;
+
+  &[class*='bg-'] {
+    margin-bottom: $line-height-computed / 2;
+  }
+
+  & ~ .rubix-panel-body {
+    padding-top: 0;
+  }
+}
+
+.rubix-panel-body {
+  min-height: 35px;
+  padding-top: $line-height-computed;
+}
+
+.rubix-panel-footer {
+  border-bottom-left-radius: $panel-radius;
+  border-bottom-right-radius: $panel-radius;
+
+  &[class*='bg-'] {
+    margin-top: $line-height-computed / 2;
+  }
+}
+
+.rubix-panel-right {
+  border-top-right-radius: $panel-radius;
+  border-bottom-right-radius: $panel-radius;
+}
+
+.rubix-panel-left {
+  border-top-left-radius: $panel-radius;
+  border-bottom-left-radius: $panel-radius;
+}
+
+.rubix-panel-header, .rubix-panel-footer, .rubix-panel-left, .rubix-panel-right {
+  &.noRadius {
+    border-radius: 0 !important;
+  }
+}
+
+.rubix-panel-header.tabs, .rubix-panel-footer.tabs, .rubix-panel-left.tabs, .rubix-panel-right.tabs {
+  > .tab-container {
+    width: 100.1%;
+    display: table;
+  }
+
+  > .tab-container > .nav-tabs {
+    border: none;
+    display: table-row;
+
+    &:before, &:after {
+      content: '';
+      display: none;
+    }
+
+    >li {
+      margin: 0;
+      float: none;
+      display: table-cell;
+      vertical-align: middle;
+
+      > a {
+        margin: 0;
+        border: none;
+        color: inherit;
+        line-height: 3;
+        border-radius: 0;
+        text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, 0.07);
+
+        &:hover {
+          border: none;
+          border-radius: 0;
+          background: rgba(0, 0, 0, 0.03);
+          border-right: 1px solid rgba(0, 0, 0, 0.07);
+        }
+      }
+
+      &.active > a {
+        color: #89949B;
+        background: #ffffff;
+
+        &:hover {
+          border: none;
+          background: #ffffff;
+          border-right: 1px solid rgba(0, 0, 0, 0.07);
+        }
+      }
+
+      &:last-child > a {
+        border-right: none;
+      }
+
+      &:last-child.active > a {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.rubix-panel-header.tabs, .rubix-panel-footer.tabs, .rubix-panel-left.tabs, .rubix-panel-right.tabs {
+  .tab-container.plain>.nav-tabs {
+    > li {
+      > a {
+        opacity: 0.5;
+        border: none;
+
+        &:hover, &:focus {
+          opacity: 1;
+          border: none;
+          background: none;
+        }
+      }
+
+      &.active {
+        > a {
+          opacity: 1;
+          background: none;
+        }
+
+        &:after {
+          content: '';
+          left: 50%;
+          bottom: 0px;
+          display: block;
+          margin-left: -7px;
+          position: absolute;
+          border-bottom: 6px solid white;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+        }
+      }
+    }
+  }
+}
+
+.rubix-panel-footer.tabs, .rubix-panel-right.tabs {
+  .tab-container.plain>.nav-tabs {
+    > li {
+      &.active {
+        &:after {
+          top: 0px;
+          bottom: auto;
+          border-bottom: none;
+          border-top: 6px solid white;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .rubix-panel-left.tabs {
+    .tab-container.plain>.nav-tabs {
+      > li {
+        &.active {
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 6px solid rgba(0, 0, 0, 0);
+            border-right: 6px solid #fff;
+            border-bottom: 6px solid rgba(0, 0, 0, 0);
+            right: 0;
+            top: 50%;
+            margin-top: -5px;
+            bottom: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .rubix-panel-right.tabs {
+    .tab-container.plain>.nav-tabs {
+      > li {
+        &.active {
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 6px solid rgba(0, 0, 0, 0);
+            border-left: 6px solid #fff;
+            border-bottom: 6px solid rgba(0, 0, 0, 0);
+            top: 50%;
+            left: 6px;
+            right: auto;
+            margin-top: -5px;
+            bottom: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rubix-panel.horizontal {
+  width: 100.1%;
+  display: table;
+  table-layout: fixed;
+
+  >div {
+    display: table-row;
+  }
+}
+
+.rubix-panel.horizontal > div > {
+  .rubix-panel-body {
+    padding: 0;
+  }
+
+  .rubix-panel-left, .rubix-panel-body, .rubix-panel-right {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .rubix-panel-left.tabs, .rubix-panel-right.tabs {
+    overflow: hidden;
+    display: table-cell;
+
+    > .tab-container >.nav-tabs {
+      display: block;
+
+      >li {
+        display: block;
+
+        >a {
+          margin: 0;
+          border: none;
+          border-bottom: none;
+        }
+
+        &:last-child > a {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .rubix-panel.horizontal.force-collapse {
+    display: block;
+
+    >div {
+      display: block;
+    }
+
+    >div>.rubix-panel-left, >div>.rubix-panel-body, >div>.rubix-panel-right {
+      display: block;
+      width: 100.1% !important;
+    }
+
+    >div>.rubix-panel-left.tabs, >div>.rubix-panel-right.tabs {
+      display: table;
+      overflow: hidden;
+
+      > .tab-container >.nav-tabs {
+        display: table-row;
+
+        >li {
+          display: table-cell;
+
+          >a {
+            margin: 0;
+            border: none;
+            border-bottom: none;
+          }
+
+          &:last-child > a {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  .rubix-chart {
+    width: 100% !important;
+  }
+}
+
+.rubix-panel-container.panel-plain {
+  background: none !important;
+}

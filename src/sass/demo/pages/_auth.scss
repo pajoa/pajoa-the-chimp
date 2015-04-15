@@ -1,0 +1,178 @@
+html.authentication {
+  background: #43525A !important;
+
+  body {
+    background: #43525A !important;
+  }
+}
+
+#auth-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  overflow: auto;
+  position: fixed;
+  background: #43525A;
+  z-index: 999999999999999999;
+}
+
+#auth-row {
+  margin: auto;
+  display: block;
+  margin-top: $line-height-computed * 2;
+}
+
+#auth-cell {
+  margin: auto;
+
+  >div {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 500px;
+    }
+  }
+}
+
+#auth-container.login {
+  #facebook-btn {
+    position: relative;
+    border-radius: 4px;
+    background: #2960B1;
+    text-transform: none;
+    border-color: #2960B1;
+
+    &:hover, &:focus {
+      background: darken(#2960B1, 10%);
+      border-color: darken(#2960B1, 10%);
+    }
+
+    >.rubix-icon {
+      top: 10px;
+      left: 20px;
+      font-size: 28px;
+      position: absolute;
+      vertical-align: top;
+
+      &+span {
+        font-size: 18px;
+        padding-left: 20px;
+        position: relative;
+      }
+    }
+  }
+
+  a {
+    color: #4A90E2;
+    border-color: #4A90E2;
+
+    &:hover, &:focus {
+      color: #4A90E2;
+      border-color: #4A90E2;
+    }
+  }
+}
+
+#auth-container.signup {
+  #facebook-btn, #twitter-btn {
+    position: relative;
+    border-radius: 4px;
+    text-transform: none;
+
+    >.rubix-icon {
+      top: 10px;
+      left: 20px;
+      font-size: 28px;
+      position: absolute;
+      vertical-align: top;
+
+      &+span {
+        font-size: 18px;
+        padding-left: 20px;
+        position: relative;
+      }
+    }
+  }
+
+  #twitter-btn {
+    background: #00ACDF;
+    border-color: #00ACDF;
+
+    &:hover, &:focus {
+      background: darken(#00ACDF, 10%);
+      border-color: darken(#00ACDF, 10%);
+    }
+  }
+
+  #facebook-btn {
+    background: #2960B1;
+    border-color: #2960B1;
+
+    &:hover, &:focus {
+      background: darken(#2960B1, 10%);
+      border-color: darken(#2960B1, 10%);
+    }
+  }
+
+  .facebook-container {
+    margin-bottom: $line-height-computed / 2;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .facebook-container {
+      margin-bottom: 0px;
+      padding-right: $line-height-computed / 2;
+    }
+
+    .twitter-container {
+      padding-left: $line-height-computed / 2;
+    }
+  }
+
+  a {
+    color: #4A90E2;
+    border-color: #4A90E2;
+
+    &:hover, &:focus {
+      color: #4A90E2;
+      border-color: #4A90E2;
+    }
+  }
+}
+
+#auth-container.lockpage {
+  #auth-cell > div {
+    width: 700px;
+  }
+
+  label {
+    color: black;
+    width: 200px;
+    font-weight: 400;
+    background: white;
+    position: relative;
+    text-align: center;
+    margin-right: -5px;
+    display: inline-block;
+    padding: $line-height-computed/2 $line-height-computed;
+  }
+
+  img {
+    border-radius: 100px;
+    display: inline-block;
+    border: 7px solid white;
+  }
+
+  input[type='password'] {
+    width: 200px;
+    height: auto;
+    border: none;
+    margin-left: -5px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: $line-height-computed/2 $line-height-computed;
+  }
+}

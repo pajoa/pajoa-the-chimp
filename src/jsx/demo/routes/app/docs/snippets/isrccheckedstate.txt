@@ -1,0 +1,15 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    if(this.refs.check.isChecked())
+      console.log('Checkbox is checked');
+    else
+      console.log('Checkbox is unchecked');
+  },
+  render: function() {
+    return (
+      <Checkbox ref='check' defaultChecked>
+        Should be checked
+      </Checkbox>
+    );
+  }
+});

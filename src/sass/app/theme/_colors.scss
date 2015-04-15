@@ -1,0 +1,183 @@
+@mixin generateColors($name, $color, $hover-color) {
+  .list-bg-#{$name} {
+    >.list-group-item {
+      &.active {
+        background: $color !important;
+        color: $hover-color !important;
+      }
+    }
+  }
+  .list-fg-#{$name} {
+    >.list-group-item {
+      color: $color;
+    }
+  }
+  .rubix-panel-header .nav-#{$name}.nav-tabs > li {
+    > a {
+      color: $hover-color;
+
+      &:hover, &:focus {
+        color: $hover-color;
+      }
+    }
+
+    &.active > a:hover, &.active > a:focus {
+      color: $color;
+    }
+  }
+  .nav-#{$name} {
+    &.nav-tabs {
+      border-color: $color;
+
+      > li > a, > li > a:hover, > li > a:focus, > li.active > a {
+        color: $color;
+        border-color: $color;
+        border-bottom-color: rgba(0, 0, 0, 0);
+      }
+    }
+
+    &.nav-pills {
+      > li > a:hover, > li > a:focus, > li.active > a {
+        background: $color;
+        color: $hover-color;
+      }
+    }
+  }
+  .menu-#{$name}, .dropup .menu-#{$name} {
+    border-color: $color;
+
+    > li > a:hover {
+      background: rgba($color, 0.05);
+    }
+
+    > .active > a, > .active > a:hover, > .active > a:focus {
+      color: $hover-color;
+      background: $color;
+    }
+  }
+  .btn-#{$name} {
+    outline: none;
+    background: $color;
+    color: $hover-color;
+    border-color: $color;
+
+    &.btn-outlined {
+      color: $color;
+      background: none;
+
+      &.btn-onlyOnHover {
+        color: $primary-color;
+      }
+    }
+
+    &:hover, &:focus, &:active, &.active {
+      outline: none;
+      color: $hover-color;
+      background: lighten($color, 10%);
+      border-color: lighten($color, 10%);
+
+      &.btn-outlined {
+        background: $color;
+        color: $hover-color;
+        border-color: $color;
+      }
+    }
+
+    &.btn-inverse.btn-outlined {
+      color: $hover-color;
+      border-color: $hover-color;
+
+      &:hover, &:focus, &:active, &.active {
+        color: $color;
+        background: $hover-color;
+        border-color: $hover-color;
+
+        &.btn-retainBg {
+          background: $color;
+          color: $hover-color;
+          border-color: $color;
+        }
+      }
+    }
+  }
+  .tl-#{$name} {
+    .rubix-timeline-body > ul > li:before {
+      border-color: $color;
+    }
+  }
+  .border-#{$name} {
+    border-color: $color !important;
+
+    .rubix-timeline-body > ul {
+      border-color: $color;
+    }
+
+    &.rubix-timeline-view:before {
+      border-color: $color;
+    }
+  }
+  .border-hover-#{$name} {
+    &:hover {
+      border-color: $color !important;
+    }
+  }
+  .border-focus-#{$name} {
+    &:focus {
+      border-color: $color !important;
+    }
+  }
+
+  .fg-focus-#{$name}:focus {
+    color: $color;
+  }
+
+  .fg-hover-#{$name}:hover {
+    color: $color;
+  }
+
+  .fg-#{$name} {
+    color: $color;
+
+    >.tab-container>.nav-tabs>.b-tab>a {
+      color: $color;
+    }
+
+    .tab-container.plain>.nav-tabs>.b-tab.active>a {
+      color: $color;
+    }
+
+    &.fg-tab-active {
+      .tab-container>.nav-tabs>.b-tab.active>a {
+        color: $color;
+      }
+    }
+  }
+  .bg-focus-#{$name}:focus {
+    background: $color;
+  }
+  .bg-hover-#{$name}:hover {
+    background: $color;
+  }
+  .bg-#{$name} {
+    background: $color;
+
+    >.tab-container>.nav-tabs>.b-tab {
+      &.open {
+        > a {
+          background: rgba(0, 0, 0, 0.03);
+        }
+      }
+      > .dropdown-menu {
+        >li.active {
+          >a {
+            background: $color;
+          }
+        }
+      }
+    }
+
+    table td,th {
+      border-color: rgba(0, 0, 0, 0.05) !important;
+    }
+  }
+}

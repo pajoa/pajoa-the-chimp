@@ -1,0 +1,85 @@
+// csstyle v1.1.0
+// Clean, Simple Styling for the Web
+// http://www.csstyle.io
+// Copyright (c) 2014 Dave Geddes
+// https://twitter.com/geddski
+// https://github.com/geddski
+
+// components
+@mixin component($name){
+  .#{$name}{
+    @content
+  }
+}
+
+// options
+// override components
+@mixin option($name){
+  &.\--#{$name}{
+    @content;
+  }
+}
+
+// allow parts to respond to options on parents
+@mixin whenComponentOption($option){
+  $index: str-index(#{&}, "__") - 1;
+  $component: str-slice(#{&}, 0, $index);
+
+  #{$component}.\--#{$option} & {
+    @content;
+  }
+}
+
+// parts
+// make up the structure of a component
+// override components
+@mixin part($name){
+    // check if nested in an option
+    $optionIndex: str-index(#{&}, ".\\--");
+    $optionIndex: 0 !default;
+    $optionIndex: $optionIndex - 1;
+
+    // check if nested in another part
+    $partIndex: str-index(#{&}, "__");
+    $partIndex: 0 !default;
+    $partIndex: $partIndex - 1;
+
+    $component: str-slice(#{&}, 0, $optionIndex);
+
+    // part is nested in an option
+    @if $optionIndex > 0 {
+      // part is also nested in another part
+      @if ($partIndex > 0){
+        &__#{$name}{
+          @content;
+        }
+      }
+      @else{
+        & #{$component}__#{$name}{
+          @content;
+        }
+      }
+    }
+    @else {
+      &__#{$name}{
+        @content
+      }
+    }
+}
+
+// tweaks
+// override components, options, and modifiers
+@mixin tweak($name){
+  #csstyle .\+#{$name}{
+    @content;
+  }
+}
+
+
+// locations
+// override components, parts, options, and tweaks
+@mixin location($name){
+  #csstyle .\@#{$name}{
+    @content;
+  }
+}

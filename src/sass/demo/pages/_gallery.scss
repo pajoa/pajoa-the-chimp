@@ -1,0 +1,58 @@
+
+.gallery-view {
+  padding-right: $line-height-computed;
+}
+
+.gallery-item {
+  .black-wrapper {
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    background: #000;
+    left: 0; right: 0;
+    position: absolute;
+    transition: all 0.25s ease;
+
+    td {
+      vertical-align: middle;
+    }
+
+    .rubix-icon {
+      color: white;
+      display: block;
+    }
+  }
+}
+
+.gallery-item-link {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  padding: 0 !important;
+  border: none !important;
+
+  &:hover, &:focus {
+    .black-wrapper {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.fav-btn {
+  >.rubix-icon {
+    font-size: 20px !important;
+    line-height: 20px !important;    
+  }
+
+  >.counts {
+    top: -6px;
+    line-height: 0;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle !important;
+  }
+}

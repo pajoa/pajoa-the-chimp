@@ -1,0 +1,9 @@
+@mixin theme-link($list) {
+  a {
+    color: get($list, components, link, color);
+    &:hover, &:focus {
+      color: get($list, components, link, color);
+      border-color: get($list, components, link, color);
+    }
+  }
+}

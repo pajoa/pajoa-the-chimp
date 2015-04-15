@@ -1,0 +1,11 @@
+#sidebar {
+  .rubix-timeline-view {
+    .rubix-timeline-title {
+      background: none;
+      padding: 4px 0px;
+    }
+    .rubix-timeline-body li:before {
+      box-shadow: 0px 0px 0px 6px #273135;
+    }    
+  }
+}

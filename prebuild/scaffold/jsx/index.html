@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class='default' dir='{dir}'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1' />
+    <title>Rubix WebApp :: Admin Template</title>
+    <meta name='author' content='SketchPixy, support@sketchpixy.com'>
+    <meta name='description' content='Rubix Admin Template'>
+    <meta name='keywords' content='admin, template, wrapbootstrap, metro, modern, flat, responsive'>
+    <meta name='robots' content='index, follow'>
+    <meta name='viewport' content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+    <link rel='apple-touch-icon' sizes='57x57' href='/favicons/apple-touch-icon-57x57.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='/favicons/apple-touch-icon-114x114.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='/favicons/apple-touch-icon-72x72.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='/favicons/apple-touch-icon-144x144.png'>
+    <link rel='apple-touch-icon' sizes='60x60' href='/favicons/apple-touch-icon-60x60.png'>
+    <link rel='apple-touch-icon' sizes='120x120' href='/favicons/apple-touch-icon-120x120.png'>
+    <link rel='apple-touch-icon' sizes='76x76' href='/favicons/apple-touch-icon-76x76.png'>
+    <link rel='apple-touch-icon' sizes='152x152' href='/favicons/apple-touch-icon-152x152.png'>
+    <meta name='apple-mobile-web-app-title' content='Rubix'>
+    <link rel='icon' type='image/png' href='/favicons/favicon-196x196.png' sizes='196x196'>
+    <link rel='icon' type='image/png' href='/favicons/favicon-160x160.png' sizes='160x160'>
+    <link rel='icon' type='image/png' href='/favicons/favicon-96x96.png' sizes='96x96'>
+    <link rel='icon' type='image/png' href='/favicons/favicon-16x16.png' sizes='16x16'>
+    <link rel='icon' type='image/png' href='/favicons/favicon-32x32.png' sizes='32x32'>
+    <meta name='msapplication-TileColor' content='#E76049'>
+    <meta name='msapplication-TileImage' content='/mstile-144x144.png'>
+    <meta name='application-name' content='Rubix'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/pace/pace.css' />
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/perfect-scrollbar/perfect-scrollbar.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/css/vendor/morris/morris.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/js/vendor/codemirror/lib/codemirror.css'>
+    <link media='screen' rel='stylesheet' type='text/css' href='/js/vendor/codemirror/theme/ambiance.css'>
+{stylesheets}    <link media='screen' rel='stylesheet' type='text/css' href='/css/fonts/{app}/fonts.css'>
+  </head>
+  <body class='fade-out' data-version='{version}'>
+    <div id='pace-loader' class='pace-big'></div>
+    <div id='app-preloader'></div>
+    <div id='app-container'>{container}</div>
+    <div id='blueimp-gallery' class='blueimp-gallery blueimp-gallery-controls'>
+      <div class='slides'></div>
+      <h3 class='title'></h3>
+      <a class='prev'>‹</a>
+      <a class='next'>›</a>
+      <a class='close'>×</a>
+      <a class='play-pause'></a>
+      <ol class='indicator'></ol>
+    </div>
+    <script type='text/javascript' src='/js/vendor/pace/pace.js'></script>
+    <script type='text/javascript' src='/js/polyfills/polyfills.js'></script>
+    <script type='text/javascript' src='/js/polyfills/html5shiv.js'></script>
+    <script type='text/javascript' src='/js/polyfills/modernizr.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/codemirror/lib/codemirror.js'></script>
+    <script type='text/javascript' src='/js/vendor/codemirror/mode/javascript/javascript.js'></script>
+    <script type='text/javascript' src='/js/vendor/eventemitter2/eventemitter2.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/jquery/jquery.js'></script>
+    <script type='text/javascript' src='/js/vendor/jquery-ui/jquery-ui.js'></script>
+    <script type='text/javascript' src='/js/vendor/bootstrap/bootstrap.js'></script>
+    <script type='text/javascript' src='/js/vendor/p-scrollbar/min/perfect-scrollbar.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/ion.tabs/ion.tabs.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/ion.rangeSlider/ion.rangeSlider.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/bootstrap-slider/bootstrap-slider.js'></script>
+    <script type='text/javascript' src='/js/vendor/sparklines/sparklines.js'></script>
+    <script type='text/javascript' src='/js/vendor/jquery.knob/jquery.knob.js'></script>
+    <script type='text/javascript' src='/js/vendor/moment/moment.js'></script>
+    <script type='text/javascript' src='/js/vendor/vex/vex.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/messenger/messenger.min.js'></script>
+    <script type='text/javascript' src='/js/vendor/select2/select2.js'></script>
+    <script type='text/javascript' src='/js/vendor/xeditable/xeditable.js'></script>
+    <script type='text/javascript' src='/js/vendor/typeahead/typeahead.js'></script>
+    <script type='text/javascript' src='/js/vendor/jquery-steps/jquery-steps.js'></script>
+    <script type='text/javascript' src='/js/vendor/jquery-validate/jquery-validate.js'></script>
+    <script type='text/javascript' src='/js/vendor/tablesaw/tablesaw.js'></script>
+    <script type='text/javascript' src='/js/vendor/timeline/timeline.js'></script>
+    <script type='text/javascript' src='/js/vendor/datatables/datatables.js'></script>
+    <script type='text/javascript' src='/js/vendor/fullcalendar/fullcalendar.js'></script>
+    <script type='text/javascript' src='/js/vendor/nestable/nestable.js'></script>
+    <script type='text/javascript' src='/js/vendor/dropzone/dropzone.js'></script>
+    <script type='text/javascript' src='/js/vendor/jcrop/color.js'></script>
+    <script type='text/javascript' src='/js/vendor/jcrop/jcrop.js'></script>
+    <script type='text/javascript' src='/js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js'></script>
+    <script type='text/javascript' src='/js/vendor/blueimp-gallery/blueimp-gallery.js'></script>
+    <script type='text/javascript' src='/js/vendor/chartjs/chartjs.js'></script>
+    <script type='text/javascript' src='/js/vendor/c3js/c3js.js'></script>
+    <script type='text/javascript' src='/js/vendor/leaflet/leaflet.js'></script>
+    <script type='text/javascript' src='/js/vendor/trumbowyg/trumbowyg.js'></script>
+    <script type='text/javascript' src='/js/common/react/react.js'></script>
+    <script type='text/javascript' src='/js/common/react-router/react-router.js'></script>
+    <script type='text/javascript' src='/js/common/react-bootstrap/react-bootstrap.js'></script>
+    <script type='text/javascript' src='/js/common/react-l20n/react-l20n.js'></script>
+    <script type='text/javascript' src='/js/common/react-responsive/react-responsive.js'></script>
+    <script type='text/javascript' src='/js/vendor/d3/d3.js'></script>
+    <script type='text/javascript' src='/js/common/rubix/rubix.js'></script>
+    <script type='text/javascript' src='/js/vendor/raphael/raphael.js'></script>
+    <script type='text/javascript' src='/js/vendor/morris/morris.js'></script>
+    <script type='text/javascript' src='/js/vendor/prism/prism.js'></script>
+    <script type='text/javascript' src='/js/vendor/switchery/switchery.js'></script>
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>
+    <script type='text/javascript' src='/js/vendor/gmaps/gmaps.js'></script>
+    <script type='text/javascript' src='/js/vendor/holder/holder.js'></script>
+    <script type='text/javascript' src='/js/common/react/showdown.js'></script>
+    <script type='text/javascript' src='{appscript}'></script>
+    <script>
+      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      // ga('create', 'UA-XXXXXXXX-1', 'auto');
+      // ga('send', 'pageview');
+    </script>
+  </body>
+</html>

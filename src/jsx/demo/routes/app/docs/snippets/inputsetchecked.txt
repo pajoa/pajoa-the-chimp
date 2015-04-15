@@ -1,0 +1,12 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    this.refs.checkboxelement.setChecked(false);
+    var checked = this.refs.checkboxelement.getChecked();
+    console.log(checked === false);
+  },
+  render: function() {
+    return (
+      <Input type='checkbox' ref='checkboxelement' defaultChecked />
+    );
+  }  
+});

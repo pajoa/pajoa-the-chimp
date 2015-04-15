@@ -1,0 +1,44 @@
+var demo = React.createClass({
+  componentDidMount: function(itemprops) {
+    this.refs.tablist.selectTab('pane', 'tab2:profile');
+  },
+  render: function() {
+    return (
+      <TabList bsStyle='orange75' ref='tablist' listName='tab2'>
+        <Tab pane='tab2:home' active>Home</Tab>
+        <Tab pane='tab2:profile'>Profile</Tab>
+        <Tab>
+          <DropdownButton tab container={this} menu='menu34'>
+            <span>Dropdown </span><Caret/>
+          </DropdownButton>
+          <Menu autoHide ref='menu34' bsStyle='orange75'>
+            <MenuItem href='#'>
+              <Tab dropdown pane='tab2:fat'>
+                @fat
+              </Tab>
+            </MenuItem>
+            <MenuItem href='#'>
+              <Tab dropdown pane='tab2:mdo'>
+                @mdo
+              </Tab>
+            </MenuItem>
+          </Menu>
+        </Tab>
+      </TabList>
+      <TabContent>
+        <TabPane tab='tab2:home' active>
+          <LoremIpsum query='5s' />
+        </TabPane>
+        <TabPane tab='tab2:profile'>
+          <LoremIpsum query='5s' />
+        </TabPane>
+        <TabPane tab='tab2:fat'>
+          <LoremIpsum query='5s' />
+        </TabPane>
+        <TabPane tab='tab2:mdo'>
+          <LoremIpsum query='5s' />
+        </TabPane>
+      </TabContent>
+    );
+  }
+});

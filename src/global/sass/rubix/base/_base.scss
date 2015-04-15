@@ -1,0 +1,77 @@
+a:hover, a:focus {
+  padding-bottom: 5px;
+  text-decoration: none;
+  border-bottom: 1px solid $link-hover-color;
+}
+
+.radio, .radio-inline {
+  input[type='radio'] {
+    margin-top: 6px;
+  }
+}
+
+.checkbox, .checkbox-inline {
+  input[type='checkbox'] {
+    margin-top: 6px;
+  }
+}
+
+.popover {
+  z-index: 999999999;
+}
+
+.label, .badge {
+  font-size: 75%;
+}
+
+label {
+  display: block;
+
+  &.inline {
+    display: inline-block;
+  }
+}
+
+#app-container {
+  display: block;
+}
+
+#container {
+  min-height: 100vh;
+  /**
+  * Making the <body> element behave like a flexbox container:
+  */
+
+  /* Ye Olde Flexbox for Webkit */
+  display: -webkit-box;
+  /* Tweener flexbox */
+  display: -ms-flexbox;
+  /* Prefixed "new flexbox" */
+  display: -webkit-flex;
+  /* unprefixed standard "new flexbox" version */
+  display: flex;
+
+  /**
+  * Making the things inside <body> line up vertically
+  */
+
+  /* Your grandparents flexbox for Webkit */
+  -webkit-box-orient: vertical;
+  /* Prefixed new syntax: */
+  -webkit-flex-direction: column;
+  /* Same syntax for weird IE tweener */
+  -ms-flex-direction: column;
+  /* unprefixed new syntax */
+  flex-direction: column;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #container {
+    height: 100%;
+  }
+}
+
+div#__bs_notify__ {
+  z-index: 10000000000000000 !important;
+  background-color: rgb(103, 136, 255) !important;
+}

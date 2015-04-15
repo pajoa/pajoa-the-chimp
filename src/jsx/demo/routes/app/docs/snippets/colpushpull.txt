@@ -1,0 +1,10 @@
+<Grid>
+  <Row>
+    <Col md={9} mdPush={3}>
+      Col(md:9, mdPush:3)
+    </Col>
+    <Col md={3} mdPull={9}>
+      Col(md:3, mdPull:9)
+    </Col>
+  </Row>
+</Grid>

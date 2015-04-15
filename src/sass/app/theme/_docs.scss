@@ -1,0 +1,11 @@
+.bs-example>.dropdown>{
+  .dropdown-toggle {
+    float: left;
+  }
+  .dropdown-menu {
+    clear: left;
+    display: block;
+    position: static;
+    margin-bottom: 5px;
+  }
+}

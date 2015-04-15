@@ -1,0 +1,34 @@
+sass
+|-- <project-name>
+|   |-- colors.scss
+|   |-- font-faces.scss
+|   |-- main.scss
+|   |-- theme.scss
+|   |-- pages
+|   |   `-- _pages.scss
+|   |-- print
+|   |   `-- _print.scss
+|   |-- theme
+|   |   |-- _colors.scss
+|   |   |-- _theme-mixin.scss
+|   |   |-- components
+|   |   |   |-- _breadcrumbs.scss
+|   |   |   |-- _button.scss
+|   |   |   |-- _components.scss
+|   |   |   |-- _datepicker.scss
+|   |   |   |-- _dropdown.scss
+|   |   |   |-- _forms.scss
+|   |   |   |-- _ion-rangeSlider.scss
+|   |   |   |-- _ion-tabs.scss
+|   |   |   |-- _link.scss
+|   |   |   |-- _messenger.scss
+|   |   |   |-- _pagination.scss
+|   |   |   |-- _panel.scss
+|   |   |   |-- _select2.scss
+|   |   |   `-- _vex.scss
+|   |   `-- sections
+|   |       |-- _body.scss
+|   |       |-- _footer.scss
+|   |       |-- _header.scss
+|   |       |-- _sections.scss
+|   |       `-- _sidebar.scss

@@ -1,0 +1,159 @@
+.btn {
+  font-weight: bold;
+  border-width: 2px;
+  font-family: $headings-font-family;
+
+  &.btn-onlyOnHover {
+    border-color: #eee;
+  }
+}
+
+.btn > .rubix-icon {
+  line-height: 1;
+  font-size: 18px;
+
+  & ~ span {
+    vertical-align: top;
+  }
+}
+
+.btn {
+  height: 30px;
+  font-size: 12px;
+  box-shadow: none;
+  padding: 2px 15px;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  line-height: $line-height-base;
+
+  .caret {
+    margin-top: -2px;
+  }
+
+  &:active, &.active, &.open {
+    box-shadow: none;
+  }
+}
+
+.btn-group-xs, .btn-group-sm, .btn-group-lg {
+  .btn {
+    font-size: 12px;
+    padding: 2px 15px;
+    border-radius: 20px;
+    line-height: $line-height-base;
+  }
+}
+
+.btn-group-lg .btn, .btn-group-lg .btn.btn-outlined {
+  line-height: 10px;
+  height: 35px;
+  padding: 0 $line-height-computed !important;
+}
+
+.btn-group-sm .btn {
+  font-size: 10px;
+}
+
+
+.btn-group-xs .btn {
+  font-size: 8px;
+}
+
+.btn.btn-outlined {
+  outline: none;
+  background: none;
+  padding: 3px 15px 2px 15px !important;
+
+  &:hover, &:focus {
+    outline: none;
+  }
+}
+
+.btn.btn-rounded {
+  line-height: 1;
+  border-radius: 100px;
+  height: auto !important;
+  padding: 15px !important;
+}
+
+.btn.btn-lg {
+  height: auto;
+  padding: 10px $line-height-computed !important;
+
+  &.btn-rounded {
+    line-height: 1;
+    padding: $line-height-computed !important;
+  }
+}
+
+.btn.btn-sm {
+  height: auto;
+  font-size: 10px;
+}
+
+.btn.btn-xs {
+  height: auto;
+  font-size: 8px;
+}
+
+.btn-rounded.btn.btn-sm, .btn-rounded.btn.btn-xs {
+  line-height: 1;
+  padding: 15px !important;
+}
+
+.btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+  margin-left: $line-height-computed / 2;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group, .btn-group .btn-group > .btn  {
+  border-left: none;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 20px;
+}
+
+.btn-group-vertical > .btn:not(:last-child), .btn-group-vertical > .btn-group:not(:last-child) > .btn,  {
+  margin-bottom: 1px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  &.btn-outlined {
+    margin-bottom: 0px;
+  }
+}
+
+a.btn {
+  &:hover, &:focus {
+    padding: 0;
+  }
+}
+
+.input-group-btn > .btn {
+  height: 30px;
+}
+
+.input-group-addon.plain > button {
+  z-index: 2;
+  margin-left: -2px;
+  position: relative;
+}
+
+.input-group .form-control:focus {
+  z-index: 3;
+}
+
+.btn.btn-icon {
+  line-height: 0;
+  font-size: 30px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100px;
+  width: auto !important;
+  height: auto !important;
+  padding: 5px 10px !important;
+}

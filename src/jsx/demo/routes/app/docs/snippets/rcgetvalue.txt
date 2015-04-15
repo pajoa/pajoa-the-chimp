@@ -1,0 +1,13 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    var value = this.refs.check.getValue();
+    console.log(value === 'Should be checked');
+  },
+  render: function() {
+    return (
+      <Checkbox ref='check' defaultChecked>
+        Should be checked
+      </Checkbox>
+    );
+  }
+});

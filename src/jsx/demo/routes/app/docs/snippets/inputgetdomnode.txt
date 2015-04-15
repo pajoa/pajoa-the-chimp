@@ -1,0 +1,11 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    var node = this.refs.inputelement.getInputDOMNode();
+    console.log(node.value === 'Default text');
+  },
+  render: function() {
+    return (
+      <Input type='text' ref='inputelement' defaultValue='Default text' />
+    );
+  }  
+});

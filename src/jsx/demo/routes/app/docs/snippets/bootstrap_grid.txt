@@ -1,0 +1,49 @@
+<Grid>
+  <Row>
+    <Col sm={6} md={6} lg={6} xsOnlyGutterBottom smCollapseRight>
+      <Well noMargin>Col(lg:6)</Well>
+    </Col>
+    <Col sm={6} md={6} lg={6}>
+      <Well noMargin>Col(lg:6)</Well>
+    </Col>
+  </Row>
+</Grid>
+<Grid gutterTop>
+  <Row>
+    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>
+      <Well noMargin>Col(lg:4)</Well>
+    </Col>
+    <Col sm={4} md={4} lg={4} xsOnlyGutterBottom smCollapseRight>
+      <Well noMargin>Col(lg:4)</Well>
+    </Col>
+    <Col sm={4} md={4} lg={4}>
+      <Well noMargin>Col(lg:4)</Well>
+    </Col>
+  </Row>
+</Grid>
+<Grid gutterTop>
+  <Row>
+    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>
+      <Well noMargin>Col(lg:3)</Well>
+    </Col>
+    <Col sm={3} md={3} lg={3} xsOnlyGutterBottom smCollapseRight>
+      <Well noMargin>Col(lg:3)</Well>
+    </Col>
+    <Col sm={6} md={6} lg={6}>
+      <Well noMargin>Col(lg:6)</Well>
+    </Col>
+  </Row>
+</Grid>
+<Grid gutterTop gutterBottom>
+  <Row>
+    <Col md={2} lg={2} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>
+      <Well noMargin>Col(lg:2)</Well>
+    </Col>
+    <Col md={4} lg={4} xsOnlyGutterBottom smOnlyGutterBottom mdCollapseRight>
+      <Well noMargin>Col(lg:4)</Well>
+    </Col>
+    <Col md={6} lg={6}>
+      <Well noMargin>Col(lg:6)</Well>
+    </Col>
+  </Row>
+</Grid>

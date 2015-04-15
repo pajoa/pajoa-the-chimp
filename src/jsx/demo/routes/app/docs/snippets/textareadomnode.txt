@@ -1,0 +1,11 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    var node = this.refs.textareaelement.getInputDOMNode();
+    console.log(node.getAttribute('rows') === 3);
+  },
+  render: function() {
+    return (
+      <Textarea ref='textareaelement' rows='3' />
+    );
+  }  
+});

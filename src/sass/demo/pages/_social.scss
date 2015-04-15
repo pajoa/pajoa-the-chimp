@@ -1,0 +1,55 @@
+#body.social {
+  background: #fff !important;
+
+  .rubix-panel-container {
+    border: 2px solid #EAEDF1;
+  }
+
+  .rubix-panel-controls {
+    border: 2px solid #EAEDF1;
+    border-bottom: none;
+    >button {
+      top: -5px;
+    }
+  }
+}
+html.social body .sidebar-nav > li.active:after {
+  display: none !important;
+}
+.social-desc {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 300px;
+  position: absolute;
+
+  >div {
+    margin-left: 10%;
+    margin-top: 100px;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
+  }
+}
+.social-avatar {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  position: absolute;
+  background: linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+  @media (max-width: 650px) {
+    left: 0;
+    width: auto;
+  }
+}
+.social-like-count {
+  cursor: pointer;
+  display: inline-block;
+
+  >span {
+    margin-left: $line-height-computed;
+  }
+}

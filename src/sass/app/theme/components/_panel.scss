@@ -1,0 +1,18 @@
+@mixin theme-panel($list) {
+  .rubix-panel-container {
+    background: get($list, components, panel, bg);
+
+    &.bordered {
+      border: 1px solid rgba(get($list, components, panel, border), 0.75);
+      box-shadow: 0px 2px 0px 0px rgba(get($list, components, panel, border), 0.5);
+    }
+
+    &.noOverflow {
+      overflow: visible;
+    }
+  }
+
+  .rubix-panel-controls {
+    color: get($list, body, color);
+  }
+}

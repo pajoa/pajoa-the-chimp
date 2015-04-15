@@ -1,0 +1,15 @@
+@mixin align-table($value) {
+  .table-#{$value}-align {
+    td, th {
+      vertical-align: $value !important;
+    }
+  }
+}
+
+@include align-table(top);
+@include align-table(middle);
+@include align-table(bottom);
+
+.table-collapsed {
+  margin: 0;
+}

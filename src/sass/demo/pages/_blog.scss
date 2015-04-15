@@ -1,0 +1,26 @@
+.blog-sidebar-heading {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: $line-height-computed / 2;
+}
+
+.blog-post-header {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(/imgs/gallery/tumblr_na0kb0BLqR1st5lhmo1_1280.jpg);
+
+  &:after {
+    content: ' ';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+  }
+}
+
+.blog-post-btn-holder > button {
+  border-color: transparent !important;
+}

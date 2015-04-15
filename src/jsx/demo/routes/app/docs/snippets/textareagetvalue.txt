@@ -1,0 +1,11 @@
+var demo = React.createClass({
+  componentDidMount: function() {
+    var value = this.refs.textareaelement.getValue();
+    console.log(value === 'Default Value');
+  },
+  render: function() {
+    return (
+      <Textarea ref='textareaelement' rows='3' defaultValue='Default Value' />
+    );
+  }  
+});

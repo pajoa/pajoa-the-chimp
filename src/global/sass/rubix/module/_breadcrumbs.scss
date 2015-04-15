@@ -1,0 +1,10 @@
+.breadcrumb {
+  background: #fff;
+
+  > li {
+    + li:before {
+      padding: 0 5px;
+      padding-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+html.boxed {
+  #homepage-container {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+}
+
+#demo-btn {
+  right: 0;
+  z-index: 3;
+  height: auto;
+  opacity: 0.6;
+  position: fixed;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  padding-top: 7px !important;
+  padding-left: 25px !important;
+  padding-bottom: 8px !important;
+  border-bottom-left-radius: 15px;
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.homepage-hero {
+  font-weight: 300;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  &:nth-child(odd) {
+    background: white;
+  }
+
+  &:nth-child(even) {
+    background: #EAEDF1;
+  }
+}
+
+.homepage-hero-header, .homepage-hero-header2 {
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.homepage-hero-header {
+  color: #333333;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+.homepage-hero-header2 {
+  color: #89949B;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.homepage-hero p {
+  color: #89949B;
+  font-size: 20px;
+  line-height: 28px;  
+  letter-spacing: 0.8px;
+}
+
+.subtle-bottom-shadow {
+  z-index: 1;
+  position: relative;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+}

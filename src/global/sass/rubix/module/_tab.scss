@@ -1,0 +1,24 @@
+.nav > li > a {
+  border: none;
+  padding: 4px $line-height-computed;
+}
+
+.nav-tabs > li:first-child, .nav-pills > li:first-child {
+  margin-left: $line-height-computed;
+}
+
+.nav-stacked > li:first-child, .nav-justified > li:first-child {
+  margin-left: 0;
+}
+
+td > .tab-content > .tab-pane {
+  padding: 0;
+}
+
+.tablist > tbody > tr > td {
+  padding: 0;
+
+  &:last-child {
+    padding-left: $line-height-computed;
+  }
+}

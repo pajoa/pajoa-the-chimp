@@ -1,0 +1,29 @@
+@mixin generatePanelGrid($size) {
+  @for $i from 1 through 12 {
+    .panel-#{$size}-#{$i} {
+      width: ((100 / 12) * $i) * 1%;
+    }
+  }
+}
+
+@include generatePanelGrid(xs);
+
+@media (min-width: $screen-sm-min) {
+  @include generatePanelGrid(sm);
+}
+
+@media (min-width: $screen-md-min) {
+  @include generatePanelGrid(md);
+}
+
+@media (min-width: $screen-lg-min) {
+  @include generatePanelGrid(lg);
+}
+
+.panel-collapse-bottom {
+  margin-bottom: 0 !important;
+}
+
+.panel-gutter-bottom {
+  margin-bottom: 2 * $line-height-computed !important;
+}

@@ -1,0 +1,27 @@
+var demo = React.createClass({
+  handleSelection: function(itemprops) {
+    // access any property attached to MenuItem child component.
+    // ex: itemprops.keyaction === 'another-action' if MenuItem
+    // with "Another action" is clicked.
+    var value = itemprops.children;
+    alert(value);
+    if(itemprops.keyaction === 'another-action')
+      alert('You clicked another-action');
+  },
+  render: function() {
+    return (
+      <Dropdown>
+        <DropdownButton bsStyle='red' container={this} menu='menu2'>
+          <span>Dropdown </span><Caret/>
+        </DropdownButton>
+        <Menu ref='menu2' bsStyle='red' onItemSelect={this.handleSelection} alignRight>
+          <MenuItem active href='#'>Action</MenuItem>
+          <MenuItem keyaction='another-action' href='#'>Another action</MenuItem>
+          <MenuItem href='#'>Something else here</MenuItem>
+          <MenuItem divider/>
+          <MenuItem href='#'>Separated link</MenuItem>
+        </Menu>
+      </Dropdown>
+    );
+  }
+});

@@ -1,0 +1,242 @@
+@import "../../global/sass/rubix/overrides/variables";
+@import "../../global/sass/vendor/sass-list-maps/sass-list-maps";
+@import "theme/theme-mixin";
+
+@mixin theme-maker($name, $list) {
+  /* GLOBAL SETTINGS */
+  @debug get($list, theme, bg);
+  @include theme-mixin($name, (
+    theme (
+      color white,
+      bg get($list, theme, bg)
+    ),
+    global (
+      bg $primary-color,
+      select rgba(73, 231, 161, 0.33)
+    ),
+    body (
+      bg #E9F0F5,
+      color $primary-color
+    ),
+    header (
+      bg #273135,
+      color $primary-color,
+      hover-color #ffffff,
+
+      logout (
+        bg get($list, logout, bg),
+        color #ffffff,
+        hover-bg get($list, logout, hover-bg)
+      ),
+
+      sidebar-btn (
+        bg #2AA38B,
+        color #ffffff,
+        hover-bg #2EB398
+      ),
+
+      divider (
+        color rgba(59, 70, 72, 0.45)
+      )
+    ),
+    sidebar (
+      bg #273135,
+      width 250px,
+      avatar (
+        bg get($list, sidebar, avatar, bg)
+      ),
+      controls (
+        bg get($list, sidebar, controls, bg),
+        btn (
+          color get($list, sidebar, controls, btn, color),
+          border get($list, sidebar, controls, btn, border),
+          active-bg get($list, sidebar, controls, btn, active-bg),
+          active-color get($list, sidebar, controls, btn, active-color)
+        )
+      )
+    ),
+    components (
+      link (
+        color #2EB398
+      ),
+      dropdown (
+        border get($list, theme, bg),
+        active (
+          bg get($list, theme, bg),
+          color #ffffff
+        ),
+        hover (
+          bg rgba(get($list, theme, bg), 0.6)
+        ),
+        header (
+          bg #F9FAFB,
+          color #98A0A3,
+          border #F2F2F2
+        )
+      ),
+      panel (
+        bg #ffffff,
+        border #CEDBEC
+      ),
+      button (
+        color $primary-color
+      ),
+      form (
+        border #ddd,
+        active (
+          border #2EB398
+        )
+      )
+    ),
+    footer (
+      bg $primary-color,
+      color #CCD6DF
+    )
+  ));
+}
+
+/* ADD/REMOVE/CHANGE THEMES HERE */
+
+@include theme-maker("default", (
+  theme (
+    bg #E76049
+  ),
+  logout (
+    bg #E76049,
+    hover-bg #F4654D
+  ),
+  sidebar (
+    avatar (
+      bg #FA7252
+    ),
+    controls (
+      bg #DE5939,
+      btn (
+        color #993F31,
+        border darken(#D25436, 2%),
+        active-bg lighten(#A74635, 5%),
+        active-color #FA7252
+      )
+    )
+  )
+));
+
+@include theme-maker("green", (
+  theme (
+    bg #2EB398
+  ),
+  logout (
+    bg #2EB398,
+    hover-bg #31C0A3
+  ),
+  sidebar (
+    avatar (
+      bg #56B596
+    ),
+    controls (
+      bg #279982,
+      btn (
+        color #1B6858,
+        border darken(#279982, 2%),
+        active-bg #1E7362,
+        active-color #56B596
+      )
+    )
+  )
+));
+
+@include theme-maker("blue", (
+  theme (
+    bg #79B0EC
+  ),
+  logout (
+    bg #6FA2D9,
+    hover-bg #80BAF9
+  ),
+  sidebar (
+    avatar (
+      bg #80BAF9
+    ),
+    controls (
+      bg #6FA2D9,
+      btn (
+        color lighten(#38516C, 15%),
+        border #6C9DD2,
+        active-bg #80BAF9,
+        active-color darken(#6FA2D9, 15%)
+      )
+    )
+  )
+));
+
+@include theme-maker("purple", (
+  theme (
+    bg #B4A1DD
+  ),
+  logout (
+    bg #A593CA,
+    hover-bg #BEAAEA
+  ),
+  sidebar (
+    avatar (
+      bg #BEAAEA
+    ),
+    controls (
+      bg #A593CA,
+      btn (
+        color lighten(#4C445D, 15%),
+        border #9F8EC3,
+        active-bg #BEAAEA,
+        active-color #4C445D
+      )
+    )
+  )
+));
+
+@include theme-maker("brown", (
+  theme (
+    bg #A8553A
+  ),
+  logout (
+    bg #954B33,
+    hover-bg #B55B3E
+  ),
+  sidebar (
+    avatar (
+      bg #B55B3E
+    ),
+    controls (
+      bg #954B33,
+      btn (
+        color #F47C54,
+        border #8E4831,
+        active-bg #B55B3E,
+        active-color darken(#954B33, 10%)
+      )
+    )
+  )
+));
+
+@include theme-maker("cyan", (
+  theme (
+    bg #68A0A5
+  ),
+  logout (
+    bg #5C8E92,
+    hover-bg #70ACB2
+  ),
+  sidebar (
+    avatar (
+      bg #70ACB2
+    ),
+    controls (
+      bg #5C8E92,
+      btn (
+        color lighten(#70ACB2, 10%),
+        border #58878B,
+        active-bg #70ACB2,
+        active-color darken(#5C8E92, 10%)
+      )
+    )
+  )
+));

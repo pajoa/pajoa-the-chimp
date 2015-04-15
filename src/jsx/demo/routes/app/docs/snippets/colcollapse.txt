@@ -1,0 +1,8 @@
+<Grid>
+  <Row>
+    <Col xs={6} collapseRight>
+    </Col>
+    <Col xs={6} collapseLeft>
+    </Col>
+  </Row>
+</Grid>

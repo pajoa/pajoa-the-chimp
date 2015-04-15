@@ -1,0 +1,46 @@
+.dashboard {
+  .panel-switches td {
+    vertical-align: middle;
+    padding: $line-height-computed / 2;
+  }
+
+  .panel-switches td .rubix-icon {
+    width: 18px;
+    position: relative;
+    display: inline-block;
+    margin-left: $line-height-computed / 2;
+  }
+
+  .panel-switches-text {
+    margin-left: $line-height-computed / 2;
+  }
+
+  .panel-switches td.panel-switches-holder {
+    text-align: right;
+    padding-right: $line-height-computed;
+  }
+
+  .map-tcontainer {
+    @media (min-width: $screen-sm-min) {
+      margin-left: $line-height-computed;
+    }
+  }
+
+  .mapt tr:first-child > td {
+    border-top: none;
+  }
+
+  .mapt td {
+    vertical-align: middle;
+
+    .rubix-icon {
+      line-height: 0;
+    }
+  }
+
+  .map-dest .rubix-icon {
+    top: -2px;
+    font-size: 20px;
+    position: relative;
+  }
+}

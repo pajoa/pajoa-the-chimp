@@ -1,0 +1,51 @@
+.navbar {
+  li > a {
+    padding: $line-height-computed;
+
+    &:hover, &:focus, &:active {
+      border: none;
+    }
+  }
+}
+
+.navbar-form {
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+.navbar-toggle .icon-bar {
+  top: -3px;
+  position: relative;
+}
+
+.navbar-default .navbar-toggle {
+  background: #eee;
+  padding: 10px 15px;
+
+  &:focus {
+    outline: none;
+    background: #ddd;
+  }
+
+  &.active {
+    color: #fff;
+    outline: none;
+    background: #aaa;
+
+    >.icon-bar {
+      background: #fff;
+    }
+  }
+}
+
+.navbar-inverse {
+  background: #222 !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  background: #090909 !important;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+  border: none;
+}

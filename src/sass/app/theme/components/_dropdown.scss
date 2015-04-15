@@ -1,0 +1,52 @@
+@mixin theme-dropdown($list) {
+  .tt-suggestion.tt-is-under-cursor {
+    color: get($list, components, dropdown, active, color);
+    background: get($list, components, dropdown, active, bg);
+  }
+  .dropdown-header {
+    font-family: $headings-font-family;
+    color: get($list, components, dropdown, header, color);
+    background: get($list, components, dropdown, header, bg);
+    border-bottom: 1px solid get($list, components, dropdown, header, border);
+  }
+  .dropdown-menu, .tt-dropdown-menu {
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    min-width: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    &.double-width {
+      min-width: 325px;
+    }
+  }
+  .dropdown-menu > li > a {
+    outline: none;
+    color: get($list, body, color);
+
+    &:hover {
+      color: get($list, body, color);
+      background: get($list, components, dropdown, hover, bg);
+    }
+  }
+  .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: get($list, components, dropdown, active, color);
+    background: get($list, components, dropdown, active, bg);
+  }
+  .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+    background: none;
+    color: rgba(get($list, body, color), 0.5);
+  }
+  .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+    border: none;
+    margin-top: 0px;
+    min-width: 200px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+    &.double-width {
+      min-width: 325px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<Grid>
+  <Row>
+    <Col xs={12}>
+      <Grid fixed gutter>
+        <Row>
+          <Col xs={6} sm={3} md={4} lg={2}></Col>
+        </Row>
+      </Grid>
+    </Col>
+  </Row>
+</Grid>
