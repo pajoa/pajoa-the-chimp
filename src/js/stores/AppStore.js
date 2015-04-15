@@ -10,9 +10,10 @@ var CHANGE_EVENT = "change";
 var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
-
+var _user = null;
+var data = [];  
+/*
 var data = [{
-    
     title: "my 1st note",
     text: "i love making notes",
     username: "neats",
@@ -36,12 +37,17 @@ var data = [{
 		id: "123456"
 } 
 ];
+*/
+
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
-        console.log('getrouteTriggered: _route is:', _route);
         return _route;
+    },
+
+    getUser: function(){
+        return _user;
     },
     
     getData: function() {
@@ -49,12 +55,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
     },
     
     emitChange: function() {
-        console.log("emitting change");
         this.emit(CHANGE_EVENT);
     },
 
     addChangeListener: function(callback){
-        console.log('addChangeListener triggered');
         this.on(CHANGE_EVENT, callback)
     },
 
@@ -75,7 +79,6 @@ AppDispatcher.register(function(action){
             
         case ActionTypes.NAVIGATE_TO:
             _route = action.route;
-            console.log('_route is: ', _route);
             AppStore.emitChange();
             break;
         
@@ -84,16 +87,16 @@ AppDispatcher.register(function(action){
             _route = action.route;
             AppStore.emitChange();
             break;
+        case ActionTypes.RECEIVE_USER:
+            console.log('user.notes in AppStore: ', action.user.notes);
+            data = action.user.notes;
+            _user = action.user.email;
+            console.log(_user);
+            AppStore.emitChange();
+            break;
         
         case ActionTypes.EDIT_NOTE:
-            var i;
-            var dataLength = data.length;
-                for (i=0; i < dataLength; i++) {
-                    if (data[i].id === _activeNoteId) {
-                        data[i].text = action.text;
-                    }
-                }
-            conole.log("data should be changed, data ", data);
+            data = action.data;
             AppStore.emitChange();
             break;
             

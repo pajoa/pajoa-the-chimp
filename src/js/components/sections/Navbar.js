@@ -2,7 +2,6 @@ var React = require('react');
 var ActionCreators = require("../../actions/ActionCreators");
 var Navbar = React.createClass({
 
-
   handleClick: function(e) {
     e.preventDefault();
     view = e.target.name;
@@ -11,7 +10,8 @@ var Navbar = React.createClass({
   },
 
   render: function() {
-
+    var user = this.props.user;
+    console.log('user is', user);
   return (
     <div className = 'container'>
     <div className = 'row'>
@@ -26,9 +26,11 @@ var Navbar = React.createClass({
                 <li><a name="Calendar" href="" onClick={this.handleClick}>Calendar</a></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">  
+                <li><a >{this.props.user}</a></li>
                 <li><a name="Points" href="" onClick={this.handleClick}>Points</a></li>
                 <li><a name="Notifications" href="" onClick={this.handleClick}>Notifications</a></li>
-                <li><a name="Logout" href="" onClick={this.handleClick}>Logout</a></li>
+                <li><a href="/google">Login</a></li>                
+                <li><a href="/logout">Logout</a></li>
               </ul>
             </div>
           </div>
