@@ -9,7 +9,7 @@ var SingleNote = React.createClass({
         var edit = {
             text: text
         };
-        ActionCreators.navigateToANote(edit);
+        ActionCreators.editNote(edit);
     },
     
     render: function() {

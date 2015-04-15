@@ -96,7 +96,7 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.EDIT_NOTE:
-            data = action.value;
+            data = action.text;
             AppStore.emitChange();
             break;
             
