@@ -1,5 +1,7 @@
 var nodemailer = require('nodemailer');
 
+var Sendmail = function(){
+
 // create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -32,3 +34,7 @@ transporter.sendMail(mailOptions, function(error, info){
         console.log('Message sent: ' + info.response);
     }
 });
+
+};
+
+module.exports = Sendmail;
