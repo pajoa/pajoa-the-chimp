@@ -2,7 +2,7 @@ var Path 	= require('path');
 var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
-
+var moment  = require('moment');
 var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 
 function user(name,email,notes){
@@ -210,10 +210,12 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             		console.log('is authenticated');
             	    var g = request.auth.credentials;
             	   	var new_id = Math.floor(Math.random()*10000);
+            		var today = moment().format("dddd, MMMM Do YYYY");
             		var new_note = {
             			title: "",
             			text: "",
-            			id: new_id
+            			id: new_id,
+            			date: today
             		};
 
             	    db.user.findAndModify({
