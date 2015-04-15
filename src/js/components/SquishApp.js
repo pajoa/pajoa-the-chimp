@@ -63,8 +63,8 @@ var SquishApp = React.createClass({
         } else if (this.state.route ==="Calendar"){
             return (
                 <div className="container">
-                    <Navbar user={this.state.user}/>
                     <h1> My Squish Calendar </h1>
+                    <Navbar user={this.state.user}/>
                     <Calendar />
                 </div>
                 );
