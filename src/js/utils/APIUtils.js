@@ -24,8 +24,17 @@ module.exports = {
   				console.log(err);
   				throw err;
   			}
-  			ServerActionCreators.editNote(content);
+        console.log('AJAX done: here is res: ', res);
+
+  			ServerActionCreators.editNote(res.body.notes);
   		});
- 	}
+ 	},
+
+  createNote: function(){
+    Request.post("/createnote")
+      .end(function(err,res){
+        console.log('AJAX done: here is res: ', res);
+      });
+  }
 }
 

@@ -30,6 +30,7 @@ var SquishApp = React.createClass({
     componentDidMount: function(){
         AppStore.addChangeListener(this._onChange);
         ActionCreators.fetchUserFromDB();
+
     },
 
     componentWillUnmount: function(){
@@ -37,13 +38,10 @@ var SquishApp = React.createClass({
     },
 
     _onChange: function(){
-        console.log('onchange triggered');
         this.setState(getStateFromStore());
     },
     
 		render: function() {
-        console.log('SquishApp component');
-
         if (this.state.route === "Notes") {
             return(
                 <div className="container">

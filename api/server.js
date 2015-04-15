@@ -149,8 +149,16 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
         			var payload = request.payload;
         			var id = payload.activeNoteId;
         			var text = payload.text;
-            		db.user.update( {"notes.id": id}, { "$set": {"notes.$.text": text }});
-            		reply('was hopefully updated');
+            		db.user.findAndModify({ 
+            			query: {"notes.id": id} , 
+            			update: { "$set": {"notes.$.text": text} }
+            		},  
+            			function(err,user){
+            				reply(user);
+
+            		});
+
+            		//db.user.findAndModify( {"notes.id": id}, { "$set": {"notes.$.text": text})
        			}
  	   		}	
     	}
@@ -189,11 +197,43 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 				}
             }
     	}
+    },{
+    	method: 'POST',
+    	path: '/createnote',
+    	config: {
+    		auth: {
+	            strategy: 'session',
+                mode: 'try'
+            },
+            handler: function(request,reply){
+            	if (request.auth.isAuthenticated){
+            		console.log('is authenticated');
+            	    var g = request.auth.credentials;
+            	   	var new_id = Math.floor(Math.random()*10000);
+            		var new_note = {
+            			title: "",
+            			text: "",
+            			id: new_id
+            		};
+
+            	    db.user.findAndModify({
+						query: {"email": g.email}, 
+						update: { $push: {"notes": new_note} }, 
+					}, function(err,res){
+	            	    	console.log('res: ', res);
+	            	    	var index = res.notes.length - 1;
+	            	    	reply(res.notes[index]);
+            	    	}
+            	    );
+
+
+            	}
+            }
+    	}
     }
+	]);
 
-
-
-    ]);
+  
 
 
 

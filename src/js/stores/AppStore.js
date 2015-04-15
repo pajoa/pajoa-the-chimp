@@ -11,7 +11,8 @@ var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
-
+var data = [];  
+/*
 var data = [{
     title: "my 1st note",
     text: "i love making notes",
@@ -36,6 +37,8 @@ var data = [{
 		id: "123456"
 } 
 ];
+*/
+
 
 var AppStore = assign({}, EventEmitter.prototype, {
     
@@ -85,18 +88,15 @@ AppDispatcher.register(function(action){
             AppStore.emitChange();
             break;
         case ActionTypes.RECEIVE_USER:
-
+            console.log('user.notes in AppStore: ', action.user.notes);
+            data = action.user.notes;
             _user = action.user.email;
             console.log(_user);
+            AppStore.emitChange();
+            break;
         
         case ActionTypes.EDIT_NOTE:
-            var i;
-            var dataLength = data.length;
-                for (i=0; i < dataLength; i++) {
-                    if (data[i].id === action.content.activeNoteId) {
-                        data[i].text = action.content.text;
-                    }
-                }
+            data = action.data;
             AppStore.emitChange();
             break;
             

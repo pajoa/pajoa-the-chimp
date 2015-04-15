@@ -13,10 +13,10 @@ module.exports = {
 		});
 	},
 
-	editNote: function(content){
+	editNote: function(data){
 		AppDispatcher.dispatch({
             type: ActionTypes.EDIT_NOTE,
-            content: content
+            data: data
         });
 	}
 }

@@ -29,6 +29,10 @@ module.exports = {
         console.log('APIUtils.editnote to be triggered');
         APIUtils.editNote(content);
         
+    },
+
+    createNote: function(){
+        APIUtils.createNote();
     }
     
 };

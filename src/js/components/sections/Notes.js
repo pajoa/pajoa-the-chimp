@@ -10,6 +10,10 @@ var Notes = React.createClass({
             };
         ActionCreators.navigateToANote(info);
     },
+
+    createNote: function(){
+        ActionCreators.createNote();
+    },
 		
     render: function() {
 //        console.log("notes render func");
@@ -24,7 +28,10 @@ var Notes = React.createClass({
         });
         
         return (
+            <div>
+            <a onClick={this.createNote}>Create note</a>
             <div>{notes}</div>
+            </div>
         );
     }
 });
