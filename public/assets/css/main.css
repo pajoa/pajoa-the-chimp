@@ -50,10 +50,10 @@ body {
 .noteTextarea {
     display: inline-block;
     border: 1px solid #dadce1;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 8px;
     max-width: 550px;
-    margin: 8px;
+    margin: 10px;
 }
 
 .glyphicon-pencil {
@@ -100,4 +100,21 @@ body {
     text-decoration: none;
     font-weight: 200;
     margin: 10px;
+}
+
+.glyphicon-plus {
+    border: none;
+    background-color: transparent;
+    color: grey;
+    display: block;
+    font-size: 35px;
+    margin: auto;
+    border: 1px dashed lightgrey;
+    padding: 10px;
+}
+
+.newNotePlus {
+    width: 300px;
+    height: 300px;
+     
 }

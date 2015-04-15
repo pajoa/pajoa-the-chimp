@@ -11,38 +11,7 @@ var _route = "Notes";
 var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
-<<<<<<< HEAD
-var data = [];
-=======
 var data = []; 
-/*
-var data = [{
-    title: "my 1st note",
-    text: "i love making notes",
-    username: "neats",
-		id: "123"
-},{ 
-    title: "my 2nd note",
-    text: "i love making gssgnotes",
-    username: "neats",
-		id: "1234"
-                
-}, {
-    title: "my 3rd note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "12345"
-}, 
-{
-    title: "my 4th note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "123456"
-} 
-];
-*/
-
->>>>>>> master
 
 var AppStore = assign({}, EventEmitter.prototype, {
     

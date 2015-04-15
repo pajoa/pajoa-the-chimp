@@ -31,8 +31,8 @@ var Notes = React.createClass({
         });
         
         return (
-            <div>
-            <a onClick={this.createNote}>Create note</a>
+            <div className="row">
+            <button className="glyphicon glyphicon-plus"><a className="newNotePlus" onClick={this.createNote}></a></button>
             <div>{notes}</div>
             </div>
         );
