@@ -33,6 +33,6 @@ module.exports = {
 
     createNote: function(){
         APIUtils.createNote();
-    }
+    },
     
 };

@@ -64,6 +64,7 @@ var SquishApp = React.createClass({
             return (
                 <div className="container">
                     <Navbar user={this.state.user}/>
+                    <h1> My Squish Calendar </h1>
                     <Calendar />
                 </div>
                 );
