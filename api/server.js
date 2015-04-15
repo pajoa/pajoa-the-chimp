@@ -16,7 +16,8 @@ var index = Path.resolve(__dirname + '/../public/index.html');
 
 
 server.connection({
-	port: process.env.PORT || 8000
+	port: process.env.PORT || 8000,
+    host: "localhost" //added this because otherwise it will revert to http://*mymacusername*:8000 which google+ rejects 
 });
 
 server.register([require('bell'), require('hapi-auth-cookie')], function(err){
