@@ -8,7 +8,7 @@ var database = {
 	username: "per",
 	note: "mynote",
 	date: date
-}
+};
 
 var databaseformat = moment(database.date).format("dddd, MMMM Do YYYY");
 
@@ -18,7 +18,7 @@ var add30 = moment(database.date).add(30, "days").format("dddd, MMMM Do YYYY");
 console.log("database date", databaseformat);
 console.log("one day after", add1);
 console.log("seven days after", add7);
-console.log("thirty days", 3tadd30);
+console.log("thirty days", add30);
 
 if(today == add1) {
 	console.log("first day");

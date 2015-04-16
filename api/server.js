@@ -103,7 +103,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             },
             handler: function(request,reply){
             	if (request.auth.isAuthenticated){
-			        console.log('is authenticated, so logging out!') 
+			        console.log('is authenticated, so logging out!');
 			        request.auth.session.clear();
 			        reply.redirect('/');
 			    } else {
@@ -181,7 +181,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 			       		console.log(err);	
 				    }
             		if (user){ 
-		        		console.log('user found in db')
+		        		console.log('user found in db');
 		        		console.log('user is: ', user);
 						reply(user);
             		} else if (!user){

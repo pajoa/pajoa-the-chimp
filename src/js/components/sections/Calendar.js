@@ -58,7 +58,7 @@ var Calendar = React.createClass({
 
     var i, day;
     for (i = 0; i < diff; i++) {
-      day = moment([this.state.date.year(), this.state.date.month(), i-diff+1])
+      day = moment([this.state.date.year(), this.state.date.month(), i-diff+1]);
       days.push({day: day, classes: 'prev-month'});
     }
 

@@ -48,33 +48,8 @@ var SquishApp = React.createClass({
     _onChange: function(){
         this.setState(getStateFromStore());
     },
-    
-	render: function() {
-        if (this.state.route === "Notes") {
-            return(
-                <div className="container">
-				    <Navbar user={this.state.user} />
-				    <Notes data={this.state.data}/>
-			     </div>
-            );
-        }
-        
-        else if (this.state.route ==="SingleNote"){
-            return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
-                 </div>
-                );
-            
-        } else if (this.state.route ==="Calendar"){
-            return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <h1> My Squish Calendar </h1>
-                    <Calendar />
 
-    render: function() {
+    render: function(){
         var loginButton;
 			if (this.state.user) {
 				loginButton = <li><a href="/logout">Log out</a></li>;

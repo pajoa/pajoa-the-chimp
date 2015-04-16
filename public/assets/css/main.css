@@ -24,6 +24,7 @@ body {
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
 /*	text-decoration: underline;*/
 	color: #45A8F7 ;
+    cursor: pointer;
 
 }
 
@@ -182,12 +183,13 @@ body {
 }
 
 .clndr-grid .days div {
+    text-align: center;
     float: left;
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #eee;
-    border: 1.5px solid #fff;
+    background: #fff;
+    border: 1.5px solid #eee;
 }
 
 .clndr-grid .day-headers div {
@@ -207,10 +209,23 @@ body {
 }
 
 
+/*deadline*/
+
+.deadline {
+    background: #f8d6b4;
+    text-align: center;
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    border: 1.5px solid #fff;
+}
+
+
 /*--------footer---------*/
 
 .footer {
-    height:50px;
+    height:40px;
     width: 100%;
 /*  background-color: #89949B;*/
     background-color: #273135;
@@ -223,6 +238,6 @@ body {
     display: block;
     margin: auto;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
     
 }
