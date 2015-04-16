@@ -2,111 +2,127 @@ var CronJob = require('cron').CronJob;
 var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 var nodemailer = require('nodemailer');
 
+// db.user.find(function(error, docs){
+//   for(i=0;i<docs.length;i++){
+//     var a = docs[i].notes;
+//     for(j=0;j<a.length;j++){
+//       console.log(a[j].deadlines);
+//     }
+//   }
+// })
 var moment  = require('moment');
 var today = moment().format("dddd, MMMM Do YYYY");
-var date = moment("15-04-2015", "DD-MM-YYYY");
-var oneday = moment(date).add(1, "days").format("dddd, MMMM Do YYYY");
-var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
-var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
-
-//not deadline
-var datee = moment("16-04-2015", "DD-MM-YYYY");
-var onedayy = moment(datee).add(1, "days").format("dddd, MMMM Do YYYY");
-
-var mock = [{
-        title: "jason",
-        text: "mynotes not deadline",
-        id: "1234",
-        date: today,
-        deadlines: [onedayy, sevenday, thirtyday]
-},
-{
-        title: "jason",
-        text: "mynotes with deadline",
-        id: "1235",
-        date: today,
-        deadlines: [oneday, sevenday, thirtyday]
-},
-{
-        title: "jason",
-        text: "mynotes with another deadline",
-        id: "1235",
-        date: today,
-        deadlines: [oneday, sevenday, thirtyday]
-}]
-
-var array = [];
-for(j=0; j<mock.length;j++){
-  var d = mock[j].deadlines
-  for(i=0; i<d.length; i++){
-    if(today == d[i]) {
-      array.push({
-        title: mock[j].title,
-        text: mock[j].text,
-        id: mock[j].id,
-        date: mock[j].date
-      })
-      console.log("here", array);
+db.user.find({deadlines:today}).forEach(function(err, doc) {
+  console.log(doc);
+    if (!doc) {
+        // we visited all docs in the collection
+        return;
     }
-  }
-}
-
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'squishreminder@gmail.com',
-        pass: 'pajoalovesn0de'
-    }
+    // doc is a document in the collection
 });
+// var date = moment("15-04-2015", "DD-MM-YYYY");
+// var oneday = moment(date).add(1, "days").format("dddd, MMMM Do YYYY");
+// var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
+// var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
 
-var user = "JSON";
-var link = "http://localhost:8080/"
-var note = "mynote"
+// //not deadline
+// var datee = moment("16-04-2015", "DD-MM-YYYY");
+// var onedayy = moment(datee).add(1, "days").format("dddd, MMMM Do YYYY");
 
-if(array.length == 1) {
+// var mock = [{
+//         title: "jason",
+//         text: "mynotes not deadline",
+//         id: "1234",
+//         date: today,
+//         deadlines: [onedayy, sevenday, thirtyday]
+// },
+// {
+//         title: "jason",
+//         text: "mynotes with deadline",
+//         id: "1235",
+//         date: today,
+//         deadlines: [oneday, sevenday, thirtyday]
+// },
+// {
+//         title: "jason",
+//         text: "mynotes with another deadline",
+//         id: "1235",
+//         date: today,
+//         deadlines: [oneday, sevenday, thirtyday]
+// }]
 
-  var mailOptions = {
-    from: 'Squish Reminder <squishreminder@gmail.com>',
-    to: 'jason.c.luu@hotmail.co.uk',
-    subject: 'Revise today! ✔',
-    text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
-    html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
-  };
+// var array = [];
+// for(j=0; j<mock.length;j++){
+//   var d = mock[j].deadlines
+//   for(i=0; i<d.length; i++){
+//     if(today == d[i]) {
+//       array.push({
+//         title: mock[j].title,
+//         text: mock[j].text,
+//         id: mock[j].id,
+//         date: mock[j].date
+//       })
+//     }
+//   }
+// }
+// console.log("here", array);
 
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-  });
-}
-else {
-  var mailOptions = {
-      from: 'Squish Reminder <squishreminder@gmail.com>',
-      to: 'jason.c.luu@hotmail.co.uk',
-      subject: 'Revise today! ✔',
-      text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
-      html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
-  };
+// var transporter = nodemailer.createTransport({
+//     service: 'Gmail',
+//     auth: {
+//         user: 'squishreminder@gmail.com',
+//         pass: 'pajoalovesn0de'
+//     }
+// });
 
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-  });
-}
+// var user = "JSON";
+// var link = "http://localhost:8080/"
+// var note = "mynote"
 
-var job = new CronJob('* * * * *', function() {
-  console.log("check every minute");
+// if(array.length == 1) {
 
-  }, function () {
-    //runs when it's finished?
-  },
-  true
-);
+//   var mailOptions = {
+//     from: 'Squish Reminder <squishreminder@gmail.com>',
+//     to: 'jason.c.luu@hotmail.co.uk',
+//     subject: 'Revise today! ✔',
+//     text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
+//     html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
+//   };
+
+//   transporter.sendMail(mailOptions, function(error, info){
+//     if(error){
+//         console.log(error);
+//     }else{
+//         console.log('Message sent: ' + info.response);
+//     }
+//   });
+// }
+// else {
+//   var mailOptions = {
+//       from: 'Squish Reminder <squishreminder@gmail.com>',
+//       to: 'jason.c.luu@hotmail.co.uk',
+//       subject: 'Revise today! ✔',
+//       text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
+//       html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
+//   };
+
+//   transporter.sendMail(mailOptions, function(error, info){
+//     if(error){
+//         console.log(error);
+//     }else{
+//         console.log('Message sent: ' + info.response);
+//     }
+//   });
+// }
+
+// var job = new CronJob('* * * * *', function() {
+//   console.log("check every minute");
+
+//   }, function () {
+//     //runs when it's finished?
+//   },
+//   true
+// );
 
 //* * * * *
 //minute, hour, dayofmonth, month, dayofweek
