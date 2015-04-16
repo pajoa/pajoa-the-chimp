@@ -16,10 +16,19 @@ var Notes = React.createClass({
     },
 		
     render: function() {
+//				var arraysOfThree = [];
+//				var notesArray = this.props.data;
+//				var i = 0;
+//				for (j=notesArray.length; i < j; i+=3) {
+//						tempArray = notesArray.slice(i, i+3);
+//						arraysOfThree.push(tempArray);
+//				}
+				
         console.log('data in notes: ',this.props.data);
 //        console.log("notes render func");
         var self = this;
-        var notes = this.props.data.map(function(note){
+				if (this.props.data.length === 2 ) {
+        	var notes = this.props.data.map(function(note){
             return (
                 <div key={note.text} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
                     <div className="notesCard">
@@ -32,11 +41,18 @@ var Notes = React.createClass({
         
         return (
             <div className="row">
-            <button className="glyphicon glyphicon-plus"><a className="newNotePlus" onClick={this.createNote}></a></button>
+            <button onClick={this.createNote} className="glyphicon glyphicon-plus"></button>
             <div>{notes}</div>
             </div>
         );
-    }
+		} else {
+				return (
+						<div className="row">
+            	<button onClick={this.createNote} className="glyphicon glyphicon-plus"></button>
+						</div>
+				);
+			}
+		}
 });
 
 module.exports = Notes;
