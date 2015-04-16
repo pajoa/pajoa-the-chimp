@@ -48,7 +48,7 @@ var SquishApp = React.createClass({
     _onChange: function(){
         this.setState(getStateFromStore());
     },
-    
+
     render: function(){
         var loginButton;
 			if (this.state.user) {
