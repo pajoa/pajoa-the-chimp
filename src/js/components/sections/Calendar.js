@@ -98,6 +98,7 @@ var Calendar = React.createClass({
   },
 
   render: function() {
+    var deadlines = this.props.deadlines;
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />

@@ -46,7 +46,6 @@ var SquishApp = React.createClass({
             return(
                 <div className="container">
 				    <Navbar user={this.state.user} />
-
 				    <Notes data={this.state.data}/>
 			     </div>
             );
