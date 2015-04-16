@@ -3,7 +3,7 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
-var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
+var db = require('mongojs').connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish', ['user']);
 
 function user(name,email,notes,deadlines){
 	this.username      = name;
@@ -67,9 +67,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 					    } else {
                         var new_user = {
                         	email 		: g.email,
-                            points      : 100,
-                            firstname: g.name.first,
-                            lastname: g.name.last
+                            points      : 100
                         };
 				    	db.user.save(new_user,function(err,user){
                             console.log('Creating new user. New user is ', user);
@@ -154,21 +152,32 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
         			var payload = request.payload;
         			var id = payload.activeNoteId;
         			var text = payload.text;
+                    var g = request.auth.credentials;
 
                     console.log('id: ', id);
 
-                     db.user.findAndModify({
-                        query: {"notes.id": id}, 
-                        update: { "$set": {"notes.$.text": text} },
-                    }, function(err,res){
+                    db.user.update({})
+
+/*
+                   db.user.findAndModify({
+                        query  : { "notes.id": id } , 
+                        update : { $set: { "notes.$.text": text} },
+                        new: true,
+                    }, function(err,doc,last){
                             if (err){
                                 console.log(err);
                                 throw err;
                             }
-                            console.log(' note edited, here is the callback: ', res);
-                            reply(res);
+                            console.log(' note edited, here is the err in callback: ', err);
+                            console.log(' note edited, here is the doc in callback: ', doc);
+                            console.log(' note edited, here is the last in callback: ', last);
+
+                            reply('success hopefully');
                         }
                     );
+
+*/
+
 
 
 
@@ -178,8 +187,9 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
 
 
-            		//db.user.findAndModify( {"notes.id": id}, { "$set": {"notes.$.text": text})
-       			}
+//            		db.user.findAndModify( {"notes.id": id}, { "$set": {"notes.$.text": text} })
+  //     			      reply('hopefully success');
+                }
  	   		}	
     	}
     },{ 
@@ -253,7 +263,8 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
             	    db.user.findAndModify({
 						query: {"email": g.email}, 
-						update: { $push: {"notes": new_note} }
+						update: { $push: {"notes": new_note} },
+                        new: true,
 					}, function(err,res){
                             if (err){
                                 console.log(err);
