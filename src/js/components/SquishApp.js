@@ -52,6 +52,7 @@ var SquishApp = React.createClass({
     render: function(){
         var user = this.state.user;
         console.log('user: ', user);
+        console.log('data is: ', this.state.data);
         var loginButton;
 			if (this.state.user) {
 				loginButton = <li><a href="/logout">Log out</a></li>;

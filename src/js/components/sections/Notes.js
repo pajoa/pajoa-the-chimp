@@ -25,7 +25,6 @@ var Notes = React.createClass({
                     if (ret.length > maxLength) {
                         ret = ret.substr(0,maxLength-1) + "...";
                     }
-                
 
                 return (
                     <div key={note.id} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">

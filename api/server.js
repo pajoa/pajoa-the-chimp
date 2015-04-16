@@ -3,17 +3,20 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
-var db = require('mongojs').connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish', ['user']);
-
-function user(name,email,notes,deadlines){
-	this.username      = name;
-	this.email         = email;
-	this.notes 	       = notes;
-    this.deadlines     = deadlines;
-};
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish');
 
 
+var Schema = mongoose.Schema;
 
+var userSchema = new Schema({
+    email: String,
+    notes: Array,
+    points: Number
+});
+
+
+var User = mongoose.model('User', userSchema);
 
 var index = Path.resolve(__dirname + '/../public/index.html');
 
@@ -54,7 +57,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 					console.log('is authenticated');
 					console.log('request.auth.credentials: ', request.auth.credentials);
 					var g = request.auth.credentials;
-					db.user.findOne({email: g.email}, function(err,user){
+					User.findOne({email: g.email}, function(err,user){
 				    if (err){
 				        throw err;
 				        console.log(err);
@@ -65,16 +68,22 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                         console.log('This user already exists');
 				       	reply.file(index);
 					    } else {
-                        var new_user = {
-                        	email 		: g.email,
-                            points      : 100
-                        };
-				    	db.user.save(new_user,function(err,user){
-                            console.log('Creating new user. New user is ', user);
-                            request.auth.session.set(user);
-				       	reply.file(index);
+
+                        var new_user = new User();
+                        new_user.email = g.email;
+                        new_user.points = 100;
+                        new_user.notes = [];
+
+
+                        new_user.save( function(err){
+                            if (err){
+                                console.log('error when saving new member');
+                                throw error;
+                            }
+                            console.log('registration successful');
+                            reply.file(index);
                         });
-				    }
+			    }
 				});
 
 				} else {
@@ -156,14 +165,47 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
                     console.log('id: ', id);
 
-                    db.user.update({})
+                    var query = { 'notes.$.id': id  };
+                    
 
+                    /*
+                    WORKS
+                    var update = {$push: {notes: {
+                        "title": "hello5",
+                        "text": "there5",
+                        "date": "",
+                        "id": 21656
+                    }}}
+                    */
+
+                    var update ={ $set: { text: text} };
+                    var options = {new: true};
+
+                    User.findOne({email: g.email}, function(err,res){
+                        console.log('res in FINDONE: ', res);
+                        
+                        // change notes
+                        res.notes.forEach(function(note,i){
+                            if (note.id.toString() === id){
+                                note.text = text;
+                                console.log('res.notes: ');
+                                console.log(res.notes);
+                                res.markModified('notes');
+                                res.save(function(err){
+                                    if (err){
+                                    console.log(err);
+                                    }
+                                });
+                                reply(res.notes);
+                            }
+
+                        });
+
+
+
+                    })
 /*
-                   db.user.findAndModify({
-                        query  : { "notes.id": id } , 
-                        update : { $set: { "notes.$.text": text} },
-                        new: true,
-                    }, function(err,doc,last){
+                    User.findOneAndUpdate( query, update, options, function(err,doc,last){
                             if (err){
                                 console.log(err);
                                 throw err;
@@ -177,6 +219,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                     );
 
 */
+
+
+
+
 
 
 
@@ -206,13 +252,14 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             	console.log('is authenticated');
             	var g = request.auth.credentials;
             	console.log('g is: ', g);
-            	db.user.findOne({email: g.email}, function(err,user){
+
+            	User.findOne({email: g.email}, function(err,user){
 				    if (err){
 			       		throw err;
 			       		console.log(err);	
 				    }
             		if (user){ 
-		        		console.log('user found in db')
+		        		console.log('user found in db with mongoose')
 		        		console.log('user is: ', user);
 						reply(user);
             		} else if (!user){
@@ -261,21 +308,21 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                         deadlines: [day1, day7, day30]
             		};
 
-            	    db.user.findAndModify({
-						query: {"email": g.email}, 
-						update: { $push: {"notes": new_note} },
-                        new: true,
-					}, function(err,res){
-                            if (err){
-                                console.log(err);
-                                throw err;
-                            }
-                            console.log('new note created, here are notes from callback: ', res.notes);
-	            	    	console.log('res: ', res);
-	            	    	reply(res.notes);
-            	    	}
-            	    );
+                    var query = {email: g.email};
+                    var update = { $push: {"notes": new_note} };
 
+                    var options = {new: true};
+
+
+                    User.findOneAndUpdate(query,update,options, function(err,user){
+                        console.log('found and updated a user : ', user);
+                        reply(user.notes);
+                    });
+
+ 
+
+
+  
 
             	}
             }
