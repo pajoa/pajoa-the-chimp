@@ -1,7 +1,8 @@
 var moment = require('moment');
+var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 
 var today= moment().format("dddd, MMMM Do YYYY");
-var date = moment("14-04-2015", "DD-MM-YYYY");
+var date = moment("12-04-2015", "DD-MM-YYYY");
 
 //DATABASE
 var database = {
@@ -9,6 +10,8 @@ var database = {
 	note: "mynote",
 	date: date
 }
+
+console.log(db.user);
 
 var databaseformat = moment(database.date).format("dddd, MMMM Do YYYY");
 
@@ -18,7 +21,7 @@ var add30 = moment(database.date).add(30, "days").format("dddd, MMMM Do YYYY");
 console.log("database date", databaseformat);
 console.log("one day after", add1);
 console.log("seven days after", add7);
-console.log("thirty days", 3tadd30);
+console.log("thirty days", add30);
 
 if(today == add1) {
 	console.log("first day");
