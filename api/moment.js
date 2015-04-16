@@ -9,7 +9,7 @@ var database = {
 	username: "per",
 	note: "mynote",
 	date: date
-}
+};
 
 console.log(db.user);
 

@@ -12,8 +12,8 @@ var transporter = nodemailer.createTransport({
 });
 
 var user = "JSON";
-var link = "http://localhost:8000/"
-var note = "mynote"
+var link = "http://localhost:8000/";
+var note = "mynote";
 // NB! No need to recreate the transporter object. You can use
 // the same transporter object for all e-mails
 

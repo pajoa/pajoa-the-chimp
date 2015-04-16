@@ -48,7 +48,7 @@ var SquishApp = React.createClass({
     _onChange: function(){
         this.setState(getStateFromStore());
     },
-    
+
     render: function(){
         var user = this.state.user;
         console.log('user: ', user);
