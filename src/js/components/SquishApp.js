@@ -11,7 +11,7 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var ActionCreators = require('../actions/ActionCreators');
 var NewNote = require("./sections/NewNote");
-
+var Feedback = require("./sections/Feedback");
 
 
 function getStateFromStore() {
@@ -79,6 +79,7 @@ var SquishApp = React.createClass({
                                 <li><a >{user}</a></li>
                                 <li><a className="glyphicon glyphicon-tower" name="Points"></a></li>
                                 <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>
+                                <li><Link to="feedback" title="Feedback" className="Feedback">Feedback</Link></li>
                                 {loginButton}
                               </ul>
                             </div>
@@ -100,6 +101,7 @@ var routes = (
     <Route name="SquishApp" path="/" handler={SquishApp}>
         <Route name="newnote" handler={NewNote} />       
         <Route name="calendar" handler={Calendar} />
+        <Route name="feedback" handler={Feedback} />
         <Route name=":noteId" handler={SingleNote} />
 
         <DefaultRoute handler={Notes} />
