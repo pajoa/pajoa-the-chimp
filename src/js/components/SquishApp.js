@@ -51,12 +51,13 @@ var SquishApp = React.createClass({
     
     render: function(){
         var loginButton;
-			if (this.props.user) {
+			if (this.state.user) {
 				loginButton = <li><a href="/logout">Log out</a></li>;
 			} else {
 				loginButton = <li><a href="/google">Login</a></li>;
 			}
         return (
+            <div>
                 <div className = 'container'>
                     <div className = 'row'>
                       <div className='col-md-12'>
@@ -82,10 +83,11 @@ var SquishApp = React.createClass({
                       </div>
                     </div>
                   <RouteHandler data={this.state.data} />
-                    <div className="container-fluid">
-                        <Footer />
-                    </div>
                 </div>
+                <div className="container-fluid">
+                    <Footer />
+                </div>
+            </div>
             );
     }  
 });
