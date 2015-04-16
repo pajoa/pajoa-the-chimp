@@ -84,6 +84,7 @@ var Calendar = React.createClass({
     }
 
     return days;
+      console.log(days);
   },
 
   daysOfWeek: function() {

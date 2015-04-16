@@ -17,19 +17,23 @@ body {
 	color: #fff;
 }
 
+/*
+.squishLogo {
+    width: 120px;
+    height: 70px;
+}
+*/
+
 .navbar-default .navbar-nav>li>a {
 	color: #fff;
 }
 
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-/*	text-decoration: underline;*/
-	color: #45A8F7 ;
+.navbar-default, .navbar-default .navbar-nav>li>a:hover {
+	color: #45A8F7;
     cursor: pointer;
-
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-/*	text-decoration: underline;*/
 	color: #45A8F7;
 }
 
@@ -114,16 +118,11 @@ body {
     margin: 10px;
 }
 
+/*
 .glyphicon-plus {
-    border: none;
-    background-color: transparent;
-    color: grey;
-    display: block;
-    font-size: 35px;
-    margin: auto;
-    border: 1px dashed lightgrey;
-    padding: 10px;
+    font-size: 15px; 
 }
+*/
 
 
 
@@ -159,18 +158,23 @@ body {
 }
 
 .clndr-controls div {
-    background: #999;
+    background: #009DE7;
+    color: white;
     display: inline-block;
     width: 30%;
     padding:5px;
     text-align: center;
     cursor: pointer;
+/*    border-radius: 5px;*/
+    margin-top: 50px;
 }
 
 .clndr-controls .current-month {
     width: 40%;
-    background: #333;
+    background: #004B98;
     color: #fff;
+    border-radius: 0;
+    
 }
 
 .clndr {
@@ -190,6 +194,7 @@ body {
     line-height: 50px;
     background: #fff;
     border: 1.5px solid #eee;
+/*    border-radius: ;*/
 }
 
 .clndr-grid .day-headers div {
@@ -212,32 +217,37 @@ body {
 /*deadline*/
 
 .deadline {
-    background: #f8d6b4;
-    text-align: center;
     float: left;
     width: 100px;
-    height: 50px;
-    line-height: 50px;
-    border: 1.5px solid #fff;
+    height: 47.8px;
+    color: white;
+    text-align: center;
+/*    border-radius: 5px;*/
+    background: #f19797; 
+/*    padding: 0%;*/
+
 }
 
 
 /*--------footer---------*/
 
 .footer {
-    height:40px;
+    height:20px;
     width: 100%;
+    display: none;
 /*  background-color: #89949B;*/
     background-color: #273135;
-    position: fixed;
+    margin-top: 40px;
+    clear: both;
+    position: absolute;
     bottom: 0;
 }
 
 .footerText {
     color: white;
+    display: none;
     display: block;
     margin: auto;
     text-align: center;
     padding-top: 10px;
-    
 }
