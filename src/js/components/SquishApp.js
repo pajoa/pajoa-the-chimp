@@ -1,6 +1,6 @@
 var React          = require("react");
 var Notes          = require("./sections/Notes");
-var Footer         = require("./Sections/Footer");
+var Footer         = require("./sections/Footer");
 var SingleNote     = require("./sections/SingleNote");
 var AppStore       = require('../stores/AppStore');
 var Calendar       = require('./sections/Calendar');
@@ -60,6 +60,7 @@ var SquishApp = React.createClass({
 			}
 
         return (
+            <div>
                 <div className = 'container'>
                     <div className = 'row'>
                       <div className='col-md-12'>
@@ -85,10 +86,11 @@ var SquishApp = React.createClass({
                       </div>
                     </div>
                   <RouteHandler data={this.state.data} />
-                    <div className="container-fluid">
-                        <Footer />
-                    </div>
                 </div>
+                <div className="container-fluid">
+                    <Footer />
+                </div>
+            </div>
             );
     }  
 });
