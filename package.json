@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "bell": "^2.3.0",
+    "cron": "^1.0.9",
     "events": "^1.0.2",
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",

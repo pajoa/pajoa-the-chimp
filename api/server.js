@@ -332,14 +332,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
     }
 	]);
 
-  
-
-
-
 
 
 });
 
-
-
-module.exports = server;
+module.exports = {
+    server: server,
+    User: User};
