@@ -111,9 +111,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 			    }
 			}
         }
-    },
-
-    {
+    },{
         method  : ['GET', 'POST'],
         path    : '/google',
         config  : {
@@ -209,12 +207,19 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             handler: function(request,reply){
             	if (request.auth.isAuthenticated){
             		console.log('is authenticated');
-            	    var g = request.auth.credentials;
+                    var payload = request.payload;
+                    var text = payload.text;
+
+                    var title = payload.title;
+            	    console.log('title: ', title);
+                    console.log('text: ', text);
+
+                    var g = request.auth.credentials;
             	   	var new_id = Math.floor(Math.random()*10000);
             		var today = moment().format("dddd, MMMM Do YYYY");
             		var new_note = {
-            			title: "",
-            			text: "",
+            			title: title,
+            			text: text,
             			id: new_id,
             			date: today
             		};
@@ -225,7 +230,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 					}, function(err,res){
 	            	    	console.log('res: ', res);
 	            	    	var index = res.notes.length - 1;
-	            	    	reply(res.notes[index]);
+	            	    	reply(res.notes);
             	    	}
             	    );
 

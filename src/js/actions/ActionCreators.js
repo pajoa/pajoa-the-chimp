@@ -31,8 +31,8 @@ module.exports = {
         
     },
 
-    createNote: function(){
-        APIUtils.createNote();
-    },
+    createNote: function(info){
+        APIUtils.createNote(info);
+    }
     
 };

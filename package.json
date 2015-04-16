@@ -40,6 +40,7 @@
     "object-assign": "^2.0.0",
     "react": "^0.13.1",
     "react-addons": "^0.9.1-deprecated",
+    "react-router": "^0.13.2",
     "superagent": "^1.2.0"
   }
 }
