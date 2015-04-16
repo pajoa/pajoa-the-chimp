@@ -218,9 +218,9 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             	   	var new_id = Math.floor(Math.random()*10000);
 
             		var today = moment().format("dddd, MMMM Do YYYY");
-                    var oneday = moment(today).add(1, "days").format("dddd, MMMM Do YYYY");
-                    var sevenday = moment(today).add(7, "days").format("dddd, MMMM Do YYYY");
-                    var thirtyday = moment(today).add(30, "days").format("dddd, MMMM Do YYYY");
+                    var oneday = moment().add(1, "days").format("dddd, MMMM Do YYYY");
+                    var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
+                    var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
 
             		var new_note = {
             			title: title,
