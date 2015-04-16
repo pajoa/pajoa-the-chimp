@@ -1,9 +1,8 @@
 var CronJob = require('cron').CronJob;
 var nodemailer = require('nodemailer');
-
+var server = require('./server.js');
 var moment  = require('moment');
 var today = moment().format("dddd, MMMM Do YYYY");
-
 var date = moment("15-04-2015", "DD-MM-YYYY");
 var oneday = moment(date).add(1, "days").format("dddd, MMMM Do YYYY");
 var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
@@ -12,6 +11,24 @@ var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
 //not deadline
 var datee = moment("16-04-2015", "DD-MM-YYYY");
 var onedayy = moment(datee).add(1, "days").format("dddd, MMMM Do YYYY");
+server.User.find({},function(err,users){
+  users.forEach(function(user){
+    user.notes.forEach(function(note){
+      note.deadlines.forEach(function(deadline){
+        if (deadline === today){
+//          sendMail(user.email,'subject','text');
+            console.log('Send a mail to:', user.email);
+        }
+      });
+    });
+  });
+});
+
+
+
+
+
+/*
 
 var mock = [{
         title: "jason",
@@ -102,6 +119,8 @@ else {
 var job = new CronJob('* * * * *', function() {
   console.log("check every minute");
 
+  
+
   }, function () {
     //runs when it's finished?
   },
@@ -111,3 +130,5 @@ var job = new CronJob('* * * * *', function() {
 //* * * * *
 //minute, hour, dayofmonth, month, dayofweek
 //00 12 * * 1-5, example weekdays only, at 12pm
+
+*/
