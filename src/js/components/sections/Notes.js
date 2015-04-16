@@ -15,15 +15,7 @@ var Notes = React.createClass({
     },
 
 		
-    render: function() {
-//				var arraysOfThree = [];
-//				var notesArray = this.props.data;
-//				var i = 0;
-//				for (j=notesArray.length; i < j; i+=3) {
-//						tempArray = notesArray.slice(i, i+3);
-//						arraysOfThree.push(tempArray);
-//				}
-				
+    render: function() {				
         console.log('data in notes: ',this.props.data);
         var self = this;
         var notes = this.props.data.map(function(note){
@@ -42,7 +34,7 @@ var Notes = React.createClass({
             <div>{notes}</div>
             </div>
         );
-		}
+	}
 });
 
 module.exports = Notes;

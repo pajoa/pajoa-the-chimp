@@ -5,11 +5,14 @@ var Bell 	= require('bell');
 var moment  = require('moment');
 var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 
-function user(name,email,notes){
-	this.username 	 = name;
-	this.email       = email;
-	this.notes 	     = notes;
-}
+function user(name,email,notes,deadlines){
+	this.username      = name;
+	this.email         = email;
+	this.notes 	       = notes;
+    this.deadlines     = deadlines;
+};
+
+
 
 
 var index = Path.resolve(__dirname + '/../public/index.html');
@@ -63,7 +66,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 				       	reply.file(index);
 					    } else {
                         var new_user = {
-                        	email 		: g.email
+                        	email 		: g.email,
+                            points      : 100,
+                            firstname: g.name.first,
+                            lastname: g.name.last
                         };
 				    	db.user.save(new_user,function(err,user){
                             console.log('Creating new user. New user is ', user);
