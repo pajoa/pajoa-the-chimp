@@ -12,6 +12,13 @@ var Navbar = React.createClass({
   render: function() {
     var user = this.props.user;
     console.log('user is', user);
+		var loginButton;
+			if (this.props.user) {
+				loginButton = <li><a href="/logout">Logout</a></li>;
+			} else {
+				loginButton = <li><a href="/google">Login</a></li>;
+			}
+		
   return (
     <div className = 'container'>
     <div className = 'row'>
@@ -27,10 +34,9 @@ var Navbar = React.createClass({
               </ul>
               <ul className="nav navbar-nav navbar-right">  
                 <li><a >{this.props.user}</a></li>
-                <li><a name="Points" href="" onClick={this.handleClick}>Points</a></li>
-                <li><a name="Notifications" href="" onClick={this.handleClick}>Notifications</a></li>
-                <li><a href="/google">Login</a></li>                
-                <li><a href="/logout">Logout</a></li>
+                <li><a className="glyphicon glyphicon-tower" name="Points" href="" onClick={this.handleClick}></a></li>
+                <li><a className="glyphicon glyphicon-bell" name="notifications" href="" onClick={this.handleClick}></a></li>
+                {loginButton}
               </ul>
             </div>
           </div>
