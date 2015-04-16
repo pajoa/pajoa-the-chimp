@@ -317,7 +317,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
 
                     User.findOneAndUpdate(query,update,options, function(err,user){
-                        console.log('found and updated a user : ', user);
+                        console.log('found and updated a user : ', user);   
                         reply(user.notes);
                     });
 
