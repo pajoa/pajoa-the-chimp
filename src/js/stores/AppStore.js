@@ -88,13 +88,11 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.NAVIGATE_TO_A_NOTE:
-            console.log('navigate to a new note triggered');
             _activeNoteId = action.id;
             _route = action.route;
             AppStore.emitChange();
             break;
         case ActionTypes.RECEIVE_USER:
-            console.log('user.notes in AppStore: ', action.user.notes);
             data = action.user.notes;
             _user = action.user.email;
             console.log(_user);
