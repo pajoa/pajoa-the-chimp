@@ -2,10 +2,14 @@ var React = require("react");
 var ActionCreators = require("../../actions/ActionCreators");
 
 var SingleNote = React.createClass({
-
+    contextTypes: {
+        router: React.PropTypes.func
+    },
+    
     handleClick: function(event) {
         var text = React.findDOMNode(this.refs.text).value;
-        var activeNoteId = this.props.activeNoteId;
+        var activeNoteId = this.context.router.getCurrentParams().noteId;
+
 
         console.log(text);
         var edit = {
@@ -16,10 +20,14 @@ var SingleNote = React.createClass({
     },
     
     render: function() {
+        console.log('in single note');
+        var activeNoteId = this.context.router.getCurrentParams().noteId;
+
+        console.log('activeNoteId: ', activeNoteId);
+
         var i;
         var data = this.props.data;
         var dataLength = data.length;
-        var activeNoteId = this.props.activeNoteId;
 
         for (i=0; i < dataLength; i++) {
             if (data[i].id === activeNoteId) {
