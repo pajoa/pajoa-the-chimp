@@ -25,10 +25,8 @@ var Notes = React.createClass({
 //				}
 				
         console.log('data in notes: ',this.props.data);
-//        console.log("notes render func");
         var self = this;
-				if (this.props.data.length === 2 ) {
-        	var notes = this.props.data.map(function(note){
+        var notes = this.props.data.map(function(note){
             return (
                 <div key={note.text} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
                     <div className="notesCard">
@@ -45,13 +43,6 @@ var Notes = React.createClass({
             <div>{notes}</div>
             </div>
         );
-		} else {
-				return (
-						<div className="row">
-            	<button onClick={this.createNote} className="glyphicon glyphicon-plus"></button>
-						</div>
-				);
-			}
 		}
 });
 
