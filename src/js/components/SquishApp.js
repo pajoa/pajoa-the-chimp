@@ -1,6 +1,6 @@
 var React          = require("react");
 var Notes          = require("./sections/Notes");
-var Footer         = require("./Sections/Footer");
+var Footer         = require("./sections/Footer");
 var SingleNote     = require("./sections/SingleNote");
 var AppStore       = require('../stores/AppStore');
 var Calendar       = require('./sections/Calendar');
