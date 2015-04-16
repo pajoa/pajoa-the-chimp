@@ -1,3 +1,14 @@
+/*-------General--------*/
+h1 {
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+body {
+  background-color: #fff;
+}
+
+/*-------Navbar-----*/
 .navbar.navbar-default {
 	background-color: #1664B1;
 }
@@ -13,12 +24,13 @@
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
 /*	text-decoration: underline;*/
 	color: #45A8F7 ;
+    cursor: pointer;
 
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-	text-decoration: underline;
-	color: #fff;
+/*	text-decoration: underline;*/
+	color: #45A8F7;
 }
 
 body {
@@ -118,79 +130,104 @@ body {
 /*------CALENDAR------*/
 
 * {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.clndr-grid .weekday-header {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    background: #1664B1;
+    border: 1.5px solid #fff;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #444;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #444;
+    border: 1.5px solid #fff;
 }
 
 #app {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .clndr-controls div {
-  background: #999;
-  display: inline-block;
-  width: 30%;
-  padding:5px;
-  text-align: center;
-  cursor: pointer;
+    background: #999;
+    display: inline-block;
+    width: 30%;
+    padding:5px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .clndr-controls .current-month {
-  width: 40%;
-  background: #333;
-  color: #fff;
+    width: 40%;
+    background: #333;
+    color: #fff;
 }
 
 .clndr {
-  width: 700px;
-  margin: 0 auto;
-  background: red;
+    width: 700px;
+    margin: 0 auto;
 }
 
 .clndr-grid {
-  text-align: center;
-  background: yellow;
+    text-align: center;
 }
 
 .clndr-grid .days div {
-  float: left;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  background: #eee;
-  border: 1px solid #ddd;
+    text-align: center;
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border: 1.5px solid #eee;
 }
 
 .clndr-grid .day-headers div {
-  float: left;
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
-  background: #eee;
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
 }
 
 .prev-month, .next-month {
-  color: #ccc;
+    color: #ccc;
 }
 
 .clearfix {
-  clear: both;
+    clear: both;
+}
+
+
+/*deadline*/
+
+.deadline {
+    background: #f8d6b4;
+    text-align: center;
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    border: 1.5px solid #fff;
 }
 
 
 /*--------footer---------*/
 
 .footer {
-    height:50px;
+    height:40px;
     width: 100%;
-/*    background-color: #89949B;*/
+/*  background-color: #89949B;*/
     background-color: #273135;
     position: fixed;
     bottom: 0;
@@ -201,6 +238,6 @@ body {
     display: block;
     margin: auto;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
     
 }
