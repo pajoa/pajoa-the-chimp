@@ -216,12 +216,18 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
                     var g = request.auth.credentials;
             	   	var new_id = Math.floor(Math.random()*10000);
+
             		var today = moment().format("dddd, MMMM Do YYYY");
+                    var 1day = moment(database.date).add(1, "days").format("dddd, MMMM Do YYYY");
+                    var 7day = moment(database.date).add(7, "days").format("dddd, MMMM Do YYYY");
+                    var 30day = moment(database.date).add(30, "days").format("dddd, MMMM Do YYYY");
+
             		var new_note = {
             			title: title,
             			text: text,
             			id: new_id,
             			date: today
+                        deadlines: [1day, 7day, 30day]
             		};
 
             	    db.user.findAndModify({
