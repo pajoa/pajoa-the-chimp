@@ -22,15 +22,12 @@ var SingleNote = React.createClass({
     render: function() {
         console.log('in single note');
         var activeNoteId = this.context.router.getCurrentParams().noteId;
-
-        console.log('activeNoteId: ', activeNoteId);
-
         var i;
         var data = this.props.data;
         var dataLength = data.length;
 
         for (i=0; i < dataLength; i++) {
-            if (data[i].id === activeNoteId) {
+            if (data[i].id.toString() === activeNoteId) {
                 var activeNote = data[i];
             }
         }
