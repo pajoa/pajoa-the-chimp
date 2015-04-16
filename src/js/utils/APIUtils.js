@@ -25,7 +25,7 @@ module.exports = {
   				throw err;
   			}
         console.log('AJAX done: here is res: ', res);
-  			ServerActionCreators.editNote(res.body.notes);
+  			ServerActionCreators.editNote(res.body);
   		});
  	},
 
