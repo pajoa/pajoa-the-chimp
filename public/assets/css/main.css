@@ -41,6 +41,10 @@ body {
     background-color: #E9F0F5;
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+} 
+
 /*-------singleNote-----*/
 .noteBox {
     border: solid 1.5px lightgrey;
@@ -176,6 +180,7 @@ body {
     border-radius: 0;
     
 }
+
 
 .clndr {
     width: 700px;
