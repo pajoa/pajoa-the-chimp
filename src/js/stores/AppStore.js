@@ -88,6 +88,7 @@ AppDispatcher.register(function(action){
             break;
         
         case ActionTypes.NAVIGATE_TO_A_NOTE:
+            console.log('navigate to a new note triggered');
             _activeNoteId = action.id;
             _route = action.route;
             AppStore.emitChange();
@@ -97,6 +98,11 @@ AppDispatcher.register(function(action){
             data = action.user.notes;
             _user = action.user.email;
             console.log(_user);
+            AppStore.emitChange();
+            break;
+
+        case ActionTypes.CREATE_NOTE:
+            data = action.data;
             AppStore.emitChange();
             break;
         
