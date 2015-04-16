@@ -226,10 +226,11 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
             	    db.user.findAndModify({
 						query: {"email": g.email}, 
-						update: { $push: {"notes": new_note} }, 
+						update: { $push: {"notes": new_note} },
+                        new: true,
 					}, function(err,res){
+                            console.log('new note created, here are notes from callback: ', res.notes);
 	            	    	console.log('res: ', res);
-	            	    	var index = res.notes.length - 1;
 	            	    	reply(res.notes);
             	    	}
             	    );

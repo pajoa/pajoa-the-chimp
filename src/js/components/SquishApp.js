@@ -15,12 +15,12 @@ var NewNote = require("./sections/NewNote");
 
 
 function getStateFromStore() {
-     
+      
     var route = AppStore.getRoute(); 
     var data = AppStore.getData();
 	var activeNoteId = AppStore.getActiveNoteId();
     var user = AppStore.getUser();
-    
+     
     return {
         route: route,
         data: data,
@@ -50,12 +50,15 @@ var SquishApp = React.createClass({
     },
     
     render: function(){
+        var user = this.state.user;
+        console.log('user: ', user);
         var loginButton;
-			if (this.props.user) {
+			if (this.state.user) {
 				loginButton = <li><a href="/logout">Log out</a></li>;
 			} else {
 				loginButton = <li><a href="/google">Login</a></li>;
 			}
+
         return (
                 <div className = 'container'>
                     <div className = 'row'>
@@ -70,7 +73,7 @@ var SquishApp = React.createClass({
                                 <li><Link to="calendar" >Calendar</Link></li>
                               </ul>
                               <ul className="nav navbar-nav navbar-right">  
-                                <li><a >{this.props.user}</a></li>
+                                <li><a >{user}</a></li>
                                 <li><Link to="newnote" >Create</Link></li>
                                 <li><a className="glyphicon glyphicon-tower" name="Points"></a></li>
                                 <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>

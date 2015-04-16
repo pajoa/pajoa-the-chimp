@@ -2,7 +2,7 @@ var React = require("react");
 var ActionCreators = require("../../actions/ActionCreators");
 var Router = require('react-router'); // or var Router = ReactRouter; in browsers
 var Link = Router.Link;
-
+ 
 
 var Notes = React.createClass({
     handleClicker: function(e) {

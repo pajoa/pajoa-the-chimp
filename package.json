@@ -33,6 +33,7 @@
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",
     "googleapis": "^2.0.2",
+    "gulp-jest": "^0.4.0",
     "hapi": "^8.4.0",
     "hapi-auth-cookie": "^2.0.0",
     "moment": "^2.10.2",
