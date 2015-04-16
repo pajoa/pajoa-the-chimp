@@ -103,7 +103,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             },
             handler: function(request,reply){
             	if (request.auth.isAuthenticated){
-			        console.log('is authenticated, so logging out!') 
+			        console.log('is authenticated, so logging out!');
 			        request.auth.session.clear();
 			        reply.redirect('/');
 			    } else {
@@ -181,7 +181,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 			       		console.log(err);	
 				    }
             		if (user){ 
-		        		console.log('user found in db')
+		        		console.log('user found in db');
 		        		console.log('user is: ', user);
 						reply(user);
             		} else if (!user){
@@ -216,12 +216,18 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
                     var g = request.auth.credentials;
             	   	var new_id = Math.floor(Math.random()*10000);
+
             		var today = moment().format("dddd, MMMM Do YYYY");
+                    var oneday = moment().add(1, "days").format("dddd, MMMM Do YYYY");
+                    var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
+                    var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
+
             		var new_note = {
             			title: title,
             			text: text,
             			id: new_id,
-            			date: today
+            			date: today,
+                        deadlines: [oneday, sevenday, thirtyday]
             		};
 
             	    db.user.findAndModify({
