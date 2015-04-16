@@ -154,14 +154,29 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
         			var payload = request.payload;
         			var id = payload.activeNoteId;
         			var text = payload.text;
-            		db.user.findAndModify({ 
-            			query: {"notes.id": id} , 
-            			update: { "$set": {"notes.$.text": text} }
-            		},  
-            			function(err,user){
-            				reply(user);
 
-            		});
+                    console.log('id: ', id);
+
+                     db.user.findAndModify({
+                        query: {"notes.id": id}, 
+                        update: { "$set": {"notes.$.text": text} },
+                    }, function(err,res){
+                            if (err){
+                                console.log(err);
+                                throw err;
+                            }
+                            console.log(' note edited, here is the callback: ', res);
+                            reply(res);
+                        }
+                    );
+
+
+
+       
+
+
+
+
 
             		//db.user.findAndModify( {"notes.id": id}, { "$set": {"notes.$.text": text})
        			}
@@ -224,23 +239,26 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             	   	var new_id = Math.floor(Math.random()*10000);
 
             		var today = moment().format("dddd, MMMM Do YYYY");
-                    var 1day = moment(today).add(1, "days").format("dddd, MMMM Do YYYY");
-                    var 7day = moment(today).add(7, "days").format("dddd, MMMM Do YYYY");
-                    var 30day = moment(today).add(30, "days").format("dddd, MMMM Do YYYY");
+                    var day1 = moment(today).add(1, "days").format("dddd, MMMM Do YYYY");
+                    var day7 = moment(today).add(7, "days").format("dddd, MMMM Do YYYY");
+                    var day30 = moment(today).add(30, "days").format("dddd, MMMM Do YYYY");
 
             		var new_note = {
             			title: title,
             			text: text,
             			id: new_id,
-            			date: today
-                        deadlines: [1day, 7day, 30day]
+            			date: today,
+                        deadlines: [day1, day7, day30]
             		};
 
             	    db.user.findAndModify({
 						query: {"email": g.email}, 
-						update: { $push: {"notes": new_note} },
-                        new: true,
+						update: { $push: {"notes": new_note} }
 					}, function(err,res){
+                            if (err){
+                                console.log(err);
+                                throw err;
+                            }
                             console.log('new note created, here are notes from callback: ', res.notes);
 	            	    	console.log('res: ', res);
 	            	    	reply(res.notes);

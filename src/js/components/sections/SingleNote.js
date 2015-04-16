@@ -22,7 +22,6 @@ var SingleNote = React.createClass({
     render: function() {
         console.log('in single note');
         var activeNoteId = this.context.router.getCurrentParams().noteId;
-
         var i;
         var data = this.props.data;
         var dataLength = data.length;
