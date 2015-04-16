@@ -1,7 +1,8 @@
 var moment = require('moment');
+var db = require('mongojs').connect('mongodb://per:per@ds030827.mongolab.com:30827/blog2', ['user']);
 
 var today= moment().format("dddd, MMMM Do YYYY");
-var date = moment("14-04-2015", "DD-MM-YYYY");
+var date = moment("12-04-2015", "DD-MM-YYYY");
 
 //DATABASE
 var database = {
@@ -9,6 +10,8 @@ var database = {
 	note: "mynote",
 	date: date
 };
+
+console.log(db.user);
 
 var databaseformat = moment(database.date).format("dddd, MMMM Do YYYY");
 
