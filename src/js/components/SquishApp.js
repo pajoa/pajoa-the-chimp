@@ -77,7 +77,6 @@ var SquishApp = React.createClass({
                               </ul>
                               <ul className="nav navbar-nav navbar-right">  
                                 <li><a >{user}</a></li>
-                                <li><Link to="newnote" >Create</Link></li>
                                 <li><a className="glyphicon glyphicon-tower" name="Points"></a></li>
                                 <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>
                                 {loginButton}
