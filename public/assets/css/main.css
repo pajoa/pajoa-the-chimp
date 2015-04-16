@@ -71,7 +71,7 @@ body {
 
 .notesCard {
     background-color: white;
-    margin: 10px;
+    margin: 12px;
     border-radius: 5px;
 
 }
@@ -113,11 +113,6 @@ body {
     padding: 10px;
 }
 
-.newNotePlus {
-    width: 300px;
-    height: 300px;
-     
-}
 
 
 /*------CALENDAR------*/
@@ -187,4 +182,25 @@ body {
 
 .clearfix {
   clear: both;
+}
+
+
+/*--------footer---------*/
+
+.footer {
+    height:50px;
+    width: 100%;
+/*    background-color: #89949B;*/
+    background-color: #273135;
+    position: fixed;
+    bottom: 0;
+}
+
+.footerText {
+    color: white;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    
 }

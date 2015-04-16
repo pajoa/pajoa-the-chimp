@@ -1,9 +1,10 @@
-var React = require("react");
-var Notes = require("./sections/Notes");
-var Navbar = require('./sections/Navbar');
-var SingleNote = require("./sections/SingleNote");
-var AppStore = require('../stores/AppStore');
-var Calendar = require('./sections/Calendar');
+var React          = require("react");
+var Notes          = require("./sections/Notes");
+var Navbar         = require('./sections/Navbar');
+var Footer         = require("./Sections/Footer");
+var SingleNote     = require("./sections/SingleNote");
+var AppStore       = require('../stores/AppStore');
+var Calendar       = require('./sections/Calendar');
 var ActionCreators = require('../actions/ActionCreators');
 
 function getStateFromStore() {
@@ -44,50 +45,79 @@ var SquishApp = React.createClass({
 	render: function() {
         if (this.state.route === "Notes") {
             return(
-                <div className="container">
-				    <Navbar user={this.state.user} />
-
-				    <Notes data={this.state.data}/>
-			     </div>
+                <div>
+                    <div className="container">
+				        <Navbar user={this.state.user} />
+				        <Notes data={this.state.data}/>
+                    </div>
+                    <div className="container-fluid">
+                        <Footer />
+                    </div>
+                </div>
             );
         }
         
-        else if (this.state.route ==="SingleNote"){
+        else if (this.state.route === "SingleNote"){
             return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
-                 </div>
+                <div>
+                    <div className="container">
+                        <Navbar user={this.state.user}/>
+                        <SingleNote data={this.state.data} activeNoteId={this.state.activeNoteId} />
+                    </div>
+                    <div className="container-fluid">
+                        <Footer />
+                    </div>
+                </div>
                 );
             
         } else if (this.state.route ==="Calendar"){
             return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <h1> My Squish Calendar </h1>
-                    <Calendar />
+                <div>
+                    <div className="container">
+                        <Navbar user={this.state.user}/>
+                        <h1> My Squish Calendar </h1>
+                        <Calendar />
+                    </div>
+                    <div className="container-fluid">
+                        <Footer />
+                    </div>
                 </div>
                 );
         } else if (this.state.route ==="Notifications"){
             return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <h1>Notifications</h1>
+                <div>
+                    <div className="container">
+                        <Navbar user={this.state.user}/>
+                        <h1>Notifications</h1>
                  </div>
+                <div className="container-fluid">
+                    <Footer />
+                    </div>
+                </div>
                 );
         } else if (this.state.route ==="Logout"){
             return (
-                <div className="container">
-                    <Navbar user={this.state.user}/>
-                    <h1>Logout</h1>
-                 </div>
+                <div>
+                    <div className="container">
+                        <Navbar user={this.state.user}/>
+                        <h1>Logout</h1>
+                    </div>
+                <div className="container-fluid">
+                        <Footer />
+                    </div>
+                </div>
                 );
         } else if (this.state.route ==="Points"){
             return (
+                <div>
                 <div className="container">
                     <Navbar user={this.state.user}/>
                     <h1>Points</h1>
-                 </div>
+                </div>
+                <div className="container-fluid">
+                        <Footer />
+                    </div>
+                </div>
          );
         }
 
