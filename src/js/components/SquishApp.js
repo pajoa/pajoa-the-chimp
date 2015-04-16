@@ -49,7 +49,6 @@ var SquishApp = React.createClass({
         this.setState(getStateFromStore());
     },
     
-<<<<<<< HEAD
 	render: function() {
         if (this.state.route === "Notes") {
             return(
@@ -74,8 +73,8 @@ var SquishApp = React.createClass({
                     <Navbar user={this.state.user}/>
                     <h1> My Squish Calendar </h1>
                     <Calendar />
-=======
-    render: function(){
+
+    render: function() {
         var loginButton;
 			if (this.state.user) {
 				loginButton = <li><a href="/logout">Log out</a></li>;
@@ -112,7 +111,6 @@ var SquishApp = React.createClass({
                 </div>
                 <div className="container-fluid">
                     <Footer />
->>>>>>> master
                 </div>
             </div>
             );
