@@ -1,15 +1,14 @@
+var React          = require("react");
+var Notes          = require("./sections/Notes");
+var Footer         = require("./Sections/Footer");
+var SingleNote     = require("./sections/SingleNote");
+var AppStore       = require('../stores/AppStore');
+var Calendar       = require('./sections/Calendar');
 var Router = require('react-router'); // or var Router = ReactRouter; in browsers
 var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
-
-var React = require("react");
-var Notes = require("./sections/Notes");
-var Navbar = require('./sections/Navbar');
-var SingleNote = require("./sections/SingleNote");
-var AppStore = require('../stores/AppStore');
-var Calendar = require('./sections/Calendar');
 var ActionCreators = require('../actions/ActionCreators');
 var NewNote = require("./sections/NewNote");
 
@@ -51,6 +50,12 @@ var SquishApp = React.createClass({
     },
     
     render: function(){
+        var loginButton;
+			if (this.props.user) {
+				loginButton = <li><a href="/logout">Log out</a></li>;
+			} else {
+				loginButton = <li><a href="/google">Login</a></li>;
+			}
         return (
                 <div className = 'container'>
                     <div className = 'row'>
@@ -67,10 +72,9 @@ var SquishApp = React.createClass({
                               <ul className="nav navbar-nav navbar-right">  
                                 <li><a >{this.props.user}</a></li>
                                 <li><Link to="newnote" >Create</Link></li>
-                                <li><a name="Points">Points</a></li>
-                                <li><a  name="Notifications" >Notifications</a></li>
-                                <li><a href="/google">Login</a></li>                
-                                <li><a href="/logout">Logout</a></li>
+                                <li><a className="glyphicon glyphicon-tower" name="Points"></a></li>
+                                <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>
+                                {loginButton}
                               </ul>
                             </div>
                           </div>
@@ -78,13 +82,12 @@ var SquishApp = React.createClass({
                       </div>
                     </div>
                   <RouteHandler data={this.state.data} />
+                    <div className="container-fluid">
+                        <Footer />
+                    </div>
                 </div>
-    
-
-            )
-    }
-
-    
+            );
+    }  
 });
 
 var routes = (
