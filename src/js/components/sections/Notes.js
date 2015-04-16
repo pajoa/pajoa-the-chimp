@@ -20,13 +20,6 @@ var Notes = React.createClass({
         console.log('data in notes: ',this.props.data);
         var self = this;
         var notes = this.props.data.map(function(note){
-            
-            function shorten(text, maxLength) {
-                maxLength = 100;
-                var ret = note.text;
-                    if (ret.length > maxLength) {
-                        ret = ret.substr(0,maxLength-1) + "&hellip;";
-                    }
                 return (
                     <div key={note.id} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
                         <div className="notesCard">
@@ -35,7 +28,6 @@ var Notes = React.createClass({
                         </div>
                     </div>
                 );
-            }
         });
         
         return (

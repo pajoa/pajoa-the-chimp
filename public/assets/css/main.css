@@ -6,19 +6,24 @@
 	color: #fff;
 }
 
+/*
+.squishLogo {
+    width: 120px;
+    height: 70px;
+}
+*/
+
 .navbar-default .navbar-nav>li>a {
 	color: #fff;
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-/*	text-decoration: underline;*/
-	color: #45A8F7 ;
+	color: #45A8F7;
 
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-	text-decoration: underline;
-	color: #fff;
+	color: #45A8F7;
 }
 
 body {
@@ -102,16 +107,11 @@ body {
     margin: 10px;
 }
 
+/*
 .glyphicon-plus {
-    border: none;
-    background-color: transparent;
-    color: grey;
-    display: block;
-    font-size: 35px;
-    margin: auto;
-    border: 1px dashed lightgrey;
-    padding: 10px;
+    font-size: 15px; 
 }
+*/
 
 
 
@@ -192,8 +192,11 @@ body {
     width: 100%;
 /*    background-color: #89949B;*/
     background-color: #273135;
+    margin-top: 30px;
+/*
     position: fixed;
     bottom: 0;
+*/
 }
 
 .footerText {
@@ -202,5 +205,5 @@ body {
     margin: auto;
     text-align: center;
     padding-top: 15px;
-    
 }
+
