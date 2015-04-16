@@ -1,7 +1,7 @@
 {
   "name": "pajoa-the-chimp",
   "version": "1.0.0",
-  "description": "pajoa likes to code",
+  "description": "App for Squish",
   "main": "app.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/pajoa/pajoa-the-chimp.git"
   },
-  "author": "pajoa",
+  "author": "pajoa - Founders and Coders",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pajoa/pajoa-the-chimp/issues"
