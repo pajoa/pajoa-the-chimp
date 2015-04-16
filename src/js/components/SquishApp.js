@@ -101,8 +101,8 @@ var routes = (
     <Route name="SquishApp" path="/" handler={SquishApp}>
         <Route name="newnote" handler={NewNote} />       
         <Route name="calendar" handler={Calendar} />
-        <Route name=":noteId" handler={SingleNote} />
         <Route name="feedback" handler={Feedback} />
+        <Route name=":noteId" handler={SingleNote} />
 
         <DefaultRoute handler={Notes} />
     </Route>

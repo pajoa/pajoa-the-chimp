@@ -251,3 +251,11 @@ body {
     text-align: center;
     padding-top: 10px;
 }
+
+/*--------feedback---------*/
+
+iframe.feedback {
+    height:100%;
+    width:100%;
+    border:none;
+}

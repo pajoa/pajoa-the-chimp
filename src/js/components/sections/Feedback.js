@@ -5,8 +5,7 @@ var Feedback = React.createClass({
     render: function() {
         return (
             <div>
-            	<h1>yo</h1>
-            	<iframe src="http://goo.gl/forms/vqbeAaCrnB"></iframe>
+            	<iframe className="feedback" src="http://goo.gl/forms/vqbeAaCrnB"></iframe>
             </div>
         );
     }
