@@ -10,6 +10,7 @@ var SingleNote = React.createClass({
         var text = React.findDOMNode(this.refs.text).value;
         var activeNoteId = this.context.router.getCurrentParams().noteId;
 
+
         console.log(text);
         var edit = {
             text: text,
@@ -21,7 +22,9 @@ var SingleNote = React.createClass({
     render: function() {
         console.log('in single note');
         var activeNoteId = this.context.router.getCurrentParams().noteId;
-        
+
+        console.log('activeNoteId: ', activeNoteId);
+
         var i;
         var data = this.props.data;
         var dataLength = data.length;
@@ -34,7 +37,7 @@ var SingleNote = React.createClass({
         return(
             <div className="container">
                 <div className="noteBox">
-                    <input value={activeNote.title}/>
+                    <input className="noteTextarea form-control" value={activeNote.title} />
                     <hr/>
                     <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
                     <button className="glyphicon glyphicon-pencil"></button>

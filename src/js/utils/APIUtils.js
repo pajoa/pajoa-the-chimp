@@ -29,15 +29,12 @@ module.exports = {
   		});
  	},
 
-  createNote: function(){
+  createNote: function(info){
     Request.post("/createnote")
-      .end(function(err,res){
+      .send(info)
+      .end(function(err,res) {
         console.log('AJAX done: here is res: ', res);
-        var info = {
-            route: "SingleNote",
-            id: res.body.id
-        };
-        ServerActionCreators.receiveNewNoteID(info);
+        ServerActionCreators.createNote(res.body);
       });
   }
 }
