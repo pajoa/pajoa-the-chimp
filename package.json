@@ -4,7 +4,8 @@
   "description": "App for Squish",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+	"web": "nodemon app.js"
   },
   "repository": {
     "type": "git",
