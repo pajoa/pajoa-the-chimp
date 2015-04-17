@@ -3,6 +3,7 @@ var ActionTypes = Constants.ActionTypes;
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var APIUtils = require('../utils/APIUtils');
 
+// these functions dispatch info to the store or passes the info on to APIUtils, if communications with the server/db is needed
 module.exports = {
     
     navigateTo: function(info) {
