@@ -205,7 +205,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
                         });
 
-                    })
+                    });
                 }
  	   		}	
     	}

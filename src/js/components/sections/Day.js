@@ -21,8 +21,9 @@ var Day = React.createClass({
     var deadline = ["Tue Apr 28 2015 00:00:00 GMT+0100 (BST)"];
 //    var deadlineMomentFormat = moment(deadline).format("dddd, MMMM Do YYYY");
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
-      
      var self = this;
+      var data = this.props.data;
+      console.log("data in day component" + data);
 //      console.log(this.props.day.day._d);
     var deadlineday = deadline.map(function(index){
             if (self.props.day.day._d == index) {

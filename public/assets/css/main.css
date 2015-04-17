@@ -38,6 +38,12 @@ body {
 	color: #45A8F7;
 }
 
+.squish-logo {
+    height: 30px;
+    width: 65px;
+    position: center;
+}
+
 body {
     background-color: #E9F0F5;
 }
@@ -176,7 +182,7 @@ a:focus, a:hover {
     font-weight: 400;
     margin: 15px;
     
-}
+},
 
 /*
 .glyphicon-plus {
@@ -290,27 +296,46 @@ body {
 }
 
 
+
+/*--------Points Dashboard---------*/
+.points {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.pointsTitle {
+    margin-left: 20px;
+}
+
+.myPoints {
+    font-weight: bold;
+    text-align: center;
+    color: #1664B1;
+    font-family: courier;
+}
+
 /*--------footer---------*/
 
 .footer {
     height:20px;
     width: 100%;
-    display: none;
 /*  background-color: #89949B;*/
     background-color: #273135;
     margin-top: 40px;
     clear: both;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 
 .footerText {
     color: white;
-    display: none;
-    display: block;
     margin: auto;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
+    font-size: 11px;   
 }
 
 /*--------feedback---------*/
@@ -319,4 +344,3 @@ iframe.feedback {
     height:100%;
     width:100%;
     border:none;
-}

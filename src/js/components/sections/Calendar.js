@@ -99,7 +99,7 @@ var Calendar = React.createClass({
   },
 
   render: function() {
-//	  console.log("data from the store: ", this.props.data);
+//      console.log("data from the store: ", this.props.data);
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />

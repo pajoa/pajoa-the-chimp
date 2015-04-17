@@ -12,35 +12,6 @@ var _activeNoteId = null;
 var _user = null;
 var data = [];
 
-/*
-var data = [{
-    title: "my 1st note",
-    text: "i love making notes",
-    username: "neats",
-		id: "123"
-},{ 
-    title: "my 2nd note",
-    text: "i love making gssgnotes",
-    username: "neats",
-		id: "1234"
-                
-}, {
-    title: "my 3rd note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "12345"
-}, 
-{
-    title: "my 4th note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "123456"
-} 
-];
-*/
-
-
-// the get functions are called in SquishApp.js every time the state is set. (enables the state pulls fresh data from the store)
 var AppStore = assign({}, EventEmitter.prototype, {
     
 
@@ -62,6 +33,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		
     getActiveNoteId: function() {
         return _activeNoteId;
+
     },
 
     // is not used anymore, so we should remove it.
@@ -76,11 +48,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
     getData: function() {
         return data;
     },
-
-
-    // getCalendar: function() {
-    //     return _todaysDate;
-    // } 
     
 });
 

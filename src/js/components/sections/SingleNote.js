@@ -34,6 +34,7 @@ var SingleNote = React.createClass({
         return(
             <div className="container">
                 <div className="noteBox">
+                    <input placeholder="Enter title here" className="noteTextarea form-control" value={activeNote.title} />
                     <h4 className="noteHeading">Title:</h4>
                     <input className="noteInput form-control" value={activeNote.title} />
                     <h4 className="noteHeading">Body:</h4>

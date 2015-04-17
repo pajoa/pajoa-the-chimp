@@ -3,6 +3,20 @@ var ActionCreators = require("../../actions/ActionCreators");
 var Router = require('react-router'); // or var Router = ReactRouter; in browsers
 var Link = Router.Link;
  
+ function getStateFromStore() {
+      
+    var route = AppStore.getRoute(); 
+    var data = AppStore.getData();
+    var activeNoteId = AppStore.getActiveNoteId();
+    var user = AppStore.getUser();
+     
+    return {
+        route: route,
+        data: data,
+        activeNoteId: activeNoteId,
+        user: user
+    };
+}
 
 var Notes = React.createClass({
     handleClicker: function(e) {

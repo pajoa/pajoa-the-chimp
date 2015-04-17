@@ -12,6 +12,7 @@ var RouteHandler = Router.RouteHandler;
 var ActionCreators = require('../actions/ActionCreators');
 var NewNote = require("./sections/NewNote");
 var Feedback = require("./sections/Feedback");
+var Points = require("./sections/Points");
 
 
 function getStateFromStore() {
@@ -80,7 +81,7 @@ var SquishApp = React.createClass({
                               </ul>
                               <ul className="nav navbar-nav navbar-right">  
                                 <li><a >{user}</a></li>
-                                <li><a className="glyphicon glyphicon-tower" name="Points"></a></li>
+                                <li><Link to="points" title="Points Dashboard" className="glyphicon glyphicon-tower" name="Points"></Link></li>
                                 <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>
                                 <li><Link to="feedback" title="Feedback" className="Feedback">Feedback</Link></li>
                                 {loginButton}
@@ -90,7 +91,7 @@ var SquishApp = React.createClass({
                         </nav>
                       </div>
                     </div>
-                  <RouteHandler data={this.state.data} />
+                  <RouteHandler data={this.state.data} user={this.state.user}/>
                 </div>
                 <div className="container-fluid">
                     <Footer />
@@ -106,6 +107,7 @@ var routes = (
     <Route name="SquishApp" path="/" handler={SquishApp}>
         <Route name="newnote" handler={NewNote} />       
         <Route name="calendar" handler={Calendar} />
+        <Route name="points" handler={Points} />
         <Route name="feedback" handler={Feedback} />
         <Route name=":noteId" handler={SingleNote} />
         <DefaultRoute handler={Notes} />
