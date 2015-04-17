@@ -6,7 +6,7 @@ var moment  = require('moment');
 var today = moment().format("dddd, MMMM Do YYYY");
 
 console.log("cron has started");
-var job = new CronJob('00 11 * * *', function() {
+var job = new CronJob('00 00 * * *', function() {
   console.log("check's everyday at 11am");
 
   server.User.find({},function(err,users){
@@ -33,7 +33,7 @@ var job = new CronJob('00 11 * * *', function() {
         }
     });
 
-    var link = "http://localhost:8080/"
+    var link = "http://localhost:8000/"
 
     var mailOptions = {
       from: 'Squish Reminder <squishreminder@gmail.com>',
