@@ -8,18 +8,15 @@ var NewNote = React.createClass({
         router: React.PropTypes.func
     },
     
-    handleClick: function(event) {
 
-    },
-
+    // triggered when the user hits 'save'
     createNote: function(){
-        console.log('create note from NewNotes');
+        // pull the text and title from the DOM nodes
         var text = React.findDOMNode(this.refs.text).value;
         var title = React.findDOMNode(this.refs.title).value;
-        console.log('text: ', text);
-        console.log('title: ', title);
         var activeNoteId = this.context.router.getCurrentParams().noteId;
 
+        // create an object to be sent with the ActionCreators.createNote()
         var info = {
             text: text,
             title: title
@@ -32,7 +29,6 @@ var NewNote = React.createClass({
         return(
             <div className="container">
                 <div className="noteBox">
-
                     <input ref="title" className="noteTextarea form-control" />
                     <hr/>
                     <textarea className="noteTextarea form-control" ref="text"></textarea>
