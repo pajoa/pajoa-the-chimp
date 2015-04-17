@@ -129,18 +129,6 @@ a:focus, a:hover {
     
 },
 
-.form-control {
-    width: 200px;
-    height: 500px;
-/*    border-radius: 25px;
-    box-shadow: none;
-    border: solid 1px lightgrey;
-    margin-top: 8px;
-    padding: 6px;
-    display: inline;
-    font-weight: 200;*/
-}
-
 /*
 .glyphicon-plus {
     font-size: 15px; 
@@ -259,11 +247,19 @@ body {
     height: 150px;
     width: 150px;
     display: block;
-    margin: 0;
+    margin: auto;
+    margin-top: 40px;
 }
 
-h4 {
+.pointsTitle {
     margin-left: 20px;
+}
+
+.myPoints {
+    font-weight: bold;
+    text-align: center;
+    color: #1664B1;
+    font-family: courier;
 }
 
 /*--------footer---------*/
