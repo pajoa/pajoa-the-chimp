@@ -4,7 +4,11 @@
   "description": "App for Squish",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+	"start": "nodemon app"
+  },
+  "engines": {
+	"node": "0.10.36"
   },
   "repository": {
     "type": "git",
