@@ -1,5 +1,7 @@
 var React = require('react');
 var moment = require("moment");
+var Calendar = require('./Calendar');
+
 
 var Day = React.createClass({
 
@@ -15,7 +17,8 @@ var Day = React.createClass({
   },
 
   render: function() {
-    var deadline = ["Thu Apr 02 2015 00:00:00 GMT+0100 (BST)", "Thu Apr 30 2015 00:00:00 GMT+0100 (BST)"];
+	  console.log("day", this.props);
+    var deadline = ["Tue Apr 28 2015 00:00:00 GMT+0100 (BST)"];
 //    var deadlineMomentFormat = moment(deadline).format("dddd, MMMM Do YYYY");
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
       
