@@ -136,6 +136,18 @@ a:focus, a:hover {
     font-weight: 400;
     margin: 15px;
     
+},
+
+.form-control {
+    width: 200px;
+    height: 500px;
+/*    border-radius: 25px;
+    box-shadow: none;
+    border: solid 1px lightgrey;
+    margin-top: 8px;
+    padding: 6px;
+    display: inline;
+    font-weight: 200;*/
 }
 
 /*
@@ -250,6 +262,19 @@ body {
 }
 
 
+
+/*--------Points Dashboard---------*/
+.points {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin: 0;
+}
+
+h4 {
+    margin-left: 20px;
+}
+
 /*--------footer---------*/
 
 .footer {
@@ -259,7 +284,7 @@ body {
     background-color: #273135;
     margin-top: 40px;
     clear: both;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 

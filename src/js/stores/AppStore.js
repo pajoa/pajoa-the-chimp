@@ -13,34 +13,6 @@ var _activeNoteId = null;
 var _user = null;
 var data = [];
 
-/*
-var data = [{
-    title: "my 1st note",
-    text: "i love making notes",
-    username: "neats",
-		id: "123"
-},{ 
-    title: "my 2nd note",
-    text: "i love making gssgnotes",
-    username: "neats",
-		id: "1234"
-                
-}, {
-    title: "my 3rd note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "12345"
-}, 
-{
-    title: "my 4th note",
-    text: "i love making ndfs/sotes",
-    username: "neats",
-		id: "123456"
-} 
-];
-*/
-
-
 var AppStore = assign({}, EventEmitter.prototype, {
     
     getRoute: function() {
@@ -70,10 +42,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
     getActiveNoteId: function() {
         return _activeNoteId;
     }
-
-    // getCalendar: function() {
-    //     return _todaysDate;
-    // } 
     
 });
 

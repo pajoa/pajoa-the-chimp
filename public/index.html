@@ -15,5 +15,12 @@
     <script type="text/javascript" src="/lib/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/lib/bootstrap.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    <!-- Include the Quill library -->
+    <script src="//cdn.quilljs.com/0.19.10/quill.js"></script>
+    <!-- Initialize Quill editor -->
+    <script>
+      var quill = new Quill('#editor');
+      quill.addModule('toolbar', { container: '#toolbar' });
+    </script>
   </body>
 </html>
