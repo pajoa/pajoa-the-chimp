@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-	"web": "nodemon app.js"
+	"web": "nodemon app",
+	"start": "nodemon app"
+  },
+  "engines": {
+	"node": "0.10.36"
   },
   "repository": {
     "type": "git",
