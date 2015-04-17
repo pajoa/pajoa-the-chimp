@@ -1,6 +1,9 @@
 var server = require('./server.js');
 var CronJob = require('cron').CronJob;
 var nodemailer = require('nodemailer');
+var moment  = require('moment');
+
+var today = moment().format("dddd, MMMM Do YYYY");
 
 console.log("cron has started");
 var job = new CronJob('00 11 * * *', function() {
