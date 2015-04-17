@@ -28,10 +28,11 @@ var NewNote = React.createClass({
         console.log('in newnote');
         return(
             <div className="container">
-                <div className="noteBox">
-                    <input ref="title" className="noteTextarea form-control" />
-                    <hr/>
-                    <textarea className="noteTextarea form-control" ref="text"></textarea>
+                <div className="newNoteBox">
+					<h4 className="noteHeading">Title:</h4>
+                    <input ref="title" className="newNoteInput form-control" />
+                    <h4 className="noteHeading">Body:</h4>
+                    <textarea className="newNoteTextarea form-control" ref="text"></textarea>
                     <button className="glyphicon glyphicon-pencil"></button>
                     <Link to="SquishApp" onClick={this.createNote}><input className="saveButton form-control" type="submit" value="save"  /></Link>
                 </div>
