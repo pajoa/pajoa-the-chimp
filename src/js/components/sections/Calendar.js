@@ -84,14 +84,7 @@ var Calendar = React.createClass({
   },
 
   render: function() {
-    var self = this;
-    var deadlineDates = [];
-    this.props.data.forEach(function(note){
-      notes.deadlines.forEach(function(deadline){
-        var deadlineDates = [];
-      });
-    });
-
+//	  console.log("data from the store: ", this.props.data);
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />
