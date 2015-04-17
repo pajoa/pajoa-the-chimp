@@ -3,6 +3,21 @@ var ActionCreators = require("../../actions/ActionCreators");
 var Day = require('./Day');
 var CalendarControls = require('./CalendarControls');
 var moment = require("moment");
+// var Calendar = React.createClass({
+//     render: function() {
+//         return React.DOM.iframe({
+//             src: '',
+//             height: '800',
+//             width: '1000',
+//             scrolling: 'no',
+//             onLoad: function() {console.log('react iframe loaded');},
+//         });
+//     }
+// });
+
+// window.onload = function() {
+//     React.renderComponent(Iframe(), document.getElementById("container"));
+// };
 
 var Calendar = React.createClass({
 
@@ -84,7 +99,7 @@ var Calendar = React.createClass({
   },
 
   render: function() {
-//	  console.log("data from the store: ", this.props.data);
+//      console.log("data from the store: ", this.props.data);
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />
@@ -96,7 +111,7 @@ var Calendar = React.createClass({
           </div>
           <div className='days'>
             {this.days().map(function(day, i)  {
-              return <Day key={'day-' + i} day={day} data={self.props.data}/>;
+              return <Day key={'day-' + i} day={day} />;
             })}
           </div>
           <div className='clearfix'></div>
