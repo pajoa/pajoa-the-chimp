@@ -5,7 +5,8 @@ h1 {
 }
 
 body {
-  background-color: #fff;
+    background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 /*-------Navbar-----*/
@@ -47,19 +48,25 @@ body {
     background-color: #E9F0F5;
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+} 
+
 /*-------singleNote-----*/
 .noteBox {
     border: solid 1.5px lightgrey;
     border-radius: 4px;
     max-width: 600px;
-    max-height: 400px;
+    max-height: 900px;
     display: block;
     margin: auto;
     padding: 10px;
+    margin-bottom: 50px;
+    margin-top: 40px;
 }
 
 .saveButton {
-    display: block;
+    display: inline-block;
     border: none;
     background-color: #5ec95e;
     color: white;
@@ -75,6 +82,7 @@ body {
     border-radius: 4px;
     padding: 8px;
     max-width: 550px;
+    max-height: 600px;
     margin: 10px;
 }
 
@@ -87,6 +95,11 @@ body {
     height: 25px;
     border-radius: 25px;
     display: inline-block;
+}
+
+.noteHeading {
+    margin: 20px 15px 0;
+    font-weight: 100;
 }
 
 /*-------Notes-------*/
@@ -120,8 +133,9 @@ body {
 .noteTitle {
     color: white;
     text-decoration: none;
-    font-weight: 200;
-    margin: 10px;
+    font-weight: 400;
+    margin: 15px;
+    
 }
 
 /*
@@ -182,6 +196,7 @@ body {
     border-radius: 0;
     
 }
+
 
 .clndr {
     width: 700px;
@@ -256,3 +271,10 @@ body {
     padding-top: 5px;
     font-size: 11px;   
 }
+
+/*--------feedback---------*/
+
+iframe.feedback {
+    height:100%;
+    width:100%;
+    border:none;

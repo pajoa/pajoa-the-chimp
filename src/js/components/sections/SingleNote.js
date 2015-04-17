@@ -34,10 +34,15 @@ var SingleNote = React.createClass({
         return(
             <div className="container">
                 <div className="noteBox">
+<<<<<<< HEAD
                     <input placeholder="Enter title here" className="noteTextarea form-control" value={activeNote.title} />
                     <hr/>
+=======
+                    <h4 className="noteHeading">Title:</h4>
+                    <input className="noteTextarea form-control" value={activeNote.title} />
+                    <h4 className="noteHeading">Body:</h4>
+>>>>>>> master
                     <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
-                    <button className="glyphicon glyphicon-pencil"></button>
                     <input className="saveButton form-control" type="submit" value="save" onClick={this.handleClick} />
                 </div>
             </div>
