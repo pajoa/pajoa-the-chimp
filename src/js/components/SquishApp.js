@@ -35,16 +35,19 @@ var SquishApp = React.createClass({
       return getStateFromStore();
     },  
 
+    // hook up the event listener, so that is listens for canges in the store 
     componentDidMount: function(){
         AppStore.addChangeListener(this._onChange);
         ActionCreators.fetchUserFromDB();
 
     },
 
+    // remove the even listener when the user is leaving the site
     componentWillUnmount: function(){
         AppStore.removeChangeListener(this._onChange);
     },
 
+    // this is called every time is hears that the store has been updated. _onChange then updates the state according to the new store data.
     _onChange: function(){
         this.setState(getStateFromStore());
     },
@@ -97,13 +100,14 @@ var SquishApp = React.createClass({
     }  
 });
 
+
+// Routes are added here: the handler refers to the React component, and the name to the url
 var routes = (
     <Route name="SquishApp" path="/" handler={SquishApp}>
         <Route name="newnote" handler={NewNote} />       
         <Route name="calendar" handler={Calendar} />
         <Route name="feedback" handler={Feedback} />
         <Route name=":noteId" handler={SingleNote} />
-
         <DefaultRoute handler={Notes} />
     </Route>
     );

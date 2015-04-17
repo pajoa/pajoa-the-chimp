@@ -7,10 +7,9 @@ var SingleNote = React.createClass({
     },
     
     handleClick: function(event) {
+        // when someone clicks "save", this function is triggered
         var text = React.findDOMNode(this.refs.text).value;
         var activeNoteId = this.context.router.getCurrentParams().noteId;
-
-
         console.log(text);
         var edit = {
             text: text,
@@ -26,6 +25,7 @@ var SingleNote = React.createClass({
         var data = this.props.data;
         var dataLength = data.length;
 
+        // find the actual note to show. activeNoteId is pulled from the URL
         for (i=0; i < dataLength; i++) {
             if (data[i].id.toString() === activeNoteId) {
                 var activeNote = data[i];

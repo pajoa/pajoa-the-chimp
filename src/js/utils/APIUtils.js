@@ -1,13 +1,14 @@
 var Request = require("superagent");
 var ServerActionCreators = require('../actions/ServerActionCreators');
 
+
+// this is all the AJAX calls we're sending to the server to pull info or talk with the db
 module.exports = {
 
   fetchUserFromDB: function(username) {
-
-	var userObj = {
-		username: username
-	};
+  	var userObj = {
+	 	  username: username
+	  };
 
 	Request.get("/user")
 		.end(function(err, res) {
