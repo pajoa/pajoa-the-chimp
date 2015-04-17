@@ -1,107 +1,55 @@
+var server = require('./server.js');
 var CronJob = require('cron').CronJob;
 var nodemailer = require('nodemailer');
 
-var moment  = require('moment');
-var today = moment().format("dddd, MMMM Do YYYY");
+console.log("cron has started");
+var job = new CronJob('00 11 * * *', function() {
+  console.log("check's everyday at 11am");
 
-var date = moment("15-04-2015", "DD-MM-YYYY");
-var oneday = moment(date).add(1, "days").format("dddd, MMMM Do YYYY");
-var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
-var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
-
-//not deadline
-var datee = moment("16-04-2015", "DD-MM-YYYY");
-var onedayy = moment(datee).add(1, "days").format("dddd, MMMM Do YYYY");
-
-var mock = [{
-        title: "jason",
-        text: "mynotes not deadline",
-        id: "1234",
-        date: today,
-        deadlines: [onedayy, sevenday, thirtyday]
-},
-{
-        title: "jason",
-        text: "mynotes with deadline",
-        id: "1235",
-        date: today,
-        deadlines: [oneday, sevenday, thirtyday]
-},
-{
-        title: "jason",
-        text: "mynotes with another deadline",
-        id: "1235",
-        date: today,
-        deadlines: [oneday, sevenday, thirtyday]
-}]
-
-var array = [];
-for(j=0; j<mock.length;j++){
-  var d = mock[j].deadlines
-  for(i=0; i<d.length; i++){
-    if(today == d[i]) {
-      array.push({
-        title: mock[j].title,
-        text: mock[j].text,
-        id: mock[j].id,
-        date: mock[j].date
-      })
-    }
-  }
-}
-console.log("here", array);
-
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'squishreminder@gmail.com',
-        pass: 'pajoalovesn0de'
-    }
-});
-
-var user = "JSON";
-var link = "http://localhost:8080/"
-var note = "mynote"
-
-if(array.length == 1) {
-
-  var mailOptions = {
-    from: 'Squish Reminder <squishreminder@gmail.com>',
-    to: 'jason.c.luu@hotmail.co.uk',
-    subject: 'Revise today! ✔',
-    text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
-    html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
-  };
-
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
+  server.User.find({},function(err,users){
+    users.forEach(function(user){
+      user.notes.forEach(function(note){
+        note.deadlines.forEach(function(deadline){
+          if (deadline === today){
+            console.log(user.email);
+            console.log(note.title);
+            Sendmail(user.email, note.title);
+          }
+        });
+      });
+    });
   });
-}
-else {
-  var mailOptions = {
+
+  var Sendmail = function(email, title) {
+
+    var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'squishreminder@gmail.com',
+            pass: 'pajoalovesn0de'
+        }
+    });
+
+    var link = "http://localhost:8080/"
+
+    var mailOptions = {
       from: 'Squish Reminder <squishreminder@gmail.com>',
-      to: 'jason.c.luu@hotmail.co.uk',
+      to: email,
       subject: 'Revise today! ✔',
-      text: 'Hello ' + user + '! Revise today and stay on top of your notes. You will get a point, so login here: ' + link,
-      html: '<b>Hello ' + user + '! Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + note + '</a></b>'
-  };
+      text: 'Revise today and stay on top of your notes. You will get a point if you login today: ' + link + ' Your notes: ' + title,
+      html: 'Revise today and stay on top of your notes! You will get a point if you login today: <a href=' + link + '>' + title + '</a></b>'
+    };
 
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-  });
-}
+    transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+          console.log(error);
+      }else{
+          console.log('Message sent: ' + info.response);
+      }
+    });
 
-var job = new CronJob('* * * * *', function() {
-  console.log("check every minute");
-
+  }
+  
   }, function () {
     //runs when it's finished?
   },

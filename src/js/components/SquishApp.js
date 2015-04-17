@@ -62,17 +62,18 @@ var SquishApp = React.createClass({
 
         return (
             <div>
-                <div className = 'container'>
+                <div className ='container'>
                     <div className = 'row'>
                       <div className='col-md-12'>
                         <nav className="navbar navbar-default">
                           <div className="container-fluid">
                             <div className="navbar-header">
-                              <Link to="SquishApp" className="navbar-brand" >Squish </Link>
+                                <Link to="SquishApp" className="navbar-brand">Squish</Link>
                             </div>
                             <div>
                               <ul className="nav navbar-nav">
-                                <li><Link to="calendar" >Calendar</Link></li>
+                                <li><Link to="calendar" title="Calendar" className="glyphicon glyphicon-calendar"></Link></li>
+                                <li><Link to="newnote" title="Create New Note" className="glyphicon glyphicon-plus"></Link></li>
                               </ul>
                               <ul className="nav navbar-nav navbar-right">  
                                 <li><a >{user}</a></li>

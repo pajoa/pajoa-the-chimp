@@ -1,7 +1,7 @@
 {
   "name": "pajoa-the-chimp",
   "version": "1.0.0",
-  "description": "pajoa likes to code",
+  "description": "App for Squish",
   "main": "app.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/pajoa/pajoa-the-chimp.git"
   },
-  "author": "pajoa",
+  "author": "pajoa - Founders and Coders",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pajoa/pajoa-the-chimp/issues"
@@ -24,11 +24,11 @@
     "jest": "^0.1.39",
     "reactify": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.1.0",
-    "mongojs": "^0.18.2"
+    "watchify": "^3.1.0"
   },
   "dependencies": {
     "bell": "^2.3.0",
+    "cron": "^1.0.9",
     "events": "^1.0.2",
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",

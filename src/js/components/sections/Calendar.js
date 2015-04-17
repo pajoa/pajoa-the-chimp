@@ -84,6 +84,7 @@ var Calendar = React.createClass({
     }
 
     return days;
+      console.log(days);
   },
 
   daysOfWeek: function() {
@@ -98,7 +99,14 @@ var Calendar = React.createClass({
   },
 
   render: function() {
-    var deadlines = this.props.deadlines;
+    var self = this;
+    var deadlineDates = [];
+    this.props.data.forEach(function(note){
+      notes.deadlines.forEach(function(deadline){
+        var deadlineDates = [];
+      });
+    });
+
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />
@@ -110,7 +118,7 @@ var Calendar = React.createClass({
           </div>
           <div className='days'>
             {this.days().map(function(day, i)  {
-              return <Day key={'day-' + i} day={day} />;
+              return <Day key={'day-' + i} day={day} data={self.props.data}/>;
             })}
           </div>
           <div className='clearfix'></div>

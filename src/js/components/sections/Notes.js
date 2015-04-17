@@ -20,7 +20,7 @@ var Notes = React.createClass({
         console.log('data in notes: ',this.props.data);
         var self = this;
         var notes = this.props.data.map(function(note){
-                maxLength = 20;
+      maxLength = 20;
                 var ret = note.text;
                     if (ret.length > maxLength) {
                         ret = ret.substr(0,maxLength-1) + "...";
@@ -34,7 +34,6 @@ var Notes = React.createClass({
                         </div>
                     </div>
                 );
-           
         });
         
         return (
