@@ -15,16 +15,9 @@ var Day = React.createClass({
   },
 
   render: function() {
-<<<<<<< HEAD
-    var deadline = ["Thu Apr 02 2015 00:00:00 GMT+0100 (BST)"];
-    // var deadlineMoment = moment(deadline).format("dddd, MMMM Do YYYY");
-    // console.log("deadline in moment format: ", deadlineMomentFormat);
-=======
     var deadline = ["Thu Apr 02 2015 00:00:00 GMT+0100 (BST)", "Thu Apr 30 2015 00:00:00 GMT+0100 (BST)"];
 //    var deadlineMomentFormat = moment(deadline).format("dddd, MMMM Do YYYY");
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
-      
->>>>>>> master
      var self = this;
       var data = this.props.data;
       console.log("data in day component" + data);
