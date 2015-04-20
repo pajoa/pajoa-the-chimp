@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-	"web": "node app",
-	"start": "node app"
+    "web": "node app",
+    "start": "node app"
   },
   "engines": {
-	"node": "0.10.36"
+    "node": "0.10.36"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "react": "^0.13.1",
     "react-addons": "^0.9.1-deprecated",
     "react-router": "^0.13.2",
-    "superagent": "^1.2.0"
+    "superagent": "^1.2.0",
+    "wreck": "^5.4.0"
   }
 }
