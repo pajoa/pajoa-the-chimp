@@ -28,7 +28,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 		
 	server.auth.strategy('google', 'bell', {
 		provider		: 'google',
-		password    	: 'cookie_encryption_password',
+		password    	: config.google.password,
 		clientId		: config.google.cKey,
 		clientSecret 	: config.google.cSecret,
 		isSecure 		: false 
