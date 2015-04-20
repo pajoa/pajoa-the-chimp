@@ -3,7 +3,6 @@ var gulp        = require("gulp"),
     source      = require('vinyl-source-stream'),
     browserify  = require('browserify'),
     watchify    = require('watchify'),
-//	runSeq		=require('run-sequence'),
     reactify    = require('reactify');
     require("harmonize")();
 
