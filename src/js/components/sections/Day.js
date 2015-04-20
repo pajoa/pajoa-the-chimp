@@ -38,6 +38,7 @@ var Day = React.createClass({
             <div onClick={this._onClick} className={this.props.day.classes}>
                 <span className='deadline'>{this.props.day.day.date()}</span>
             </div>
+
         );
     } else if (todayIsDeadlineDay === false)  {
         return (
