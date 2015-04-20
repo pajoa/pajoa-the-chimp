@@ -52,11 +52,12 @@ var SquishApp = React.createClass({
 
     // this is called every time is hears that the store has been updated. _onChange then updates the state according to the new store data.
     _onChange: function(){
+        console.log('_onChange triggered');
         this.setState(getStateFromStore());
     },
 
     render: function(){
-        console.log('points: ', this.state.points);
+        console.log('points: ', this.state.points); 
         var user = this.state.user;
         console.log('user: ', user);
         console.log('data is: ', this.state.data);

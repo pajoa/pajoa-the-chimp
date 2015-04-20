@@ -7,7 +7,7 @@ module.exports = {
         NAVIGATE_TO: null,
         NAVIGATE_TO_A_NOTE: null,
         EDIT_NOTE: null,
-        
+        CLAIM_POINTS: null,
         //Server
         RECEIVE_USER: null
 

@@ -22,7 +22,6 @@ module.exports = {
 	},
 
 	createNote: function(data){
-		console.log('data in serveraC: ', data);
 		AppDispatcher.dispatch({
 			type: ActionTypes.CREATE_NOTE,
 			data: data

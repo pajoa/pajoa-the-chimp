@@ -92,9 +92,9 @@ AppDispatcher.register(function(action){
             break;
 
         case ActionTypes.CLAIM_POINTS:
-            points = action.points;
+            _points = action.points;
             data = action.data;
-            AppStote.emitChange();
+            AppStore.emitChange();
             break;
 
         default:

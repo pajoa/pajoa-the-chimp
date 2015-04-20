@@ -12,7 +12,6 @@ module.exports = {
 
 	Request.get("/user")
 		.end(function(err, res) {
-        console.log('res /user: ', res);
 				ServerActionCreators.receiveUser(res.body);
 		});
   },
