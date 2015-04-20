@@ -99,9 +99,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 				}
 			}
 		}
-	},
-
-	{
+	},{
         // for serving static files
 		path: '/{param*}',
 		method: 'GET',
@@ -111,9 +109,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 	        	index: true
 	        }
 		}
-	},
-
-	{
+	},{
         method: 'GET',
         path: '/logout',
         config: {
@@ -156,6 +152,59 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 				reply.redirect('/');
 
             }
+        }
+    },{
+        method: 'POST',
+        path: '/claimpoints',
+        config: {
+            auth: {
+                strategy: 'session',
+                mode: 'try'
+            },
+            handler: function(request,reply){
+                if (request.auth.isAuthenticated){
+                    
+                    //fetch the text, title and id from the payload (sent to the server via AJAX)
+                    var payload = request.payload;
+                    var id = payload.activeNoteId;
+                    var deadlineObject = payload.deadlineObject;
+                    console.log('deadlineObject; ', deadlineObject);
+                    console.log('activeNoteId; ', id);
+                    
+                    // get the users credentials/email
+                    var g = request.auth.credentials;
+
+                    //find the user
+                    User.findOne({email: g.email}, function(err,res){
+                        console.log('res: ', res);
+                        // loop through the users notes
+                        res.notes.forEach(function(note,i){
+
+                            //find the spesific note
+                            if (note.id.toString() === id){
+
+                                note.deadlines.forEach(function(deadline){
+                                    if (deadlineObject.day === deadline.day){
+                                        deadline.points = 1;
+                                        res.points += 1;
+                                        res.markModified('notes');
+                                        res.markModified('points');
+                                
+                                        //save the updated
+                                        res.save(function(err){
+                                            if (err){
+                                            console.log(err);
+                                            }
+                                        });
+                                        reply(res);
+
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }
+            }   
         }
     },{
         // handler for when the user save's an old note. (not for when the user saves a new note at '/newnote')
