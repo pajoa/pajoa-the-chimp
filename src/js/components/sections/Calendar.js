@@ -95,7 +95,6 @@ var Calendar = React.createClass({
     });
 
     var self = this;
-    console.log("data in calendar: ", this.props.data);
     return (
       <div className='clndr'>
         <h1 className="squishtitle"> My Squish Calendar </h1>
