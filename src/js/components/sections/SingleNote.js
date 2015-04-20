@@ -1,5 +1,7 @@
 var React = require("react");
 var ActionCreators = require("../../actions/ActionCreators");
+var moment = require("moment");
+
 
 var SingleNote = React.createClass({
     contextTypes: {
@@ -17,9 +19,16 @@ var SingleNote = React.createClass({
         };
         ActionCreators.editNote(edit);
     },
+
+    claimPoint: function(deadlineObject,activeNoteId){
+        var content = {
+            deadlineObject: deadlineObject,
+            activeNoteId: activeNoteId
+        }
+        ActionCreators.claimPoint(content);
+    },
     
     render: function() {
-        console.log('in single note');
         var activeNoteId = this.context.router.getCurrentParams().noteId;
         var i;
         var data = this.props.data;
@@ -31,6 +40,22 @@ var SingleNote = React.createClass({
                 var activeNote = data[i];
             }
         }
+        var claimPointsButton;
+        var todayIsDeadlineDay = false;
+        var today = moment().format("dddd, MMMM Do YYYY");
+        var deadlineObject;
+        console.log('in single note. activeNote: ', activeNote);
+        activeNote.deadlines.forEach(function(deadline){
+            if (deadline.day === today){
+                todayIsDeadlineDay = true;
+                deadlineObject = deadline;
+            }   
+        });
+
+        if (todayIsDeadlineDay === true){
+            claimPointsButton = <input type="submit" value="Claim point!" onClick={this.claimPoint.bind(null,deadlineObject,activeNoteId)} />;
+        };
+
         return(
             <div className="container">
                 <div className="noteBox">
@@ -39,7 +64,8 @@ var SingleNote = React.createClass({
                     <h4 className="noteHeading">Body:</h4>
                     <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
 					<div className="row">
-                    	<input className="saveButton form-control" type="submit" value="save" onClick={this.handleClick} />
+                    {claimPointsButton}
+                    <input className="saveButton form-control" type="submit" value="save" onClick={this.handleClick} />
 					</div>
                 </div>
             </div>

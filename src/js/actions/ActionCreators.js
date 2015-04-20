@@ -34,6 +34,10 @@ module.exports = {
 
     createNote: function(info){
         APIUtils.createNote(info);
+    },
+
+    claimPoint: function(content){
+        APIUtils.claimPoint(content);
     }
     
 };

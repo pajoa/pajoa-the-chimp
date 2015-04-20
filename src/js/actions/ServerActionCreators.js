@@ -27,5 +27,12 @@ module.exports = {
 			type: ActionTypes.CREATE_NOTE,
 			data: data
 		});
-	} 
+	},
+
+	claimPoint: function(data){
+		AppDispatcher.dispatch({
+			type: ActionTypes.CLAIM_POINT,
+			data: data
+		});
+	}
 }
