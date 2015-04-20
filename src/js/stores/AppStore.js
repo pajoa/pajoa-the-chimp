@@ -11,7 +11,7 @@ var _editNote = null;
 var _activeNoteId = null;
 var _user = null;
 var data = [];
-
+var _points = null;
 var AppStore = assign({}, EventEmitter.prototype, {
     
 
@@ -34,6 +34,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
     getActiveNoteId: function() {
         return _activeNoteId;
 
+    },
+
+    getPoints: function(){
+        return _points;
     },
 
     // is not used anymore, so we should remove it.
@@ -72,6 +76,7 @@ AppDispatcher.register(function(action){
         case ActionTypes.RECEIVE_USER:
             data = action.user.notes;
             _user = action.user.email;
+            _points = action.user.points;
             console.log(_user);
             AppStore.emitChange();
             break;

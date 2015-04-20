@@ -17,36 +17,38 @@ var Day = React.createClass({
   },
 
   render: function() {
-	  console.log("day", this.props);
     var deadline = ["Tue Apr 28 2015 00:00:00 GMT+0100 (BST)"];
 //    var deadlineMomentFormat = moment(deadline).format("dddd, MMMM Do YYYY");
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
-     var self = this;
-      var data = this.props.data;
-      console.log(data);
-      console.log("data in day component" + data);
-//      console.log(this.props.day.day._d);
-    var deadlineday = deadline.map(function(index){
-            if (self.props.day.day._d == index) {
-                return (
-                    <div onClick={self._onClick} className={self.props.day.classes}>
-                        <span className='deadline'>{self.props.day.day.date()}</span>
-                    </div>
-                );
-            } else {
-                return (
-                  <div onClick={self._onClick} className={self.props.day.classes}>
-                    <span className='day-number'>{self.props.day.day.date()}</span>
-                  </div>
-                );
-            }
-        });
+    var data = this.props.data;
+    //console.log("data in day component: " + data);
+    var unformattedToday = this.props.day.day._d;
+    var today = moment(unformattedToday).format("dddd, MMMM Do YYYY");
 
-    return (
-        <div>
-            {deadlineday}
-        </div>  
+    var isDeadlineDay = false;
+    var deadlineDates = this.props.deadlineDates;
+    deadlineDates.forEach(function(deadline){
+      if (deadline == today){
+        isDeadlineDay = true;
+      }
+    });
+
+    if (isDeadlineDay === true) {
+        return (
+            <div onClick={this._onClick} className={this.props.day.classes}>
+                <span className='deadline'>{this.props.day.day.date()}</span>
+            </div>
+
         );
+    } else if (isDeadlineDay === false)  {
+        return (
+          <div onClick={this._onClick} className={this.props.day.classes}>
+            <span className='day-number'>{this.props.day.day.date()}</span>
+          </div>
+        );
+    }
+        
+
     }
 });
 

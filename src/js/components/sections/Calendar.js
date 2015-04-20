@@ -3,6 +3,7 @@ var ActionCreators = require("../../actions/ActionCreators");
 var Day = require('./Day');
 var CalendarControls = require('./CalendarControls');
 var moment = require("moment");
+
 // var Calendar = React.createClass({
 //     render: function() {
 //         return React.DOM.iframe({
@@ -99,7 +100,16 @@ var Calendar = React.createClass({
   },
 
   render: function() {
-//      console.log("data from the store: ", this.props.data);
+    var notes = this.props.data;
+    var deadlineDates = [];
+    notes.forEach(function(note){
+      note.deadlines.forEach(function(deadline){
+        deadlineDates.push(deadline);
+      });
+    });
+
+    var self = this;
+    console.log("data in calendar: ", this.props.data);
     return (
       <div className='clndr'>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />
@@ -111,7 +121,7 @@ var Calendar = React.createClass({
           </div>
           <div className='days'>
             {this.days().map(function(day, i)  {
-              return <Day key={'day-' + i} day={day} />;
+              return <Day key={'day-' + i} day={day} data={self.props.data} deadlineDates={deadlineDates}/>;
             })}
           </div>
           <div className='clearfix'></div>
