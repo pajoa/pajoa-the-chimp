@@ -73,6 +73,7 @@ AppDispatcher.register(function(action){
             _route = action.route;
             AppStore.emitChange();
             break;
+            
         case ActionTypes.RECEIVE_USER:
             data = action.user.notes;
             _user = action.user.email;

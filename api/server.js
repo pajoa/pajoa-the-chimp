@@ -99,9 +99,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 				}
 			}
 		}
-	},
-
-	{
+	},{
         // for serving static files
 		path: '/{param*}',
 		method: 'GET',
@@ -111,9 +109,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 	        	index: true
 	        }
 		}
-	},
-
-	{
+	},{
         method: 'GET',
         path: '/logout',
         config: {

@@ -87,7 +87,10 @@ var Calendar = React.createClass({
     var deadlineDates = [];
     notes.forEach(function(note){
       note.deadlines.forEach(function(deadline){
-        deadlineDates.push(deadline);
+        deadlineDates.push({
+          deadline: deadline,
+          id: note.id
+        });
       });
     });
 
