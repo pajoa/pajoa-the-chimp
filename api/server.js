@@ -3,6 +3,7 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
+var config 	= require('./config.js')
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish');
 var index = Path.resolve(__dirname + '/../public/index.html');
@@ -28,13 +29,13 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 	server.auth.strategy('google', 'bell', {
 		provider		: 'google',
 		password    	: 'cookie_encryption_password',
-		clientId		: '107798555367-ccsfjoctt2f9e9sja5nqi3tsa979kh5l.apps.googleusercontent.com',
-		clientSecret 	: '9WTSgM9n2CM4vRGPDIAf88IT',
+		clientId		: config.google.cKey,
+		clientSecret 	: config.google.cSecret,
 		isSecure 		: false 
 	});
 
     server.auth.strategy('session', 'cookie', {
-        password        : 'password',
+        password        : config.cookie.password,
         cookie          : 'sid',
         reddirectTo     : '/',
         isSecure        : false

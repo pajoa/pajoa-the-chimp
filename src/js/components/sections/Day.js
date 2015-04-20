@@ -23,6 +23,7 @@ var Day = React.createClass({
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
      var self = this;
       var data = this.props.data;
+      console.log(data);
       console.log("data in day component" + data);
 //      console.log(this.props.day.day._d);
     var deadlineday = deadline.map(function(index){
