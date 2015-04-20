@@ -22,6 +22,9 @@
     "url": "https://github.com/pajoa/pajoa-the-chimp/issues"
   },
   "homepage": "https://github.com/pajoa/pajoa-the-chimp",
+  "devDependencies": {
+    
+  },
   "dependencies": {
     "bell": "^2.3.0",
     "cron": "^1.0.9",
