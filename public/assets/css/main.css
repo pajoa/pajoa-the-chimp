@@ -90,7 +90,8 @@ a:focus, a:hover {
     height: 30px;
     border-radius: 30px;
     float: right;
-	margin-bottom: 30px;
+	margin: 15px;
+	margin-bottom: 20px;
 }
 
 .noteTextarea {
@@ -325,7 +326,7 @@ body {
     width: 100%;
 /*  background-color: #89949B;*/
     background-color: #273135;
-    margin-top: 40px;
+    margin-top: 50px;
     clear: both;
     position: fixed;
     bottom: 0;

@@ -12,6 +12,7 @@ module.exports = {
 
 	Request.get("/user")
 		.end(function(err, res) {
+        console.log('res /user: ', res);
 				ServerActionCreators.receiveUser(res.body);
 		});
   },
@@ -37,6 +38,15 @@ module.exports = {
         console.log('AJAX done: here is res: ', res);
         ServerActionCreators.createNote(res.body);
       });
+  },
+
+  claimPoint: function(content){
+    Request.post("/claimpoint")
+      .send(content)
+        .end(function(err,res){
+          console.log('AJAX done: here is res: ', res);
+          ServerActionCreators.claimPoint(res.body);
+        });
   }
 }
 

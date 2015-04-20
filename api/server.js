@@ -3,8 +3,9 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
+var config 	= require('./config.js')
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish');
+mongoose.connect(config.db.dburl);
 var index = Path.resolve(__dirname + '/../public/index.html');
 
 // Seeting up schema and models form mongoose db
@@ -20,21 +21,21 @@ var User = mongoose.model('User', userSchema);
 
 server.connection({
 	port: process.env.PORT || 8000,
-    host: "localhost" //added this because otherwise it will revert to http://*mymacusername*:8000 which google+ rejects 
+    host: "0.0.0.0"
 });
 
 server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 		
 	server.auth.strategy('google', 'bell', {
 		provider		: 'google',
-		password    	: 'cookie_encryption_password',
-		clientId		: '107798555367-ccsfjoctt2f9e9sja5nqi3tsa979kh5l.apps.googleusercontent.com',
-		clientSecret 	: '9WTSgM9n2CM4vRGPDIAf88IT',
+		password    	: config.google.password,
+		clientId		: config.google.cKey,
+		clientSecret 	: config.google.cSecret,
 		isSecure 		: false 
 	});
 
     server.auth.strategy('session', 'cookie', {
-        password        : 'password',
+        password        : config.cookie.password,
         cookie          : 'sid',
         reddirectTo     : '/',
         isSecure        : false
@@ -288,8 +289,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             			text: text,
             			id: new_id,
             			date: today,
-
-                        deadlines: [oneday, sevenday, thirtyday]
+                        deadlines: [       
+                            {day: oneday   , points: 0}, 
+                            {day: sevenday , points: 0}, 
+                            {day: thirtyday, points: 0}]
             		};
 
                     // find the user in the db 
