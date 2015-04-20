@@ -3,7 +3,7 @@ var ActionCreators = require("../../actions/ActionCreators");
 var Points = React.createClass({
     
     render: function() {
-    console.log("this is points: ", this);
+    console.log("this is points: ", this.props.data);
         return (
             <div>
             	<h1>Points Dashboard</h1>

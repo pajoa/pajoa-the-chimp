@@ -9,6 +9,14 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.col-md-4 {
+    border: solid 1px lightgrey;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 225px;
+}
+
 /*-------Navbar-----*/
 .navbar.navbar-default {
 	background-color: #1664B1;
@@ -42,10 +50,6 @@ body {
     height: 30px;
     width: 65px;
     position: center;
-}
-
-body {
-    background-color: #E9F0F5;
 }
 
 a:focus, a:hover {
@@ -86,8 +90,7 @@ a:focus, a:hover {
     height: 30px;
     border-radius: 30px;
     float: right;
-	margin: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .noteTextarea {
@@ -278,7 +281,6 @@ body {
 .clearfix {
     clear: both;
 }
-
 
 /*deadline*/
 
