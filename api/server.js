@@ -5,7 +5,7 @@ var Bell 	= require('bell');
 var moment  = require('moment');
 var config 	= require('./config.js')
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://squish:squish@ds027758.mongolab.com:27758/squish');
+mongoose.connect(config.db.dburl);
 var index = Path.resolve(__dirname + '/../public/index.html');
 
 // Seeting up schema and models form mongoose db
@@ -28,7 +28,7 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 		
 	server.auth.strategy('google', 'bell', {
 		provider		: 'google',
-		password    	: 'cookie_encryption_password',
+		password    	: config.google.password,
 		clientId		: config.google.cKey,
 		clientSecret 	: config.google.cSecret,
 		isSecure 		: false 
