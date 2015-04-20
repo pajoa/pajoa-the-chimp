@@ -21,12 +21,14 @@ function getStateFromStore() {
     var data = AppStore.getData();
 	var activeNoteId = AppStore.getActiveNoteId();
     var user = AppStore.getUser();
-     
+    var points = AppStore.getPoints(); 
+
     return {
         route: route,
         data: data,
         activeNoteId: activeNoteId,
-        user: user
+        user: user,
+        points: points
     };
 }
 
@@ -54,6 +56,7 @@ var SquishApp = React.createClass({
     },
 
     render: function(){
+        console.log('points: ', this.state.points);
         var user = this.state.user;
         console.log('user: ', user);
         console.log('data is: ', this.state.data);

@@ -289,8 +289,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             			text: text,
             			id: new_id,
             			date: today,
-
-                        deadlines: [oneday, sevenday, thirtyday]
+                        deadlines: [       
+                            {day: oneday   , points: 0}, 
+                            {day: sevenday , points: 0}, 
+                            {day: thirtyday, points: 0}]
             		};
 
                     // find the user in the db 
