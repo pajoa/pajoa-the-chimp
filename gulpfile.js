@@ -3,8 +3,10 @@ var gulp        = require("gulp"),
     source      = require('vinyl-source-stream'),
     browserify  = require('browserify'),
     watchify    = require('watchify'),
+	runSeq		=require('run-sequence'),
     reactify    = require('reactify');
     require("harmonize")();
+
 
 var paths = {
    scripts: "src/**/*.js",
@@ -55,6 +57,10 @@ gulp.task('browserify', function() {
 gulp.task("watch", function() {
   gulp.watch("src/**/*.js", ["jest"]);
   gulp.watch("__tests__/*.js", ["jest"]);
+});
+
+gulp.task("heroku:production", function(){
+	runSeq('build', 'minify');
 });
 
 gulp.task("default", ["browserify"]);
