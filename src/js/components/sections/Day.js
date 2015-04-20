@@ -24,19 +24,21 @@ var Day = React.createClass({
     //console.log("data in day component: " + data);
     var unformattedToday = this.props.day.day._d;
     var today = moment(unformattedToday).format("dddd, MMMM Do YYYY");
-
+    var id;
     var isDeadlineDay = false;
     var deadlineDates = this.props.deadlineDates;
     deadlineDates.forEach(function(deadline){
-      if (deadline == today){
+      console.log('deadline.deadline.day: ', deadline.deadline.day );
+      if (deadline.deadline.day == today){
         isDeadlineDay = true;
+        id = deadline.id;
       }
     });
 
     if (isDeadlineDay === true) {
         return (
             <div onClick={this._onClick} className={this.props.day.classes}>
-                <span className='deadline'>{this.props.day.day.date()}</span>
+                <a href={"/#/" + id}> <span className='deadline'>{this.props.day.day.date()}</span></a>
             </div>
 
         );
