@@ -28,7 +28,7 @@ var Day = React.createClass({
     var isDeadlineDay = false;
     var deadlineDates = this.props.deadlineDates;
     deadlineDates.forEach(function(deadline){
-      if (deadline == today){
+      if (deadline.day == today){
         isDeadlineDay = true;
       }
     });

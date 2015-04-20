@@ -20,12 +20,12 @@ var SingleNote = React.createClass({
         ActionCreators.editNote(edit);
     },
 
-    claimPoint: function(deadlineObject,activeNoteId){
+    claimPoints: function(deadlineObject,activeNoteId){
         var content = {
             deadlineObject: deadlineObject,
             activeNoteId: activeNoteId
         }
-        ActionCreators.claimPoint(content);
+        ActionCreators.claimPoints(content);
     },
     
     render: function() {
@@ -33,27 +33,29 @@ var SingleNote = React.createClass({
         var i;
         var data = this.props.data;
         var dataLength = data.length;
-
+        var activeNote;
         // find the actual note to show. activeNoteId is pulled from the URL
         for (i=0; i < dataLength; i++) {
             if (data[i].id.toString() === activeNoteId) {
-                var activeNote = data[i];
+                activeNote = data[i];
             }
         }
+
         var claimPointsButton;
         var todayIsDeadlineDay = false;
         var today = moment().format("dddd, MMMM Do YYYY");
         var deadlineObject;
         console.log('in single note. activeNote: ', activeNote);
+
         activeNote.deadlines.forEach(function(deadline){
-            if (deadline.day === today){
+            if (deadline.day === today && deadline.points === 0) {
                 todayIsDeadlineDay = true;
                 deadlineObject = deadline;
             }   
         });
 
         if (todayIsDeadlineDay === true){
-            claimPointsButton = <input type="submit" value="Claim point!" onClick={this.claimPoint.bind(null,deadlineObject,activeNoteId)} />;
+            claimPointsButton = <input type="submit" className="form-control" value="Claim point!" onClick={this.claimPoints.bind(null,deadlineObject,activeNoteId)} />;
         };
 
         return(

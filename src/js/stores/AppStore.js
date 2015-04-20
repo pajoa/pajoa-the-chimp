@@ -91,6 +91,12 @@ AppDispatcher.register(function(action){
             AppStore.emitChange();
             break;
 
+        case ActionTypes.CLAIM_POINTS:
+            points = action.points;
+            data = action.data;
+            AppStote.emitChange();
+            break;
+
         default:
             console.log('default');
     }
