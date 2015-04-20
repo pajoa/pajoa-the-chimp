@@ -87,12 +87,14 @@ var Calendar = React.createClass({
     var deadlineDates = [];
     notes.forEach(function(note){
       note.deadlines.forEach(function(deadline){
-        deadlineDates.push(deadline);
+        deadlineDates.push({
+          deadline: deadline,
+          id: note.id
+        });
       });
     });
 
     var self = this;
-    console.log("data in calendar: ", this.props.data);
     return (
       <div className='clndr'>
         <h1 className="squishtitle"> My Squish Calendar </h1>

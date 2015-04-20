@@ -29,9 +29,9 @@ module.exports = {
 		});
 	},
 
-	claimPoint: function(data){
+	claimPoints: function(data){
 		AppDispatcher.dispatch({
-			type: ActionTypes.CLAIM_POINT,
+			type: ActionTypes.CLAIM_POINTS,
 			data: data
 		});
 	}
