@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest",
     "web": "node app",
-    "start": "node app",
-	"postinstall": "gulp default"
+    "start": "node app"
   },
   "engines": {
     "node": "0.10.36"
