@@ -3,7 +3,7 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
-var config 	= require('./config.js')
+var config 	= require('./config.js');
 var mongoose = require('mongoose');
 mongoose.connect(config.db.dburl);
 var index = Path.resolve(__dirname + '/../public/index.html');
