@@ -3,7 +3,7 @@ var Hapi 	= require('hapi');
 var server 	= new Hapi.Server();
 var Bell 	= require('bell');
 var moment  = require('moment');
-var config 	= require('./config.js')
+var config 	= require('./config.js');
 var mongoose = require('mongoose');
 mongoose.connect(config.db.dburl);
 var index = Path.resolve(__dirname + '/../public/index.html');
@@ -21,7 +21,7 @@ var User = mongoose.model('User', userSchema);
 
 server.connection({
 	port: process.env.PORT || 8000,
-    host: "localhost" //added this because otherwise it will revert to http://*mymacusername*:8000 which google+ rejects 
+    host: "0.0.0.0" || "localhost"
 });
 
 server.register([require('bell'), require('hapi-auth-cookie')], function(err){

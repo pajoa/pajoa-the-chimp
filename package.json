@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-	"web": "nodemon app",
-	"start": "nodemon app"
+    "web": "node app",
+    "start": "node app"
   },
   "engines": {
-	"node": "0.10.36"
+    "node": "0.10.36"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
   "dependencies": {
     "bell": "^2.3.0",
     "cron": "^1.0.9",
-    "events": "^1.0.2",
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",
     "googleapis": "^2.0.2",
