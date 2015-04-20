@@ -28,8 +28,6 @@ build/Release
 #Mac users
 .DS_Store
 
-#Build file
-public/assets/js
 
 #Client Secret
 client_secret.json
