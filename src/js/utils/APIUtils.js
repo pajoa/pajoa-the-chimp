@@ -12,7 +12,6 @@ module.exports = {
 
 	Request.get("/user")
 		.end(function(err, res) {
-        console.log('res /user: ', res);
 				ServerActionCreators.receiveUser(res.body);
 		});
   },
@@ -40,12 +39,12 @@ module.exports = {
       });
   },
 
-  claimPoint: function(content){
-    Request.post("/claimpoint")
+  claimPoints: function(content){
+    Request.post("/claimpoints")
       .send(content)
         .end(function(err,res){
           console.log('AJAX done: here is res: ', res);
-          ServerActionCreators.claimPoint(res.body);
+          ServerActionCreators.claimPoints(res.body);
         });
   }
 }

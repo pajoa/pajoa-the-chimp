@@ -22,17 +22,17 @@ module.exports = {
 	},
 
 	createNote: function(data){
-		console.log('data in serveraC: ', data);
 		AppDispatcher.dispatch({
 			type: ActionTypes.CREATE_NOTE,
 			data: data
 		});
 	},
 
-	claimPoint: function(data){
+	claimPoints: function(data){
 		AppDispatcher.dispatch({
-			type: ActionTypes.CLAIM_POINT,
-			data: data
+			type: ActionTypes.CLAIM_POINTS,
+			data: data.notes,
+			points: data.points
 		});
 	}
 }

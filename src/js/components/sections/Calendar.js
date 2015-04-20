@@ -90,7 +90,7 @@ var Calendar = React.createClass({
         deadlineDates.push(deadline);
       });
     });
-
+    
     var self = this;
     console.log("data in calendar: ", this.props.data);
     return (
