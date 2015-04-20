@@ -8,14 +8,6 @@ body {
     background-color: #fff;
 }
 
-.col-md-4 {
-    border: solid 1px lightgrey;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    height: 225px;
-}
-
 /*-------Navbar-----*/
 .navbar.navbar-default {
 	background-color: #1664B1;
@@ -154,7 +146,7 @@ a:focus, a:hover {
 /*-------Notes-------*/
 
 .notesCard {
-    background-color: white;
+    background-color: lightgrey;
     margin: 12px;
     border-radius: 5px;
 
@@ -174,8 +166,9 @@ a:focus, a:hover {
     border-bottom-right-radius: 5px;
     max-width: 300px;
     padding: 15px;
-    background-color: white;
+    background-color: #E9F0F5;
     color: grey;
+    height: 25%;
 }
 
 .noteTitle {
@@ -241,8 +234,7 @@ body {
     width: 40%;
     background: #004B98;
     color: #fff;
-    border-radius: 0;
-    
+    border-radius: 0; 
 }
 
 
