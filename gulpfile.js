@@ -59,8 +59,9 @@ gulp.task("watch", function() {
   gulp.watch("__tests__/*.js", ["jest"]);
 });
 
-//gulp.task("heroku:production", function(){
+gulp.task("heroku:production", function(){
 //	runSeq('build', 'minify');
-//});
+	console.log('hello heroku!');
+});
 
 gulp.task("default", ["browserify"]);
