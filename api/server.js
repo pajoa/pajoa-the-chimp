@@ -21,7 +21,7 @@ var User = mongoose.model('User', userSchema);
 
 server.connection({
 	port: process.env.PORT || 8000,
-    host: "0.0.0.0" || "localhost"
+    host: "0.0.0.0"
 });
 
 server.register([require('bell'), require('hapi-auth-cookie')], function(err){
