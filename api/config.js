@@ -11,6 +11,6 @@ module.exports = {
 		cSecret: process.env.GOOGLESECRET  || require('./creds.json').google.cSecret
 	},
 	cookie: {
-		password: process.env.COOKIESECRET || require('./creds.json').cookieSecret
+		password: process.env.COOKIESECRET || require('./creds.json').cookie.password
 	}
 };
