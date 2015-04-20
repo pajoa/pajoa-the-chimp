@@ -60,7 +60,7 @@ gulp.task("watch", function() {
 });
 
 gulp.task("heroku:production", function(){
-	runSeq('clean', 'build', 'minify');
+	runSeq('build', 'minify');
 });
 
 gulp.task("default", ["browserify"]);
