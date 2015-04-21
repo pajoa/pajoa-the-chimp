@@ -6,6 +6,7 @@ var gulp        = require("gulp"),
     reactify    = require('reactify');
     require("harmonize")();
 
+
 var paths = {
    scripts: "src/**/*.js",
    tests: "__tests__"
@@ -55,6 +56,11 @@ gulp.task('browserify', function() {
 gulp.task("watch", function() {
   gulp.watch("src/**/*.js", ["jest"]);
   gulp.watch("__tests__/*.js", ["jest"]);
+});
+
+gulp.task("heroku:production", function(){
+//	runSeq('build', 'minify');
+	console.log('hello heroku!');
 });
 
 gulp.task("default", ["browserify"]);

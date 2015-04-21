@@ -94,7 +94,7 @@ var SquishApp = React.createClass({
                         </nav>
                       </div>
                     </div>
-                  <RouteHandler data={this.state.data} user={this.state.user}/>
+                  <RouteHandler data={this.state.data} user={this.state.user} points={this.state.points}/>
                 </div>
                 <div className="container-fluid">
                     <Footer />

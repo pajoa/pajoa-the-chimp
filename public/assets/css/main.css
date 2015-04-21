@@ -6,7 +6,14 @@ h1 {
 
 body {
     background-color: #fff;
-    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.col-md-4 {
+    border: solid 1px lightgrey;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 225px;
 }
 
 /*-------Navbar-----*/
@@ -42,10 +49,6 @@ body {
     height: 30px;
     width: 65px;
     position: center;
-}
-
-body {
-    background-color: #E9F0F5;
 }
 
 a:focus, a:hover {
@@ -278,7 +281,6 @@ body {
 .clearfix {
     clear: both;
 }
-
 
 /*deadline*/
 

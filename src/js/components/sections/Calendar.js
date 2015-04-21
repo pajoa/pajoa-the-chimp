@@ -3,23 +3,6 @@ var ActionCreators = require("../../actions/ActionCreators");
 var Day = require('./Day');
 var CalendarControls = require('./CalendarControls');
 var moment = require("moment");
-
-// var Calendar = React.createClass({
-//     render: function() {
-//         return React.DOM.iframe({
-//             src: '',
-//             height: '800',
-//             width: '1000',
-//             scrolling: 'no',
-//             onLoad: function() {console.log('react iframe loaded');},
-//         });
-//     }
-// });
-
-// window.onload = function() {
-//     React.renderComponent(Iframe(), document.getElementById("container"));
-// };
-
 var Calendar = React.createClass({
 
     propTypes: {
@@ -104,14 +87,17 @@ var Calendar = React.createClass({
     var deadlineDates = [];
     notes.forEach(function(note){
       note.deadlines.forEach(function(deadline){
-        deadlineDates.push(deadline);
+        deadlineDates.push({
+          deadline: deadline,
+          id: note.id
+        });
       });
     });
 
     var self = this;
-    console.log("data in calendar: ", this.props.data);
     return (
       <div className='clndr'>
+        <h1 className="squishtitle"> My Squish Calendar </h1>
         <CalendarControls date={this.state.date} onNext={this.next} onPrev={this.prev} />
         <div className='clndr-grid'>
           <div className='day-headers'>

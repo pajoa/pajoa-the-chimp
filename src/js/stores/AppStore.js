@@ -73,6 +73,7 @@ AppDispatcher.register(function(action){
             _route = action.route;
             AppStore.emitChange();
             break;
+            
         case ActionTypes.RECEIVE_USER:
             data = action.user.notes;
             _user = action.user.email;
@@ -88,6 +89,12 @@ AppDispatcher.register(function(action){
         
         case ActionTypes.EDIT_NOTE:
             data = action.data;
+            AppStore.emitChange();
+            break;
+
+        case ActionTypes.CLAIM_POINTS:
+            data = action.data.notes;
+            _points = action.data.points;
             AppStore.emitChange();
             break;
 
