@@ -14,3 +14,8 @@ http://localhost:8000/
 npm test
 ```
 You may require to install gulp, browserify and jest globally
+
+Alternatively, if you want a branch with node_modules included. Pull our heroku live branch.
+```
+git pull origin heroku
+```
