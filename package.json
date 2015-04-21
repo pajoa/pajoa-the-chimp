@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/pajoa/pajoa-the-chimp",
   "devDependencies": {
-    
-  },
+    },
   "dependencies": {
     "bell": "^2.3.0",
-	  "browserify": "^9.0.8",
+    "browserify": "^9.0.8",
     "cron": "^1.0.9",
+    "events": "^1.0.2",
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",
     "googleapis": "^2.0.2",
@@ -44,9 +44,9 @@
     "react": "^0.13.1",
     "react-addons": "^0.9.1-deprecated",
     "react-router": "^0.13.2",
+    "reactify": "^1.1.0",
     "superagent": "^1.2.0",
     "vinyl-source-stream": "^1.1.0",
-    "reactify": "^1.1.0",
     "watchify": "^3.1.0"
   }
 }
