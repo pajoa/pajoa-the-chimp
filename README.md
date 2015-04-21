@@ -9,4 +9,8 @@ gulp (build file)
 node app (run server)
 http://localhost:8000/
 ```
+##How to test
+```
+npm test
+```
 You may require to install gulp, browserify and jest globally
