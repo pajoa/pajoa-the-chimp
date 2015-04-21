@@ -37,7 +37,6 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
     server.auth.strategy('session', 'cookie', {
         password        : config.cookie.password,
         cookie          : 'sid',
-        reddirectTo     : '/',
         isSecure        : false
     });
 
@@ -367,4 +366,5 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
 module.exports = {
     server: server,
-    User: User};
+    User: User
+};
