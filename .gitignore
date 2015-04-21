@@ -32,6 +32,3 @@ build/Release
 #Client Secret
 client_secret.json
 creds.json
-
-#node
-node_modules
