@@ -19,16 +19,6 @@ var Link = Router.Link;
 }
 
 var Notes = React.createClass({
-    handleClicker: function(e) {
-        console.log("clicking to a single note");
-            var info = {
-                route: "SingleNote",
-                id: e.target.name
-            };
-        ActionCreators.navigateToANote(info);
-    },
-
-		
 
     render: function() {
         console.log('data in notes: ',this.props.data);
