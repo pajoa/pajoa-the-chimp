@@ -1,6 +1,5 @@
 var React = require('react');
 var ActionCreators = require("../../actions/ActionCreators");
-var AppStore = require("../../stores/AppStore");
 var Points = React.createClass({
     
     render: function() {

@@ -162,7 +162,6 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             },
             handler: function(request,reply){
                 if (request.auth.isAuthenticated){
-                    
                     //fetch the text, title and id from the payload (sent to the server via AJAX)
                     var payload = request.payload;
                     var id = payload.activeNoteId;
@@ -184,8 +183,8 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 
                                 note.deadlines.forEach(function(deadline){
                                     if (deadlineObject.day === deadline.day){
-                                        deadline.points = 1;
-                                        res.points += 1;
+                                        deadline.points = 10;
+                                        res.points += 10;
                                         res.markModified('notes');
                                         res.markModified('points');
                                 
