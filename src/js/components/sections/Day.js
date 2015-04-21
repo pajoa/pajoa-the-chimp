@@ -47,8 +47,7 @@ var Day = React.createClass({
             <span className='day-number'>{this.props.day.day.date()}</span>
           </div>
         );
-    }
-        
+    }      
 
     }
 });

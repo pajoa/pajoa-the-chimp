@@ -151,6 +151,10 @@ a:focus, a:hover {
     font-weight: 100;
 }
 
+.record {
+    padding-left: 30px;
+}
+
 /*-------Notes-------*/
 
 .notesCard {
