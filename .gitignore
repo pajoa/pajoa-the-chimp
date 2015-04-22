@@ -32,5 +32,5 @@ build/Release
 client_secret.json
 creds.json
 
-# Hide node_modules
+#node
 node_modules
