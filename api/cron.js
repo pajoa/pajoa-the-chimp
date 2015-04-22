@@ -6,8 +6,8 @@ var moment  = require('moment');
 var today = moment().format("dddd, MMMM Do YYYY");
 
 console.log("cron has started");
-var job = new CronJob('00 12 * * *', function() {
-  console.log("check's everyday at 12pm");
+var job = new CronJob('10 13 * * *', function() {
+  console.log("check's everyday at 13:10");
 
   server.User.find({},function(err,users){
     users.forEach(function(user){
