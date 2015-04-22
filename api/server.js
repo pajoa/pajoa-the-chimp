@@ -7,7 +7,8 @@ var config 	= require('./config.js');
 var mongoose = require('mongoose');
 mongoose.connect(config.db.dburl);
 var index = Path.resolve(__dirname + '/../public/index.html');
-// Seeting up schema and models form mongoose db
+require("./cron.js");
+// Setting up schema and models form mongoose db
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
     email: String,
