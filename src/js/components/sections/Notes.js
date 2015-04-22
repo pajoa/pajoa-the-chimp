@@ -19,22 +19,10 @@ var Link = Router.Link;
 }
 
 var Notes = React.createClass({
-    handleClicker: function(e) {
-        console.log("clicking to a single note");
-            var info = {
-                route: "SingleNote",
-                id: e.target.name
-            };
-        ActionCreators.navigateToANote(info);
-    },
-
-		
 
     render: function() {
         console.log('data in notes: ',this.props.data);
         var self = this;
-
-
 
         var notes = this.props.data.map(function(note){
             maxLength = 100;
@@ -42,11 +30,13 @@ var Notes = React.createClass({
             if (ret.length > maxLength) {
                 ret = ret.substr(0,maxLength-1) + "...";
             }
+
             return (
                 <div key={note.id} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
                     <div className="notesCard">
                         <div className="notesCardTitle">
-                        <h3><a className="noteTitle" href={"/#/" + note.id} name={note.id}>{note.title}</a></h3></div>
+                            <h3><a className="noteTitle" href={"/#/" + note.id} name={note.id}>{note.title}</a></h3>
+                        </div>
                         <div className="notesCardText"><p>{ret}</p></div>
                     </div>
                 </div>

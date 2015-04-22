@@ -48,11 +48,29 @@ var SingleNote = React.createClass({
             if (deadline.day === today && deadline.points === 0){
                 todayIsDeadlineDay = true;
                 deadlineObject = deadline;
-            }   
+            }
         });
 
         if (todayIsDeadlineDay === true){
             claimPointsButton = <input type="submit" className="form-control"   value="Claim point!" onClick={this.claimPoints.bind(null,deadlineObject,activeNoteId)} />;
+        };
+
+        if(activeNote.deadlines[0].points === 0){
+            firstD = "✘";
+        } else {
+            firstD = "✔";
+        };
+
+        if(activeNote.deadlines[1].points === 0) {
+            secondD = "✘";
+        } else {
+            secondD = "";
+        };
+
+        if(activeNote.deadlines[2].points === 0) {
+            thirdD = "✘";
+        } else {
+            thirdD = "✔";
         };
 
         return(
@@ -63,7 +81,8 @@ var SingleNote = React.createClass({
                     <h4 className="noteHeading">Body:</h4>
                     <textarea className="noteTextarea form-control" ref="text" defaultValue={activeNote.text}></textarea>
 					<div className="row">
-                    {claimPointsButton}
+                        {claimPointsButton}
+                        <span className="record">{firstD}{secondD}{thirdD}</span>
                     <input className="saveButton form-control" type="submit" value="save" onClick={this.handleClick} />
 					</div>
                 </div>

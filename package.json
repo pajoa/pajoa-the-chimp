@@ -21,18 +21,21 @@
     "url": "https://github.com/pajoa/pajoa-the-chimp/issues"
   },
   "homepage": "https://github.com/pajoa/pajoa-the-chimp",
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "dependencies": {
     "bell": "^2.3.0",
+    "browserify": "^9.0.8",
     "cron": "^1.0.9",
+    "events": "^1.0.2",
     "flux": "^2.0.1",
     "google-auth-library": "^0.9.4",
     "googleapis": "^2.0.2",
+    "gulp": "^3.8.11",
     "gulp-jest": "^0.4.0",
     "hapi": "^8.4.0",
     "hapi-auth-cookie": "^2.0.0",
+    "harmonize": "^1.4.1",
+    "jest": "^0.1.39",
     "moment": "^2.10.2",
     "mongoose": "^4.0.1",
     "nodemailer": "^1.3.4",
@@ -40,14 +43,9 @@
     "react": "^0.13.1",
     "react-addons": "^0.9.1-deprecated",
     "react-router": "^0.13.2",
-    "superagent": "^1.2.0",
-	  
-	"browserify": "^9.0.8",
-    "gulp": "^3.8.11",
-    "gulp-jest": "^0.4.0",
-    "harmonize": "^1.4.1",
-    "jest": "^0.1.39",
     "reactify": "^1.1.0",
+    "run-sequence": "^1.0.2",
+    "superagent": "^1.2.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.1.0"
   }

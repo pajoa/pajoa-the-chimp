@@ -25,10 +25,12 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 
-#Mac users
+# Mac users
 .DS_Store
 
-
-#Client Secret
+# Client Secret
 client_secret.json
 creds.json
+
+# Hide node_modules
+node_modules

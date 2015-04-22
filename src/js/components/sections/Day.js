@@ -21,15 +21,14 @@ var Day = React.createClass({
 //    var deadlineMomentFormat = moment(deadline).format("dddd, MMMM Do YYYY");
 //    console.log("deadline in moment format: ", deadlineMomentFormat);
     var data = this.props.data;
-    //console.log("data in day component: " + data);
+    // console.log("data in day component: " + data);
     var unformattedToday = this.props.day.day._d;
     var today = moment(unformattedToday).format("dddd, MMMM Do YYYY");
     var id;
     var isDeadlineDay = false;
     var deadlineDates = this.props.deadlineDates;
     deadlineDates.forEach(function(deadline){
-      console.log('deadline.deadline.day: ', deadline.deadline.day );
-      if (deadline.deadline.day == today){
+      if (deadline.deadline.day == today && deadline.deadline.points == 0){
         isDeadlineDay = true;
         id = deadline.id;
       }
@@ -48,8 +47,7 @@ var Day = React.createClass({
             <span className='day-number'>{this.props.day.day.date()}</span>
           </div>
         );
-    }
-        
+    }      
 
     }
 });
