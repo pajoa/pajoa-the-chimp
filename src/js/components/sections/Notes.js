@@ -25,17 +25,23 @@ var Notes = React.createClass({
         var self = this;
 
         var notes = this.props.data.map(function(note){
-            maxLength = 100;
+            maxLengthtext = 100;
+            maxLengthtitle = 20;
             var ret = note.text;
-            if (ret.length > maxLength) {
-                ret = ret.substr(0,maxLength-1) + "...";
+            var rett = note.title;
+            if (ret.length > maxLengthtext) {
+                ret = ret.substr(0,maxLengthtext-1) + "...";
+            }
+            if (rett.length > maxLengthtitle) {
+                rett = ret.substr(0,maxLengthtitle-1) + "...";
             }
 
+
             return (
-                <div key={note.id} className="col-md-4 col-sm-6 col-xs-12 col-lg-3">
+                <div key={note.id} className="col-md-4 col-sm-6 col-xs-12 col-lg-4">
                     <div className="notesCard">
                         <div className="notesCardTitle">
-                            <h3><a className="noteTitle" href={"/#/" + note.id} name={note.id}>{note.title}</a></h3>
+                            <h3><a className="noteTitle" href={"/#/" + note.id} name={note.id}>{rett}</a></h3>
                         </div>
                         <div className="notesCardText"><p>{ret}</p></div>
                     </div>
