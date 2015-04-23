@@ -40,7 +40,7 @@ function agendaStart() {
 		    var link = "http://pajoa.herokuapp.com/"
 
 		    var mailOptions = {
-				from: 'Squish Reminder <support@squish.com>',
+				from: 'Squish Reminder <contactsquish@gmail.com>',
 				to: email,
 				subject: 'Revise today! ✔',
 				text: 'Revise today and stay on top of your notes. You will get a point if you login today: ' + link + ' Your notes: ' + title,
@@ -55,27 +55,27 @@ function agendaStart() {
 		    	}
 		    });
 
-	        var adminOptions = {
-	    		from: 'Squish Reminder <support@squish.com>',
-	    		to: 'jasoncluu@gmail.com',
-	    		subject: 'Users today',
-	    		text: 'Your total number of users today is: ' + users,
-	    		html: '<b>Your total number of users today is: ' + users + '</b>'
-	        };
+	      //   var adminOptions = {
+	    		// from: 'Squish Reminder <support@squish.com>',
+	    		// to: 'jasoncluu@gmail.com',
+	    		// subject: 'Users today',
+	    		// text: 'Your total number of users today is: ' + users,
+	    		// html: '<b>Your total number of users today is: ' + users + '</b>'
+	      //   };
 	        
-	        transporter.sendMail(adminOptions, function(error, info){
-	        	if(error){
-	        		console.log(error);
-	        	}else{
-	        		console.log('Message sent: ' + info.response);
-	        	}
-	        });
+	      //   transporter.sendMail(adminOptions, function(error, info){
+	      //   	if(error){
+	      //   		console.log(error);
+	      //   	}else{
+	      //   		console.log('Message sent: ' + info.response);
+	      //   	}
+	      //   });
 		};
 		done();
 		console.log("its's done");
 	});
 
-	agenda.every('15 18 * * *', 'checking deadline');
+	agenda.every('00 11 * * *', 'checking deadline');
 	 
 	agenda.start();
 };

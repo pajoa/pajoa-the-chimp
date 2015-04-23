@@ -42,7 +42,7 @@ var SingleNote = React.createClass({
         }
         var claimPointsButton;
         var todayIsDeadlineDay = false;
-        var today = moment().format("dddd, MMMM Do YYYY");
+        var today = moment().format("YYYY MM DD");
         var deadlineObject;
         activeNote.deadlines.forEach(function(deadline){
             if (deadline.day === today && deadline.points === 0){
