@@ -75,7 +75,7 @@ function agendaStart() {
 		console.log("its's done");
 	});
 
-	agenda.every('15 19 * * *', 'checking deadline');
+	agenda.every('07 18 * * *', 'checking deadline');
 	 
 	agenda.start();
 };
