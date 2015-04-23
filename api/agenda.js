@@ -11,7 +11,7 @@ function agendaStart() {
 	var Agenda = require('agenda');
 	var agenda = new Agenda({db: { address: config.db.dburl}});
 
-	agenda.define('check deadlinee', function(job, done) {
+	agenda.define('checking deadline', function(job, done) {
 		console.log("agenda is checking deadline dates now...");
 
 		server.User.find(function(err,users){
@@ -59,7 +59,7 @@ function agendaStart() {
 		console.log("its's done");
 	});
 
-	agenda.every('2 minutes', 'check deadlinee');
+	agenda.every('40 18 * * *', 'checking deadline');
 	 
 	agenda.start();
 };
