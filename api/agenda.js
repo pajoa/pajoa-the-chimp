@@ -57,7 +57,7 @@ function agendaStart() {
 
 	        var adminOptions = {
 	    		from: 'Squish Reminder <support@squish.com>',
-	    		to: 'contactsquish@gmail.com',
+	    		to: 'jasoncluu@gmail.com',
 	    		subject: 'Users today',
 	    		text: 'Your total number of users today is: ' + users,
 	    		html: '<b>Your total number of users today is: ' + users + '</b>'
@@ -75,7 +75,7 @@ function agendaStart() {
 		console.log("its's done");
 	});
 
-	agenda.every('52 18 * * *', 'checking deadline');
+	agenda.every('15 19 * * *', 'checking deadline');
 	 
 	agenda.start();
 };
