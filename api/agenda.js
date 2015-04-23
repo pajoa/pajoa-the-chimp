@@ -60,7 +60,7 @@ function agendaStart() {
 	  done();
 	});
 
-	agenda.every('50 13 * * *', 'check deadline');
+	agenda.every('10 14 * * *', 'check deadline');
 	 
 	agenda.start();
 }
