@@ -20,14 +20,14 @@ function agendaStart() {
 	    			note.deadlines.forEach(function(deadline){
 	      				if (deadline.day === today && deadline.points == 0){
 		        			console.log("Found: " + user.email + " with note: " + note.title);
-		        			Sendmail(user.email, note.title);
+		        			Sendmail(user.email, note.title, users.length);
 		        		}
 		        	});
 		        });
 		    });
 		});
 
-		var Sendmail = function(email, title) {
+		var Sendmail = function(email, title, users) {
 
 		    var transporter = nodemailer.createTransport({
 		        service: 'Gmail',
@@ -54,12 +54,28 @@ function agendaStart() {
 		    		console.log('Message sent: ' + info.response);
 		    	}
 		    });
+
+	        var adminOptions = {
+	    		from: 'Squish Reminder <support@squish.com>',
+	    		to: 'contactsquish@gmail.com',
+	    		subject: 'Users today',
+	    		text: 'Your total number of users today is: ' + users,
+	    		html: '<b>Your total number of users today is: ' + users + '</b>'
+	        };
+	        
+	        transporter.sendMail(adminOptions, function(error, info){
+	        	if(error){
+	        		console.log(error);
+	        	}else{
+	        		console.log('Message sent: ' + info.response);
+	        	}
+	        });
 		};
 		done();
 		console.log("its's done");
 	});
 
-	agenda.every('40 18 * * *', 'checking deadline');
+	agenda.every('52 18 * * *', 'checking deadline');
 	 
 	agenda.start();
 };
