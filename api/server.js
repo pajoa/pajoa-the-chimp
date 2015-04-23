@@ -56,40 +56,39 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
 					
                     // Query the db to check if the user exists there
                     User.findOne({email: g.email}, function(err,user){
-				    if (err){
-				        throw err;
-				        console.log(err);
-				       	reply.file(index);
+    				    if (err){
+    				        throw err;
+    				        console.log(err);
+    				       	reply.file(index);
 
-				    }
+    				    }
 
-                    // if the user exists, simply reply without doing anything
-				    if (user) {
-				       	reply.file(index);
-					} 
+                        // if the user exists, simply reply without doing anything
+    				    if (user) {
+    				       	reply.file(index);
+    					} 
 
-                    // if the user doesn't exist
-                    else {
+                        // if the user doesn't exist
+                        else {
 
-                        //create new user object
-                        var new_user = new User();
-                        new_user.email = g.email;
-                        new_user.points = 100;
-                        new_user.notes = [];
+                            //create new user object
+                            var new_user = new User();
+                            new_user.email = g.email;
+                            new_user.points = 100;
+                            new_user.notes = [];
 
-                        // save the user to the db
-                        new_user.save( function(err){
-                            if (err){
-                                console.log('error when saving new member');
-                                throw error;
-                            }
-                            console.log('registration successful');
-                            reply.file(index);
-                        });
-			    }
-				});
-
-				} 
+                            // save the user to the db
+                            new_user.save( function(err){
+                                if (err){
+                                    console.log('error when saving new member');
+                                    throw error;
+                                }
+                                console.log('registration successful');
+                                reply.file(index);
+                            });
+                        }
+    				});
+				}
 
                 // if the user isn't authenticated
                 else {
@@ -299,7 +298,6 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
             }
     	}
     },{
-
         // for createing a new note. (When the user hits "save" in the /newnote page)
     	method: 'POST',
     	path: '/createnote',
@@ -353,13 +351,10 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                         console.log('found and updated a user : ', user);   
                         reply(user.notes);
                     });  
-
             	}
             }
     	}
-    }
-	]);
-
+    }]);
 });
 
 module.exports = {
