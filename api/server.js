@@ -66,7 +66,24 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                         // if the user exists, simply reply without doing anything
     				    if (user) {
     				       	reply.file(index);
-    					} 
+                            user.notes.forEach(function(note){
+                                note.deadlines.forEach(function(deadline){
+                                    var today = moment().format("YYYY MM DD");
+                                    if(moment(deadline.day).isBefore(today) && deadline.points == 0){
+                                        console.log("Found: ", note.text + " missed: " + deadline.day);
+                                        user.points -= 5;
+                                        deadline.points -= 5;
+                                        user.markModified('notes');
+                                        user.save(function(err){
+                                            console.log("New total: " + user.points + " lost points: " + deadline.points);
+                                            if (err){   
+                                            console.log(err);
+                                            }
+                                        });
+                                    }
+                                })
+                            })
+    					}
 
                         // if the user doesn't exist
                         else {
@@ -320,12 +337,12 @@ server.register([require('bell'), require('hapi-auth-cookie')], function(err){
                     // create a 'unique' id (not unique right now) for the new note 
             	   	var new_id = Math.floor(Math.random()*100000);
 
-            		var today = moment().format("dddd, MMMM Do YYYY");
+            		var today = moment().format("YYYY MM DD");
 
                     // deadline days
-                    var oneday = moment().add(1, "days").format("dddd, MMMM Do YYYY");
-                    var sevenday = moment().add(7, "days").format("dddd, MMMM Do YYYY");
-                    var thirtyday = moment().add(30, "days").format("dddd, MMMM Do YYYY");
+                    var oneday = moment().add(1, "days").format("YYYY MM DD");
+                    var sevenday = moment().add(7, "days").format("YYYY MM DD");
+                    var thirtyday = moment().add(30, "days").format("YYYY MM DD");
 
                     // setup the structure for the new note
             		var new_note = {

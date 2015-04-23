@@ -23,7 +23,7 @@ var Day = React.createClass({
     var data = this.props.data;
     // console.log("data in day component: " + data);
     var unformattedToday = this.props.day.day._d;
-    var today = moment(unformattedToday).format("dddd, MMMM Do YYYY");
+    var today = moment(unformattedToday).format("YYYY MM DD");
     var id;
     var isDeadlineDay = false;
     var deadlineDates = this.props.deadlineDates;

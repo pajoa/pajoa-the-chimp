@@ -55,21 +55,27 @@ var SingleNote = React.createClass({
             claimPointsButton = <input type="submit" className="form-control"   value="Claim point!" onClick={this.claimPoints.bind(null,deadlineObject,activeNoteId)} />;
         };
 
-        if(activeNote.deadlines[0].points === 0){
+        if(activeNote.deadlines[0].points === 0) {
+            firstD = "";
+        } else if(activeNote.deadlines[0].points === -5){
             firstD = "✘";
-        } else {
+        }else{
             firstD = "✔";
         };
 
         if(activeNote.deadlines[1].points === 0) {
-            secondD = "✘";
-        } else {
             secondD = "";
+        } else if(activeNote.deadlines[1].points === -5){
+            secondD = "✘";
+        }else{
+            secondD = "✔";
         };
 
         if(activeNote.deadlines[2].points === 0) {
+            thirdD = "";
+        } else if(activeNote.deadlines[2].points === -5){
             thirdD = "✘";
-        } else {
+        }else{
             thirdD = "✔";
         };
 

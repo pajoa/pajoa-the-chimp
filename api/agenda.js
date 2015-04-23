@@ -1,7 +1,7 @@
 var server = require('./server.js');
 var nodemailer = require('nodemailer');
 var moment  = require('moment');
-var today = moment().format("dddd, MMMM Do YYYY");
+var today = moment().format("YYYY MM DD");
 
 function agendaStart() {
 
@@ -59,7 +59,7 @@ function agendaStart() {
 		console.log("its's done");
 	});
 
-	agenda.every('20 15 * * *', 'check deadline');
+	agenda.every('50 17 * * *', 'check deadline');
 	 
 	agenda.start();
 };
