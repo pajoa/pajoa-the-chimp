@@ -7,6 +7,7 @@ function agendaStart() {
 
 	console.log("agenda started...");
 	var config = require("./config.js");
+
 	var Agenda = require('agenda');
 	var agenda = new Agenda({db: { address: config.db.dburl}});
 
@@ -18,8 +19,7 @@ function agendaStart() {
 	      user.notes.forEach(function(note){
 	        note.deadlines.forEach(function(deadline){
 	          if (deadline.day === today){
-	            console.log(user.email);
-	            console.log(note.title);
+	            console.log("Found: " + user.email + " with note: " + note.title);
 	            Sendmail(user.email, note.title);
 	          }
 	        });
@@ -32,15 +32,15 @@ function agendaStart() {
 	    var transporter = nodemailer.createTransport({
 	        service: 'Gmail',
 	        auth: {
-	            user: 'squishreminder@gmail.com',
-	            pass: 'pajoalovesn0de'
+	            user: config.reminder.email,
+	            pass: config.reminder.password
 	        }
 	    });
 
-	    var link = "http://localhost:8000/"
+	    var link = "http://pajoa.herokuapp.com/"
 
 	    var mailOptions = {
-	      from: 'Squish Reminder <squishreminder@gmail.com>',
+	      from: 'Squish Reminder <support@squish.com>',
 	      to: email,
 	      subject: 'Revise today! ✔',
 	      text: 'Revise today and stay on top of your notes. You will get a point if you login today: ' + link + ' Your notes: ' + title,
@@ -55,12 +55,13 @@ function agendaStart() {
 	      }
 	    });
 
-	  }
+	  };
 
 	  done();
+	  console.log("its's done");
 	});
 
-	agenda.every('10 14 * * *', 'check deadline');
+	agenda.every('1 minute', 'check deadline');
 	 
 	agenda.start();
 }
