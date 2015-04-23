@@ -61,7 +61,7 @@ function agendaStart() {
 	  console.log("its's done");
 	});
 
-	agenda.every('1 minute', 'check deadline');
+	agenda.every('00 15 * * *', 'check deadline');
 	 
 	agenda.start();
 }
