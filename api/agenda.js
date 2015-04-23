@@ -18,7 +18,7 @@ function agendaStart() {
 			users.forEach(function(user){
 	  			user.notes.forEach(function(note){
 	    			note.deadlines.forEach(function(deadline){
-	      				if (deadline.day === today){
+	      				if (deadline.day === today && deadline.points == 0){
 		        			console.log("Found: " + user.email + " with note: " + note.title);
 		        			Sendmail(user.email, note.title);
 		        		}
@@ -59,7 +59,7 @@ function agendaStart() {
 		console.log("its's done");
 	});
 
-	agenda.every('50 17 * * *', 'check deadline');
+	agenda.every('2 minutes', 'check deadline');
 	 
 	agenda.start();
 };
