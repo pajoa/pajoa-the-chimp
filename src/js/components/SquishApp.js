@@ -19,9 +19,9 @@ function getStateFromStore() {
       
     var route = AppStore.getRoute(); 
     var data = AppStore.getData();
-	var activeNoteId = AppStore.getActiveNoteId();
+    var activeNoteId = AppStore.getActiveNoteId();
     var user = AppStore.getUser();
-    var points = AppStore.getPoints(); 
+    var points = AppStore.getPoints();
 
     return {
         route: route,
@@ -33,7 +33,7 @@ function getStateFromStore() {
 }
 
 var SquishApp = React.createClass({
-	
+    
     getInitialState: function() {
       return getStateFromStore();
     },  
@@ -61,11 +61,11 @@ var SquishApp = React.createClass({
         console.log('user: ', user);
         console.log('data is: ', this.state.data);
         var loginButton;
-			if (this.state.user) {
-				loginButton = <li><a href="/logout">Log out</a></li>;
-			} else {
-				loginButton = <li><a href="/google">Login</a></li>;
-			}
+            if (this.state.user) {
+                loginButton = <li><a href="/logout">Log out</a></li>;
+            } else {
+                loginButton = <li><a href="/google">Login</a></li>;
+            }
 
         return (
             <div>
@@ -75,17 +75,16 @@ var SquishApp = React.createClass({
                         <nav className="navbar navbar-default">
                           <div className="container-fluid">
                             <div className="navbar-header">
-                                <Link to="SquishApp" className="navbar-brand">Squish</Link>
+                                <Link to="SquishApp" title="Home" className="navbar-brand">Squish</Link>
                             </div>
                             <div>
                               <ul className="nav navbar-nav">
                                 <li><Link to="calendar" title="Calendar" className="glyphicon glyphicon-calendar"></Link></li>
-                                <li><Link to="newnote" title="Create New Note" className="glyphicon glyphicon-plus"></Link></li>
+                                <li><Link to="newnote" title="Create Note" className="glyphicon glyphicon-plus"></Link></li>
                               </ul>
                               <ul className="nav navbar-nav navbar-right">  
                                 <li><a >{user}</a></li>
-                                <li><Link to="points" title="Points Dashboard" className="glyphicon glyphicon-tower" name="Points"></Link></li>
-                                <li><a className="glyphicon glyphicon-bell" name="Notifications" ></a></li>
+                                <li><Link to="points" title="Points Dashboard" className="glyphicon glyphicon-tower" name="Points">{this.state.points}</Link></li>
                                 <li><Link to="feedback" title="Feedback" className="Feedback">Feedback</Link></li>
                                 {loginButton}
                               </ul>

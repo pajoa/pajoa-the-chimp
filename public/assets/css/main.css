@@ -6,6 +6,8 @@ h1 {
 
 body {
     background-color: #fff;
+    margin-bottom: 80px;
+    /*padding-bottom: 30px;*/
 }
 
 .col-md-4 {
@@ -18,12 +20,13 @@ body {
 
 /*-------Navbar-----*/
 .navbar.navbar-default {
-	background-color: #1664B1;
+    background-color: #1664B1;
 }
 
 .navbar-default .navbar-brand {
-	color: #fff;
+    color: #fff;
 }
+
 
 /*
 .squishLogo {
@@ -33,16 +36,16 @@ body {
 */
 
 .navbar-default .navbar-nav>li>a {
-	color: #fff;
+    color: #fff;
 }
 
 .navbar-default, .navbar-default .navbar-nav>li>a:hover {
-	color: #45A8F7;
+    color: #45A8F7;
     cursor: pointer;
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-	color: #45A8F7;
+    color: #45A8F7;
 }
 
 .squish-logo {
@@ -53,7 +56,7 @@ body {
 
 a:focus, a:hover {
     text-decoration: none;
-} 
+}
 
 /*-------singleNote-----*/
 .noteBox {
@@ -69,7 +72,7 @@ a:focus, a:hover {
 }
 
 .newNoteBox {
-	border: solid 1.5px lightgrey;
+    border: solid 1.5px lightgrey;
     border-radius: 4px;
     max-width: 600px;
     max-height: 900px;
@@ -89,8 +92,8 @@ a:focus, a:hover {
     height: 30px;
     border-radius: 30px;
     float: right;
-	margin: 15px;
-	margin-bottom: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .noteTextarea {
@@ -101,22 +104,22 @@ a:focus, a:hover {
     max-width: 550px;
     max-height: 600px;
     margin: 10px;
-	overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .newNoteTextarea {
-	display: inline-block;
+    display: inline-block;
     border: 1px solid #dadce1;
     border-radius: 4px;
     padding: 8px;
     max-width: 550px;
     max-height: 600px;
-	height: 300px;
+    height: 300px;
     margin: 10px;
 }
 
 .noteInput {
-	display: inline-block;
+    display: inline-block;
     border: 1px solid #dadce1;
     border-radius: 4px;
     padding: 8px;
@@ -126,7 +129,7 @@ a:focus, a:hover {
 }
 
 .newNoteInput {
-	display: inline-block;
+    display: inline-block;
     border: 1px solid #dadce1;
     border-radius: 4px;
     padding: 8px;
@@ -166,7 +169,6 @@ a:focus, a:hover {
 
 .notesCardTitle {
     background-color: #55C9A6;
-/*    background-color: #45A8F7;*/
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 2px;
@@ -218,15 +220,21 @@ a:focus, a:hover {
     color: #fff;
 }
 
-body {
+/*body {
     font-family: sans-serif;
     font-size: 16px;
     color: #444;
     border: 1.5px solid #fff;
-}
+}*/
 
 #app {
     margin-top: 50px;
+}
+
+.deadlinesList {
+    background-color: green;
+    width: 100px;
+    height: 300px;
 }
 
 .clndr-controls div {
@@ -295,12 +303,19 @@ body {
     color: white;
     text-align: center;
 /*    border-radius: 5px;*/
-    background: #f19797; 
+    background: #DC143C; 
 /*    padding: 0%;*/
 
 }
 
-
+.deadlineMet {
+    float: left;
+    width: 100px;
+    height: 47.8px;
+    color: white;
+    text-align: center;
+    background: #00CC66;     
+}
 
 /*--------Points Dashboard---------*/
 .points {
@@ -325,11 +340,10 @@ body {
 /*--------footer---------*/
 
 .footer {
-    height:20px;
+    height:30px;
     width: 100%;
-/*  background-color: #89949B;*/
-    background-color: #273135;
-    margin-top: 50px;
+    background-color: #696969;
+    margin-top: 30px;
     clear: both;
     position: fixed;
     bottom: 0;
@@ -338,9 +352,28 @@ body {
 .footerText {
     color: white;
     margin: auto;
-    text-align: center;
-    padding-top: 5px;
-    font-size: 11px;   
+    font-size: 11px;
+    padding: 7px;
+}
+
+.contactSquish {
+    color: white;
+    margin-top: 8px;
+    font-size: 11px;
+    float: right;
+}
+
+/*a .social {
+    text-align: right;
+}
+
+.founder.col-md-6 {
+    text-align: left;
+}*/
+
+.social {
+    padding: 5px;
+    float: right;
 }
 
 /*--------feedback---------*/
@@ -349,3 +382,4 @@ iframe.feedback {
     height:100%;
     width:100%;
     border:none;
+    margin-bottom:100px;
