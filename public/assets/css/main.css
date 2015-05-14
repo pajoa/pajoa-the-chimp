@@ -9,7 +9,7 @@ body {
 }
 
 .col-md-4 {
-    border: solid 1px lightgrey;
+/*    border: solid 1px lightgrey;*/
     border-radius: 6px;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -174,8 +174,15 @@ a:focus, a:hover {
     border-bottom-right-radius: 5px;
     max-width: 300px;
     padding: 15px;
-    background-color: white;
     color: grey;
+	font-weight: 400;
+	background-color: #e8e8e8;
+}
+
+.notesCardText p {
+	background-color: white;
+	padding: 7px;
+	border-radius: 4px;
 }
 
 .noteTitle {
@@ -184,7 +191,7 @@ a:focus, a:hover {
     font-weight: 400;
     margin: 15px;
     
-},
+}
 
 /*
 .glyphicon-plus {
@@ -345,3 +352,4 @@ iframe.feedback {
     height:100%;
     width:100%;
     border:none;
+}
